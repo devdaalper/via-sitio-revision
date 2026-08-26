@@ -199,9 +199,9 @@ const benefits = [
   .node-vacancy { top: 18%; left: 8%; } .node-talent { top: 17%; right: 8%; } .node-interview { bottom: 18%; left: 10%; } .node-first-day { right: 9%; bottom: 18%; }
 
   .journey-section { position: relative; overflow: hidden; padding: clamp(72px,9vw,116px) 0; }
-  :global(.journey-wave) { top: -25%; left: -28%; width: min(760px,68vw); opacity: .18; }
-  .journey-inner { position: relative; }
-  .journey-heading { width: min(100%,820px); }
+  :global(.journey-wave) { bottom: -32%; left: -28%; width: min(760px,68vw); opacity: .16; }
+  .journey-inner { position: relative; display: grid; grid-template-columns: minmax(0,.78fr) minmax(520px,1.22fr); align-items: center; gap: clamp(52px,8vw,108px); }
+  .journey-heading { width: 100%; }
   .journey-heading .text-link { margin-top: 22px; }
 
   .evidence-heading { display: grid; justify-items: center; text-align: center; }
@@ -269,7 +269,9 @@ const benefits = [
 
   @media (max-width: 980px) {
     .home-hero { min-height: 0; }
-    .hero-grid, .evidence-panel, .breadth-layout, .integrations-grid { grid-template-columns: 1fr; }
+    .hero-grid, .journey-inner, .evidence-panel, .breadth-layout, .integrations-grid { grid-template-columns: 1fr; }
+    .journey-inner { gap: 42px; }
+    .journey-heading { width: min(100%,720px); }
     .recruitment-stage { width: min(100%,650px); min-height: 390px; justify-self: center; }
     :global(.hero-wave) { top: 28%; right: -42%; width: 920px; }
     .evidence-visual { width: min(100%,520px); justify-self: center; }
