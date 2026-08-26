@@ -1,0 +1,24 @@
+---
+import { withBase } from '../utils/paths';
+
+interface Props {
+  variant?: 'a' | 'b';
+  class?: string;
+}
+
+const { variant = 'a', class: className = '' } = Astro.props;
+const waveUrl = withBase(`/assets/brand/wave-${variant}.png`);
+---
+
+<div class:list={['wave-backdrop', `wave-${variant}`, className]} style={`background-image: url("${waveUrl}")`} aria-hidden="true"></div>
+
+<style>
+  .wave-backdrop {
+    position: absolute;
+    aspect-ratio: 1;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    pointer-events: none;
+  }
+</style>

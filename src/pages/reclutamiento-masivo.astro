@@ -1,0 +1,278 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import ClosingCta from '../components/ClosingCta.astro';
+import LineIcon from '../components/LineIcon.astro';
+import WaveBackdrop from '../components/WaveBackdrop.astro';
+import { withBase } from '../utils/paths';
+
+const visibility = [
+  ['Vacantes organizadas', 'Define criterios y etapas para cada posición.'],
+  ['Candidaturas reunidas', 'Concentra la información y el avance de los perfiles.'],
+  ['Etapas identificables', 'Identifica la etapa y el siguiente paso de cada candidatura.'],
+];
+
+const decisionFlow = [
+  ['Filtra con criterios definidos', 'Aplica preguntas y reglas vinculadas con la vacante.'],
+  ['Prioriza con evidencia', 'La IA organiza la compatibilidad y presenta contexto para revisar los perfiles.'],
+  ['Entrevista dentro del recorrido', 'v.ia realiza la primera entrevista y conserva sus resultados.'],
+  ['Decide con tu equipo', 'Tu equipo revisa, conversa y elige quién avanza.'],
+];
+
+const sectors = ['Staffing y outsourcing', 'Retail', 'BPO y contact centers', 'Manufactura', 'Hotelería y turismo', 'Salud', 'Logística', 'Banca y servicios financieros'];
+---
+
+<BaseLayout
+  title="Reclutamiento masivo con IA | v.ia"
+  description="Coordina postulaciones, filtros, entrevistas, documentos y contrataciones de alto volumen con visibilidad para tu equipo y comunicación para el talento."
+  currentPath="/reclutamiento-masivo"
+>
+  <PageHero
+    eyebrow="Reclutamiento de alto volumen"
+    title="Reclutamiento masivo, con cada candidatura visible."
+    lead="v.ia reúne postulaciones, etapas, comunicaciones y documentos para mantener el proceso avanzando mientras crece el volumen."
+    responsibility="La IA organiza y prioriza. Tu equipo conoce al talento y decide."
+    visual="volume"
+  />
+
+  <section class="section-space visibility-section" aria-labelledby="visibility-title">
+    <div class="shell">
+      <div class="visibility-intro">
+        <p class="eyebrow">Visibilidad para toda la operación</p>
+        <h2 id="visibility-title" class="section-title">Cada vacante, candidato y siguiente paso en un mismo proceso.</h2>
+      </div>
+      <div class="visibility-grid">
+        {visibility.map(([title, copy], index) => (
+          <article>
+            <span>{String(index + 1).padStart(2, '0')}</span>
+            <div class="visibility-icon" aria-hidden="true"><LineIcon name={index === 0 ? 'publish' : index === 1 ? 'attract' : 'clarity'} /></div>
+            <h3>{title}</h3><p>{copy}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space decision-section" aria-labelledby="decision-title">
+    <WaveBackdrop variant="a" class="decision-wave" />
+    <div class="shell decision-layout">
+      <div>
+        <p class="eyebrow">Un flujo que prepara cada decisión</p>
+        <h2 id="decision-title" class="section-title">Del primer filtro a la primera entrevista.</h2>
+      </div>
+      <ol class="decision-list">
+        {decisionFlow.map(([title, copy], index) => (
+          <li>
+            <span class="number-medallion">{String(index + 1).padStart(2, '0')}</span>
+            <div><h3>{title}</h3><p>{copy}</p></div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="dark-band docs-section" aria-labelledby="docs-title">
+    <WaveBackdrop variant="b" class="docs-wave" />
+    <div class="shell docs-grid">
+      <div>
+        <p class="eyebrow eyebrow-on-dark">Documentos que continúan el proceso</p>
+        <h2 id="docs-title" class="section-title section-title-on-dark">La contratación avanza con su expediente.</h2>
+        <p class="lead lead-on-dark">Reúne la documentación, prepara el contrato y acompaña la firma hacia la incorporación.</p>
+        <p class="mexico-note"><strong>México</strong> · Las conexiones disponibles con SAT, IMSS y RENAPO permiten validar datos antes del alta en nómina.</p>
+      </div>
+      <ol class="document-sequence" aria-label="Continuidad documental de la contratación">
+        <li>
+          <span>01</span>
+          <div><small>Reúne</small><strong>Expediente</strong></div>
+          <LineIcon name="publish" />
+        </li>
+        <li>
+          <span>02</span>
+          <div><small>Prepara</small><strong>Contrato</strong></div>
+          <LineIcon name="decide" />
+        </li>
+        <li>
+          <span>03</span>
+          <div><small>Acompaña</small><strong>Incorporación</strong></div>
+          <LineIcon name="integrate" />
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section-space talent-scale" aria-labelledby="talent-scale-title">
+    <div class="shell scale-grid">
+      <figure class="candidate-journey-visual">
+        <div class="candidate-route" aria-hidden="true">
+          <span><i></i><b>Filtros</b></span>
+          <span><i></i><b>Entrevistas</b></span>
+          <span><i></i><b>Documentos</b></span>
+          <span><i></i><b>Contratación</b></span>
+        </div>
+        <img
+          src={withBase('/assets/photography/candidate-communication-cutout-v1.webp')}
+          alt="Una candidata consulta una actualización de su proceso de reclutamiento en el teléfono"
+          width="1024"
+          height="1536"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>Comunicación en cada etapa</figcaption>
+      </figure>
+      <div>
+        <p class="eyebrow">Experiencia del talento a escala</p>
+        <h2 id="talent-scale-title" class="section-title">Claridad para cada persona, incluso cuando el volumen crece.</h2>
+        <p class="lead">
+          La comunicación acompaña filtros, entrevistas, documentos y contratación. Cada interacción también
+          representa a la empresa que está contratando.
+        </p>
+        <div class="pool-note">
+          <strong>Bolsa propia</strong>
+          <p>Los perfiles reunidos pueden abrir nuevas oportunidades, de acuerdo con el consentimiento y las políticas de privacidad aplicables.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space-sm criteria-section" aria-labelledby="criteria-title">
+    <div class="shell panel criteria-panel">
+      <div>
+        <p class="eyebrow">Alto volumen y criterios propios</p>
+        <h2 id="criteria-title" class="section-title">Cada vacante conserva sus criterios, incluso cuando el volumen crece.</h2>
+        <p class="lead">v.ia organiza grandes flujos mientras cada posición conserva sus requisitos, filtros y responsables.</p>
+      </div>
+      <div>
+        <p class="sector-label">Sectores de referencia</p>
+        <div class="sector-tags">
+          {sectors.map((sector) => <span class="tag">{sector}</span>)}
+        </div>
+        <p class="scope-note">Son ejemplos de alto volumen. v.ia también sirve para talento especializado y posiciones directivas.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space proof-section" aria-labelledby="proof-title">
+    <div class="shell proof-grid">
+      <div>
+        <p class="eyebrow">Evidencia de producto</p>
+        <h2 id="proof-title" class="section-title">El flujo completo, visible para tu equipo.</h2>
+        <p class="lead">La vacante, el perfil, la evidencia disponible y la etapa documental permanecen dentro del mismo recorrido de revisión.</p>
+      </div>
+      <div class="proof-ledger" aria-label="Vacante, candidatura, evidencia y expediente reunidos en un flujo visible">
+        <span class="proof-kicker">Una sola lectura</span>
+        <ul>
+          <li><span>01</span><LineIcon name="publish" /><strong>Vacante</strong></li>
+          <li><span>02</span><LineIcon name="attract" /><strong>Candidatura</strong></li>
+          <li><span>03</span><LineIcon name="decide" /><strong>Evidencia</strong></li>
+          <li><span>04</span><LineIcon name="integrate" /><strong>Expediente</strong></li>
+        </ul>
+        <p><LineIcon name="systems" /><strong>Proceso visible para tu equipo</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <ClosingCta
+    title="Lleva tu operación de alto volumen a una demostración."
+    copy="Revisa cómo v.ia puede organizar tus perfiles, etapas, comunicaciones e integraciones."
+  />
+</BaseLayout>
+
+<style>
+  .visibility-section { background: #edebdf; }
+  .visibility-intro { max-width: 820px; }
+  .visibility-grid { display: grid; grid-template-columns: repeat(3,1fr); margin-top: 60px; border-block: 1px solid rgba(39,65,79,.2); }
+  .visibility-grid article { min-height: 250px; border-left: 1px solid rgba(39,65,79,.2); padding: 32px clamp(28px,3vw,46px) 38px; }
+  .visibility-grid article:first-child { border-left: 0; padding-left: 0; }
+  .visibility-grid article:last-child { padding-right: 0; }
+  .visibility-grid article > span { color: #8dbd2f; font-size: clamp(2.4rem,4vw,4.25rem); font-weight: 850; letter-spacing: -.05em; line-height: 1; }
+  .visibility-icon { display: grid; width: 56px; height: 56px; place-items: center; margin: 28px 0 22px; color: #27414f; }
+  .visibility-icon :global(.line-icon) { width: 42px; height: 42px; stroke-width: 1.2; }
+  .visibility-grid h3 { margin: 0; color: #161a23; font-size: 1.18rem; line-height: 1.3; }
+  .visibility-grid p { margin: 12px 0 0; color: #27414f; }
+
+  .decision-section { position: relative; overflow: hidden; }
+  :global(.decision-wave) { top: -52%; left: -25%; width: min(740px,70vw); opacity: .18; }
+  .decision-layout { position: relative; display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(56px,9vw,120px); }
+  .decision-list { display: grid; margin: 0; padding: 0; list-style: none; }
+  .decision-list li { display: grid; grid-template-columns: 62px 1fr; gap: 24px; border-top: 1px solid rgba(39,65,79,.18); padding-block: 26px; }
+  .decision-list li:first-child { border-top: 0; padding-top: 0; }
+  .decision-list h3 { margin: 4px 0 0; color: #161a23; font-size: 1.16rem; }
+  .decision-list p { margin: 10px 0 0; color: #27414f; }
+
+  .docs-section { padding-block: clamp(84px,11vw,140px); }
+  :global(.docs-wave) { right: -22%; bottom: -64%; width: min(800px,72vw); opacity: .2; }
+  .docs-grid { position: relative; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 90px; }
+  .mexico-note { margin: 32px 0 0; border-top: 1px solid rgba(237,235,223,.16); color: rgba(237,235,223,.7); padding-top: 22px; font-size: 1rem; line-height: 1.6; }
+  .mexico-note strong { color: #e1fe66; }
+  .document-sequence { margin: 0; padding: 0; border-block: 1px solid rgba(237,235,223,.2); list-style: none; }
+  .document-sequence li { display: grid; grid-template-columns: 52px 1fr 54px; align-items: center; gap: 22px; border-top: 1px solid rgba(237,235,223,.16); padding-block: 26px; }
+  .document-sequence li:first-child { border-top: 0; }
+  .document-sequence li > span { color: #e1fe66; font-size: 1rem; font-weight: 850; }
+  .document-sequence div { display: grid; gap: 4px; }
+  .document-sequence small { color: rgba(237,235,223,.64); font-size: .875rem; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; }
+  .document-sequence strong { color: #edebdf; font-size: clamp(1.35rem,2.2vw,2rem); line-height: 1.2; }
+  .document-sequence :global(.line-icon) { width: 38px; height: 38px; color: #edebdf; stroke-width: 1.25; }
+
+  .scale-grid { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: clamp(60px,10vw,130px); }
+  .candidate-journey-visual { position: relative; min-height: 540px; margin: 0; isolation: isolate; }
+  .candidate-journey-visual::before { position: absolute; z-index: -2; inset: 2% 4% 0 8%; border-radius: 48% 52% 28px 28px / 34% 31% 28px 28px; background: #edebdf; box-shadow: 0 24px 58px rgba(22,26,35,.09); content: ""; }
+  .candidate-journey-visual::after { position: absolute; z-index: -1; inset: 8% 0 6% 15%; border: 1px solid rgba(39,65,79,.18); border-radius: 50% 46% 28px 28px / 32% 38% 28px 28px; content: ""; }
+  .candidate-journey-visual img { position: absolute; z-index: 2; bottom: -2%; left: 0; width: 66%; height: 94%; object-fit: contain; object-position: left bottom; filter: drop-shadow(0 20px 22px rgba(22,26,35,.14)); }
+  .candidate-route { position: absolute; z-index: 3; top: 17%; right: 4%; bottom: 19%; display: flex; flex-direction: column; justify-content: space-between; }
+  .candidate-route::before { position: absolute; z-index: -1; top: 7px; bottom: 7px; left: 7px; width: 1px; background: rgba(39,65,79,.28); content: ""; }
+  .candidate-route span { display: flex; align-items: center; gap: 11px; color: #27414f; font-size: .875rem; }
+  .candidate-route i { width: 15px; height: 15px; flex: 0 0 15px; border: 3px solid #8dbd2f; border-radius: 50%; background: #edebdf; }
+  .candidate-route b { border-radius: 999px; background: #f9f9f9; padding: 8px 12px; box-shadow: 0 8px 18px rgba(22,26,35,.07); }
+  .candidate-journey-visual figcaption { position: absolute; z-index: 4; right: 7%; bottom: 8%; border-radius: 999px; background: #161a23; color: #edebdf; padding: 11px 16px; font-size: .875rem; font-weight: 760; box-shadow: 0 12px 24px rgba(22,26,35,.16); }
+  .pool-note { margin-top: 28px; border-left: 2px solid #8dbd2f; padding-left: 18px; }
+  .pool-note strong { color: #27414f; }
+  .pool-note p { margin: 6px 0 0; color: #27414f; font-size: 1rem; line-height: 1.6; }
+
+  .criteria-section { background: #f9f9f9; }
+  .criteria-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; padding: clamp(34px,6vw,72px); }
+  .sector-label { margin: 0 0 20px; color: #27414f; font-size: .875rem; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
+  .sector-tags { display: flex; flex-wrap: wrap; gap: 9px; }
+  .scope-note { margin: 24px 0 0; color: #27414f; font-size: 1rem; line-height: 1.6; }
+
+  .proof-grid { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: 80px; }
+  .proof-ledger { overflow: hidden; border-radius: 28px; background: #edebdf; box-shadow: 0 22px 54px rgba(22,26,35,.08); }
+  .proof-kicker { display: block; color: #27414f; padding: 28px 32px 20px; font-size: .875rem; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; }
+  .proof-ledger ul { margin: 0; padding: 0 32px; list-style: none; }
+  .proof-ledger li { display: grid; grid-template-columns: 44px 38px 1fr; align-items: center; gap: 14px; border-top: 1px solid rgba(39,65,79,.18); padding-block: 18px; }
+  .proof-ledger li > span { color: #8dbd2f; font-size: .875rem; font-weight: 850; }
+  .proof-ledger li :global(.line-icon) { width: 30px; height: 30px; color: #27414f; stroke-width: 1.25; }
+  .proof-ledger li strong { color: #161a23; font-size: 1rem; }
+  .proof-ledger > p { display: grid; grid-template-columns: 44px 1fr; align-items: center; gap: 16px; margin: 0; background: #161a23; color: #edebdf; padding: 24px 32px; }
+  .proof-ledger > p :global(.line-icon) { width: 32px; height: 32px; color: #e1fe66; }
+  .proof-ledger > p strong { font-size: 1rem; line-height: 1.35; }
+
+  @media (max-width: 900px) {
+    .visibility-grid { grid-template-columns: 1fr; }
+    .visibility-grid article, .visibility-grid article:first-child, .visibility-grid article:last-child { display: grid; min-height: auto; grid-template-columns: 54px 44px 1fr; align-items: start; column-gap: 15px; border-top: 1px solid rgba(39,65,79,.2); border-left: 0; padding: 28px 0; }
+    .visibility-grid article:first-child { border-top: 0; }
+    .visibility-grid article > span { grid-row: 1 / 3; grid-column: 1; font-size: 2.4rem; }
+    .visibility-icon { grid-row: 1 / 3; grid-column: 2; width: 40px; height: 40px; margin: 0; }
+    .visibility-icon :global(.line-icon) { width: 32px; height: 32px; }
+    .visibility-grid h3 { grid-row: 1; grid-column: 3; margin-top: 1px; }
+    .visibility-grid p { grid-row: 2; grid-column: 3; }
+    .decision-layout, .docs-grid, .scale-grid, .criteria-panel, .proof-grid { grid-template-columns: 1fr; }
+    .document-sequence { width: min(100%,620px); }
+    .candidate-journey-visual { width: min(100%,560px); min-height: 520px; justify-self: center; }
+  }
+
+  @media (max-width: 520px) {
+    .decision-list li { grid-template-columns: 54px 1fr; gap: 17px; }
+    .decision-list .number-medallion { width: 54px; height: 54px; }
+    .document-sequence li { grid-template-columns: 42px 1fr 42px; gap: 15px; }
+    .criteria-panel { padding: 32px 22px; }
+    .candidate-journey-visual { width: 100%; min-height: 480px; }
+    .candidate-journey-visual::before { inset: 3% 1% 0 5%; }
+    .candidate-journey-visual::after { inset: 9% 0 7% 11%; }
+    .candidate-journey-visual img { left: -4%; width: 68%; height: 91%; }
+    .candidate-route { top: 15%; right: 1%; bottom: 22%; }
+    .candidate-route span { gap: 7px; }
+    .candidate-route b { padding: 7px 9px; }
+    .candidate-journey-visual figcaption { right: 4%; bottom: 8%; }
+    .proof-ledger li { grid-template-columns: 38px 34px 1fr; padding-block: 16px; }
+  }
+</style>

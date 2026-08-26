@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WaveBackdrop from '../components/WaveBackdrop.astro';
+import LineIcon from '../components/LineIcon.astro';
+---
+
+<BaseLayout
+  title="Solicita una demostración de v.ia"
+  description="Cuéntanos qué te gustaría mejorar en tu reclutamiento y solicita una demostración de la plataforma v.ia."
+  currentPath="/contacto"
+>
+  <section class="contact-page">
+    <WaveBackdrop variant="b" class="contact-wave" />
+    <div class="shell contact-grid">
+      <div class="contact-intro">
+        <p class="eyebrow">Solicita una demostración</p>
+        <h1 class="page-title">Conoce v.ia dentro de tu proceso.</h1>
+        <p class="lead">
+          Cuéntanos sobre tu operación para preparar una demostración de la plataforma de reclutamiento
+          relevante para tus perfiles, etapas y sistemas.
+        </p>
+        <div class="contact-brand">
+          <span aria-hidden="true"><LineIcon name="systems" /></span>
+          <strong>Todo tu reclutamiento.<br />Una sola v.ia.</strong>
+        </div>
+      </div>
+
+      <div class="form-wrap">
+        <div class="form-heading">
+          <span aria-hidden="true">01</span>
+          <div><strong>Prepara tu demostración</strong><p>Comparte el contexto esencial de tu operación.</p></div>
+        </div>
+
+        <form class="demo-form" data-lead-status="inactive" aria-describedby="form-availability-note">
+          <div class="field-grid">
+            <div class="field">
+              <label for="full-name">Nombre completo <span aria-hidden="true">*</span></label>
+              <input id="full-name" name="full-name" type="text" autocomplete="name" placeholder="Tu nombre" disabled />
+            </div>
+            <div class="field">
+              <label for="company">Empresa <span aria-hidden="true">*</span></label>
+              <input id="company" name="company" type="text" autocomplete="organization" placeholder="Nombre de tu empresa" disabled />
+            </div>
+          </div>
+          <div class="field">
+            <label for="work-email">Correo de trabajo <span aria-hidden="true">*</span></label>
+            <input id="work-email" name="work-email" type="email" autocomplete="email" placeholder="nombre@empresa.com" disabled />
+          </div>
+          <div class="field">
+            <label for="phone">Teléfono <span class="optional">Opcional</span></label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Teléfono de contacto" disabled />
+          </div>
+          <div class="field">
+            <label for="recruiting-goal">¿Qué te gustaría mejorar en tu reclutamiento? <span class="optional">Opcional</span></label>
+            <textarea id="recruiting-goal" name="recruiting-goal" rows="4" placeholder="Cuéntanos brevemente" disabled></textarea>
+          </div>
+          <label class="consent-row">
+            <input type="checkbox" name="consent" disabled />
+            <span>He leído y acepto el Aviso de privacidad.</span>
+          </label>
+          <button class="submit-button" type="submit" disabled aria-disabled="true">Solicita una demostración</button>
+        </form>
+        <p id="form-availability-note" class="availability-note" role="status">
+          El envío se habilitará con la publicación del Aviso de privacidad.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact-page { position: relative; overflow: hidden; min-height: calc(100vh - 82px); padding-block: clamp(68px,9vw,116px); }
+  :global(.contact-wave) { left: -26%; bottom: -42%; width: min(760px,72vw); opacity: .22; }
+  .contact-grid { position: relative; display: grid; grid-template-columns: .86fr 1.14fr; align-items: start; gap: clamp(54px,8vw,105px); }
+  .contact-intro { position: sticky; top: 126px; }
+  .contact-brand { display: flex; align-items: center; gap: 15px; margin-top: 42px; border-top: 1px solid rgba(39,65,79,.16); padding-top: 25px; }
+  .contact-brand span { display: grid; width: 48px; height: 48px; place-items: center; border-radius: 50%; background: #161a23; color: #e1fe66; }
+  .contact-brand span :global(.line-icon) { width: 26px; height: 26px; }
+  .contact-brand strong { color: #27414f; line-height: 1.3; }
+
+  .form-wrap { overflow: hidden; border-radius: 28px; background: #edebdf; box-shadow: 0 26px 64px rgba(22,26,35,.09); }
+  .form-heading { display: grid; grid-template-columns: 52px 1fr; align-items: center; gap: 16px; border-bottom: 1px solid rgba(39,65,79,.13); padding: 25px 32px; }
+  .form-heading > span { display: grid; width: 52px; height: 52px; place-items: center; border-radius: 50%; background: #161a23; color: #e1fe66; font-size: .875rem; font-weight: 850; }
+  .form-heading strong { color: #161a23; font-size: 1rem; }
+  .form-heading p { margin: 3px 0 0; color: #27414f; font-size: .875rem; line-height: 1.45; }
+  .demo-form { display: grid; gap: 22px; padding: clamp(26px,5vw,48px); }
+  .field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .field { display: grid; gap: 8px; }
+  .field label { color: #27414f; font-size: .875rem; font-weight: 750; }
+  .field label > span[aria-hidden] { color: #27414f; }
+  .optional { margin-left: 6px; color: #27414f; font-size: .875rem; font-weight: 600; }
+  .field input, .field textarea { width: 100%; border: 1px solid rgba(39,65,79,.48); border-radius: 14px; background: #f9f9f9; color: #27414f; padding: 14px 15px; opacity: 1; -webkit-text-fill-color: #27414f; }
+  .field textarea { resize: vertical; }
+  .field input::placeholder, .field textarea::placeholder { color: #27414f; opacity: 1; }
+  .field input:disabled, .field textarea:disabled { cursor: not-allowed; background: #f9f9f9; color: #27414f; opacity: 1; -webkit-text-fill-color: #27414f; }
+  .field input:disabled::placeholder, .field textarea:disabled::placeholder { color: #27414f; opacity: 1; }
+  .consent-row { display: grid; grid-template-columns: 22px 1fr; align-items: start; gap: 11px; color: #27414f; font-size: 1rem; line-height: 1.6; }
+  .consent-row input { width: 20px; height: 20px; margin: 1px 0 0; accent-color: #8dbd2f; opacity: 1; }
+  .submit-button { min-height: 52px; border: 1px solid rgba(39,65,79,.48); border-radius: 999px; background: #edebdf; color: #27414f; padding: 14px 24px; font-weight: 800; opacity: 1; cursor: not-allowed; }
+  .availability-note { margin: 0; background: #161a23; color: #edebdf; padding: 18px 24px; font-size: .875rem; line-height: 1.5; text-align: center; }
+
+  @media (max-width: 1100px) {
+    .field-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 900px) {
+    .contact-grid { grid-template-columns: 1fr; }
+    .contact-intro { position: static; }
+    .form-wrap { width: min(100%,680px); }
+  }
+
+  @media (max-width: 560px) {
+    .form-heading { padding-inline: 22px; }
+    .demo-form { padding: 26px 20px; }
+  }
+</style>

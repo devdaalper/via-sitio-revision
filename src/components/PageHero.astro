@@ -1,0 +1,108 @@
+---
+import LineIcon from './LineIcon.astro';
+import WaveBackdrop from './WaveBackdrop.astro';
+import { withBase } from '../utils/paths';
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  responsibility?: string;
+  visual?: 'path' | 'volume';
+}
+
+const { eyebrow, title, lead, responsibility, visual = 'path' } = Astro.props;
+const pathSteps = [
+  { label: 'Vacante', icon: 'publish' },
+  { label: 'Talento', icon: 'attract' },
+  { label: 'Entrevista', icon: 'interview' },
+  { label: 'Decisión', icon: 'decide' },
+  { label: 'Primer día', icon: 'integrate' },
+] as const;
+---
+
+<section class="page-hero">
+  <WaveBackdrop variant={visual === 'volume' ? 'b' : 'a'} class="page-hero-wave" />
+  <div class="shell page-hero-grid">
+    <div class="page-hero-copy">
+      <p class="eyebrow">{eyebrow}</p>
+      <h1 class="page-title">{title}</h1>
+      <p class="lead">{lead}</p>
+      <a class="btn-primary page-hero-cta" href={withBase('/contacto')}>Solicita una demostración <span aria-hidden="true">→</span></a>
+      {responsibility && <p class="hero-note">{responsibility}</p>}
+    </div>
+
+    {visual === 'path' ? (
+      <div class="hero-diagram path" style={`--wave-url: url("${withBase('/assets/brand/wave-a.png')}")`} role="img" aria-label="Proceso conectado desde la vacante hasta el primer día">
+        <span class="diagram-kicker">Un recorrido conectado</span>
+        <div class="path-track" aria-hidden="true">
+          {pathSteps.map((step, index) => (
+            <div class:list={['path-step', index === pathSteps.length - 1 && 'active']}>
+              <span class="path-index">{String(index + 1).padStart(2, '0')}</span>
+              <span class="path-icon"><LineIcon name={step.icon} /></span>
+              <strong>{step.label}</strong>
+            </div>
+          ))}
+        </div>
+      </div>
+    ) : (
+      <figure class="hero-process-scene">
+        <img
+          src={withBase('/assets/photography/recruitment-flow-editorial-v1.webp')}
+          alt="Tres personas avanzan de izquierda a derecha por etapas conectadas de un proceso de reclutamiento"
+          width="1200"
+          height="1200"
+          decoding="async"
+          fetchpriority="high"
+        />
+        <figcaption><span aria-hidden="true"></span> Etapas conectadas</figcaption>
+      </figure>
+    )}
+  </div>
+</section>
+
+<style>
+  .page-hero { position: relative; overflow: hidden; padding-block: clamp(68px,8vw,108px) clamp(78px,9vw,116px); }
+  :global(.page-hero-wave) { right: -17%; bottom: -52%; width: min(780px,70vw); opacity: .2; }
+  .page-hero-grid { position: relative; display: grid; grid-template-columns: minmax(0,1.05fr) minmax(380px,.95fr); align-items: center; gap: clamp(52px,8vw,108px); }
+  .page-hero-copy { position: relative; z-index: 2; }
+  .page-hero-cta { margin-top: 30px; border-color: #161a23; background: #161a23; color: #f9f9f9; box-shadow: 0 12px 28px rgba(22,26,35,.14); }
+  .page-hero-cta:hover { border-color: #27414f; background: #27414f; }
+  .hero-note { max-width: 52ch; margin: 25px 0 0; border-left: 2px solid #8dbd2f; color: #27414f; padding-left: 16px; font-size: 1rem; line-height: 1.6; }
+  .hero-diagram { position: relative; overflow: hidden; border-radius: 28px; background: #edebdf; box-shadow: 0 22px 54px rgba(22,26,35,.08); }
+  .hero-diagram::before { position: absolute; inset: 0; background: var(--wave-url) 70% 20% / 720px auto no-repeat; content: ""; opacity: .12; pointer-events: none; }
+  .diagram-kicker { position: relative; z-index: 3; color: #27414f; font-size: .875rem; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; }
+  .hero-diagram.path .diagram-kicker { display: block; padding: 30px 32px 18px; }
+  .path-track { position: relative; z-index: 2; display: grid; margin: 0; }
+  .path-step { display: grid; grid-template-columns: 42px 36px 1fr; align-items: center; gap: 14px; margin-inline: 32px; border-top: 1px solid rgba(39,65,79,.17); color: #27414f; padding-block: 17px; font-size: .875rem; }
+  .path-index { color: #27414f; font-weight: 850; }
+  .path-icon { display: grid; width: 30px; height: 30px; place-items: center; color: #27414f; }
+  .path-icon :global(.line-icon) { width: 28px; height: 28px; stroke-width: 1.25; }
+  .path-step strong { font-size: 1rem; }
+  .path-step.active { grid-template-columns: 42px 36px 1fr; margin: 0; border-top: 0; background: #161a23; color: #edebdf; padding: 21px 32px; }
+  .path-step.active .path-index, .path-step.active .path-icon { color: #e1fe66; }
+  .hero-process-scene { position: relative; isolation: isolate; width: min(116%,660px); aspect-ratio: 1; justify-self: center; margin: -5% -8% -6% -3%; }
+  .hero-process-scene::before { position: absolute; z-index: -2; inset: 9% 3% 8% 10%; border: 1px solid rgba(39,65,79,.08); border-radius: 44% 56% 46% 54% / 37% 43% 57% 63%; background: #edebdf; box-shadow: 0 28px 64px rgba(22,26,35,.09); content: ""; transform: rotate(-3deg); }
+  .hero-process-scene::after { position: absolute; z-index: -1; inset: 17% -1% 14% 18%; border: 1px solid rgba(39,65,79,.14); border-radius: 52% 48% 55% 45% / 48% 40% 60% 52%; content: ""; transform: rotate(4deg); }
+  .hero-process-scene img { position: absolute; z-index: 1; inset: -2% -5% -1%; display: block; width: 110%; height: 104%; object-fit: contain; mix-blend-mode: multiply; -webkit-mask-image: radial-gradient(ellipse 84% 78% at 50% 50%,#161a23 66%,transparent 100%); mask-image: radial-gradient(ellipse 84% 78% at 50% 50%,#161a23 66%,transparent 100%); }
+  .hero-process-scene figcaption { position: absolute; z-index: 3; right: 7%; bottom: 10%; display: inline-flex; align-items: center; gap: 10px; border-radius: 999px; background: #161a23; color: #f9f9f9; padding: 11px 17px; box-shadow: 0 14px 32px rgba(22,26,35,.16); font-size: .875rem; font-weight: 800; line-height: 1.2; }
+  .hero-process-scene figcaption span { width: 9px; height: 9px; border-radius: 50%; background: #e1fe66; box-shadow: 0 0 0 4px rgba(225,254,102,.13); }
+  @media (max-width: 920px) {
+    .page-hero-grid { grid-template-columns: 1fr; }
+    .hero-diagram { width: min(100%,620px); justify-self: center; }
+    .hero-process-scene { width: min(112%,680px); margin: -3% -6% -5%; }
+  }
+  @media (max-width: 560px) {
+    .page-hero { padding-block: 56px 72px; }
+    .hero-diagram { border-radius: 24px; }
+    .hero-diagram.path .diagram-kicker { padding: 26px 22px 16px; }
+    .path-step { grid-template-columns: 34px 30px 1fr; gap: 11px; margin-inline: 22px; padding-block: 16px; }
+    .path-step.active { grid-template-columns: 34px 30px 1fr; padding: 19px 22px; }
+    .path-icon, .path-icon :global(.line-icon) { width: 26px; height: 26px; }
+    .hero-process-scene { width: calc(100% + 38px); margin: -4% -19px -8%; }
+    .hero-process-scene::before { inset: 12% 4% 10% 8%; }
+    .hero-process-scene::after { inset: 20% 0 17% 17%; }
+    .hero-process-scene img { inset: -1% -4% 0; width: 108%; height: 102%; -webkit-mask-image: radial-gradient(ellipse 88% 80% at 50% 50%,#161a23 68%,transparent 100%); mask-image: radial-gradient(ellipse 88% 80% at 50% 50%,#161a23 68%,transparent 100%); }
+    .hero-process-scene figcaption { right: 5%; bottom: 9%; gap: 8px; padding: 9px 13px; font-size: .875rem; }
+  }
+</style>

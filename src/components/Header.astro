@@ -1,0 +1,355 @@
+---
+import { withBase } from '../utils/paths';
+
+interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+const links = [
+  { href: '/plataforma', label: 'Cómo funciona' },
+  { href: '/reclutamiento-masivo', label: 'Reclutamiento masivo' },
+];
+---
+
+<header class="site-header" data-site-header>
+  <div class="header-frame">
+    <div class="header-wave" style={`--wave-url: url("${withBase('/assets/brand/wave-a.png')}")`} aria-hidden="true"></div>
+    <div class="shell header-inner">
+      <nav class="desktop-nav" aria-label="Navegación principal">
+        {links.map((link) => (
+          <a href={withBase(link.href)} aria-current={currentPath === link.href ? 'page' : undefined}>{link.label}</a>
+        ))}
+      </nav>
+
+      <a class="brand-mark" href={withBase('/')} aria-label="v.ia, inicio">
+        <img src={withBase('/assets/brand/logo-on-light.svg')} alt="v.ia — Contrata con inteligencia" />
+      </a>
+
+      <a class="header-contact" href={withBase('/contacto')}>Solicita una demostración <span aria-hidden="true">→</span></a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-navigation"
+        aria-label="Abrir menú"
+        data-menu-toggle
+      >
+        <span></span><span></span>
+      </button>
+    </div>
+
+    <nav id="mobile-navigation" class="mobile-nav" aria-label="Navegación móvil" hidden data-mobile-nav>
+      <div class="shell mobile-nav-inner">
+        {links.map((link) => (
+          <a href={withBase(link.href)} aria-current={currentPath === link.href ? 'page' : undefined}>{link.label}</a>
+        ))}
+        <a class="mobile-contact" href={withBase('/contacto')}>Solicita una demostración <span aria-hidden="true">→</span></a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.querySelector('[data-site-header]');
+  const toggle = header?.querySelector('[data-menu-toggle]');
+  const menu = header?.querySelector('[data-mobile-nav]');
+
+  const collapseAt = 96;
+  const expandAt = 8;
+  let condensed = window.scrollY >= collapseAt;
+  let updatePending = false;
+
+  header?.toggleAttribute('data-condensed', condensed);
+
+  const updateHeader = () => {
+    if (updatePending) return;
+    updatePending = true;
+
+    window.requestAnimationFrame(() => {
+      const scrollPosition = Math.max(window.scrollY, 0);
+
+      if (!condensed && scrollPosition >= collapseAt) condensed = true;
+      if (condensed && scrollPosition <= expandAt) condensed = false;
+
+      header?.toggleAttribute('data-condensed', condensed);
+      updatePending = false;
+    });
+  };
+
+  window.addEventListener('scroll', updateHeader, { passive: true });
+
+  toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    toggle.setAttribute('aria-label', open ? 'Abrir menú' : 'Cerrar menú');
+    if (menu instanceof HTMLElement) menu.hidden = open;
+  });
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    z-index: 50;
+    top: 0;
+    background: rgba(249, 249, 249, 0.98);
+    padding: 10px 12px 0;
+  }
+
+  .header-frame {
+    position: relative;
+    width: min(1440px, 100%);
+    margin-inline: auto;
+    overflow: hidden;
+    border-radius: 24px;
+    background: #161a23;
+    box-shadow: 0 12px 30px rgba(22, 26, 35, 0.12);
+    transition: border-radius 180ms ease, box-shadow 180ms ease;
+  }
+
+  .header-wave {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .header-wave::before,
+  .header-wave::after {
+    position: absolute;
+    top: -120px;
+    width: 650px;
+    height: 600px;
+    background: var(--wave-url) center / contain no-repeat;
+    content: "";
+    opacity: 0.7;
+  }
+
+  .header-wave::before {
+    left: -32px;
+  }
+
+  .header-wave::after {
+    right: -32px;
+    transform: scaleX(-1);
+  }
+
+  .header-inner {
+    position: relative;
+    display: grid;
+    min-height: 154px;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 30px;
+    transition: min-height 180ms ease;
+  }
+
+  .brand-mark {
+    display: flex;
+    width: 206px;
+    aspect-ratio: 18 / 11;
+    grid-column: 2;
+    align-items: center;
+    justify-content: center;
+    transition: width 180ms ease;
+  }
+
+  .brand-mark img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: width 180ms ease;
+  }
+
+  .site-header[data-condensed] .header-frame { border-radius: 20px; box-shadow: 0 9px 24px rgba(22,26,35,.14); }
+  .site-header[data-condensed] .header-inner { min-height: 92px; }
+  .site-header[data-condensed] .brand-mark { width: 124px; }
+  .site-header[data-condensed] .brand-mark img { width: 100%; }
+
+  .desktop-nav {
+    display: flex;
+    grid-column: 1;
+    grid-row: 1;
+    align-items: center;
+    gap: clamp(18px, 2.4vw, 32px);
+  }
+
+  .desktop-nav a {
+    position: relative;
+    color: rgba(237, 235, 223, 0.82);
+    font-size: 0.9375rem;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .desktop-nav a::after {
+    position: absolute;
+    right: 0;
+    bottom: -9px;
+    left: 0;
+    height: 2px;
+    transform: scaleX(0);
+    background: #e1fe66;
+    content: "";
+    transition: transform 160ms ease;
+  }
+
+  .desktop-nav a:hover,
+  .desktop-nav a[aria-current="page"] {
+    color: #f9f9f9;
+  }
+
+  .desktop-nav a:hover::after,
+  .desktop-nav a[aria-current="page"]::after {
+    transform: scaleX(1);
+  }
+
+  .header-contact,
+  .mobile-contact {
+    display: inline-flex;
+    min-height: 46px;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    border-radius: 999px;
+    background: #e1fe66;
+    color: #161a23;
+    padding: 12px 18px;
+    font-size: 0.9375rem;
+    font-weight: 800;
+    line-height: 1.2;
+    text-decoration: none;
+    transition: background 160ms ease, transform 160ms ease;
+  }
+
+  .header-contact {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
+  }
+
+  .header-contact:hover,
+  .mobile-contact:hover {
+    background: #e1fe66;
+    transform: translateY(-1px);
+  }
+
+  .menu-toggle,
+  .mobile-nav {
+    display: none;
+  }
+
+  @media (max-width: 960px) {
+    .header-inner {
+      min-height: 116px;
+      grid-template-columns: 1fr auto 1fr;
+    }
+
+    .brand-mark {
+      width: 154px;
+    }
+
+    .brand-mark img {
+      width: 100%;
+    }
+
+    .desktop-nav,
+    .header-contact {
+      display: none;
+    }
+
+    .menu-toggle {
+      display: grid;
+      width: 48px;
+      height: 48px;
+      grid-column: 3;
+      grid-row: 1;
+      grid-template-rows: repeat(2, 2px);
+      align-content: center;
+      justify-self: end;
+      gap: 7px;
+      border: 1px solid rgba(237, 235, 223, 0.34);
+      border-radius: 50%;
+      background: rgba(22, 26, 35, 0.72);
+      padding: 0 13px;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 100%;
+      background: #edebdf;
+    }
+
+    .mobile-nav:not([hidden]) {
+      position: relative;
+      display: block;
+      border-top: 1px solid rgba(237, 235, 223, 0.14);
+    }
+
+    .mobile-nav-inner {
+      display: grid;
+      gap: 5px;
+      padding-block: 14px 24px;
+    }
+
+    .mobile-nav-inner > a:not(.mobile-contact) {
+      border-bottom: 1px solid rgba(237, 235, 223, 0.12);
+      color: #edebdf;
+      padding: 14px 2px;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .mobile-contact {
+      margin-top: 12px;
+    }
+
+    .site-header[data-condensed] .header-inner { min-height: 86px; }
+    .site-header[data-condensed] .brand-mark { width: 116px; }
+    .site-header[data-condensed] .brand-mark img { width: 100%; }
+  }
+
+  @media (max-width: 520px) {
+    .site-header {
+      padding: 7px 7px 0;
+    }
+
+    .header-frame {
+      border-radius: 19px;
+    }
+
+    .header-inner {
+      min-height: 104px;
+    }
+
+    .brand-mark {
+      width: 140px;
+    }
+
+    .brand-mark img {
+      width: 100%;
+    }
+
+    .header-wave::before,
+    .header-wave::after {
+      top: -84px;
+      width: 450px;
+      height: 420px;
+      opacity: 0.66;
+    }
+
+    .header-wave::before {
+      left: -175px;
+    }
+
+    .header-wave::after {
+      right: -175px;
+    }
+
+    .site-header[data-condensed] .header-inner { min-height: 80px; }
+    .site-header[data-condensed] .brand-mark { width: 108px; }
+    .site-header[data-condensed] .brand-mark img { width: 100%; }
+  }
+</style>

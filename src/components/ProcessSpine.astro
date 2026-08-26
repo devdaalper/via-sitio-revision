@@ -1,0 +1,161 @@
+---
+import LineIcon from './LineIcon.astro';
+
+interface Step {
+  icon: 'publish' | 'attract' | 'interview' | 'decide' | 'integrate';
+  title: string;
+  copy: string;
+}
+
+interface Props {
+  steps: readonly Step[];
+}
+
+const { steps } = Astro.props;
+---
+
+<ol class="process-spine">
+  {steps.map((step, index) => (
+    <li class:list={[index % 2 === 0 ? 'step-left' : 'step-right', index === steps.length - 1 && 'step-final']}>
+      <div class="step-copy">
+        <span>{String(index + 1).padStart(2, '0')}</span>
+        <h3>{step.title}</h3>
+        <p>{step.copy}</p>
+      </div>
+      <div class="step-medallion"><LineIcon name={step.icon} /></div>
+    </li>
+  ))}
+</ol>
+
+<style>
+  .process-spine {
+    position: relative;
+    display: grid;
+    gap: 0;
+    width: min(100%, 1000px);
+    margin: 58px auto 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .process-spine::before {
+    position: absolute;
+    top: 54px;
+    bottom: 54px;
+    left: 50%;
+    width: 1px;
+    background: rgba(39, 65, 79, 0.22);
+    content: "";
+  }
+
+  .process-spine li {
+    position: relative;
+    display: grid;
+    min-height: 148px;
+    grid-template-columns: 1fr 108px 1fr;
+    align-items: center;
+  }
+
+  .step-copy {
+    position: relative;
+    width: min(100%, 370px);
+    border-right: 3px solid rgba(141, 189, 47, 0.42);
+    padding: 8px 30px 8px 0;
+    text-align: right;
+  }
+
+  .step-right .step-copy {
+    grid-column: 3;
+    border-right: 0;
+    border-left: 3px solid rgba(141, 189, 47, 0.42);
+    padding: 8px 0 8px 30px;
+    text-align: left;
+  }
+
+  .step-copy span {
+    color: #27414f;
+    font-size: 0.875rem;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+  }
+
+  .step-copy h3 {
+    margin: 4px 0 0;
+    color: #161a23;
+    font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+    line-height: 1.25;
+  }
+
+  .step-copy p {
+    margin: 8px 0 0;
+    color: #27414f;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .step-medallion {
+    z-index: 1;
+    display: grid;
+    width: 78px;
+    height: 78px;
+    grid-column: 2;
+    grid-row: 1;
+    place-items: center;
+    justify-self: center;
+    border-radius: 50%;
+    background: #edebdf;
+    color: #27414f;
+    box-shadow: 0 14px 34px rgba(22, 26, 35, 0.09);
+  }
+
+  .step-final .step-medallion {
+    background: #8dbd2f;
+    color: #161a23;
+  }
+
+  .step-right .step-copy + .step-medallion {
+    grid-column: 2;
+  }
+
+  @media (max-width: 720px) {
+    .process-spine {
+      margin-top: 48px;
+    }
+
+    .process-spine::before {
+      top: 38px;
+      bottom: 38px;
+      left: 37px;
+    }
+
+    .process-spine li {
+      min-height: 0;
+      grid-template-columns: 74px 1fr;
+      gap: 18px;
+      padding-bottom: 38px;
+    }
+
+    .process-spine li:last-child {
+      padding-bottom: 0;
+    }
+
+    .step-medallion,
+    .step-right .step-copy + .step-medallion {
+      width: 74px;
+      height: 74px;
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .step-copy,
+    .step-right .step-copy {
+      width: 100%;
+      grid-column: 2;
+      grid-row: 1;
+      border-right: 0;
+      border-left: 3px solid rgba(141, 189, 47, 0.42);
+      padding: 5px 0 5px 20px;
+      text-align: left;
+    }
+  }
+</style>

@@ -1,0 +1,82 @@
+<div class="human-flow" role="img" aria-label="Representación provisional de personas avanzando por un proceso de reclutamiento">
+  <div class="flow-line" aria-hidden="true"></div>
+  <div class="person person-one" aria-hidden="true"><i></i><span></span></div>
+  <div class="person person-two" aria-hidden="true"><i></i><span></span></div>
+  <div class="person person-three" aria-hidden="true"><i></i><span></span></div>
+  <div class="person person-four" aria-hidden="true"><i></i><span></span></div>
+  <div class="person person-five" aria-hidden="true"><i></i><span></span></div>
+  <p>Espacio reservado para los recortes humanos aprobados por diseño.</p>
+</div>
+
+<style>
+  .human-flow {
+    position: relative;
+    min-height: 300px;
+    overflow: hidden;
+    border-radius: 28px;
+    background: linear-gradient(180deg, rgba(237, 235, 223, 0.28), rgba(237, 235, 223, 0.86));
+  }
+
+  .flow-line {
+    position: absolute;
+    right: -8%;
+    bottom: 56px;
+    left: -8%;
+    height: 1px;
+    background: rgba(39, 65, 79, 0.18);
+  }
+
+  .person {
+    position: absolute;
+    bottom: 57px;
+    display: grid;
+    justify-items: center;
+    filter: drop-shadow(0 15px 18px rgba(22, 26, 35, 0.1));
+  }
+
+  .person i {
+    display: block;
+    width: 44px;
+    height: 44px;
+    border: 2px solid #27414f;
+    border-radius: 50%;
+    background: #f9f9f9;
+  }
+
+  .person span {
+    display: block;
+    width: 90px;
+    height: 118px;
+    margin-top: 8px;
+    border: 2px solid #27414f;
+    border-bottom: 0;
+    border-radius: 48px 48px 10px 10px;
+    background: #edebdf;
+  }
+
+  .person-one { left: 4%; transform: scale(0.72); transform-origin: bottom; opacity: 0.46; }
+  .person-two { left: 20%; transform: scale(0.9); transform-origin: bottom; opacity: 0.72; }
+  .person-three { left: 42%; }
+  .person-three span { background: #161a23; }
+  .person-four { right: 19%; transform: scale(0.86); transform-origin: bottom; opacity: 0.76; }
+  .person-five { right: 2%; transform: scale(0.67); transform-origin: bottom; opacity: 0.42; }
+
+  .human-flow p {
+    position: absolute;
+    right: 18px;
+    bottom: 14px;
+    margin: 0;
+    color: #27414f;
+    font-size: 0.875rem;
+    line-height: 1.45;
+  }
+
+  @media (max-width: 520px) {
+    .human-flow { min-height: 250px; }
+    .person-one, .person-five { display: none; }
+    .person-two { left: 4%; }
+    .person-three { left: calc(50% - 45px); }
+    .person-four { right: 4%; }
+    .human-flow p { right: 12px; left: 12px; text-align: center; }
+  }
+</style>

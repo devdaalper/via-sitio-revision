@@ -1,0 +1,327 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LineIcon from '../components/LineIcon.astro';
+import ProcessSpine from '../components/ProcessSpine.astro';
+import WaveBackdrop from '../components/WaveBackdrop.astro';
+import { withBase } from '../utils/paths';
+
+const journey = [
+  { icon: 'publish', title: 'Define y publica', copy: 'Configura el perfil y activa la vacante en las fuentes conectadas.' },
+  { icon: 'attract', title: 'Atrae y reúne', copy: 'Recibe postulaciones e inicia la comunicación con cada candidato.' },
+  { icon: 'interview', title: 'Filtra y entrevista', copy: 'La IA organiza perfiles y v.ia realiza la primera entrevista.' },
+  { icon: 'decide', title: 'Evalúa y decide', copy: 'Tu equipo revisa el contexto, conversa con el talento y decide.' },
+  { icon: 'integrate', title: 'Contrata e integra', copy: 'Completa el expediente, la firma, el alta en nómina y el primer día.' },
+] as const;
+
+const evidence = [
+  ['Organiza', 'Reúne el perfil, las respuestas y las etapas en un mismo lugar.'],
+  ['Analiza', 'Relaciona la información disponible con los criterios de la vacante.'],
+  ['Recomienda', 'Presenta compatibilidad y evidencia. Tu equipo toma la decisión.'],
+];
+
+const benefits = [
+  { icon: 'clarity', title: 'Claridad', copy: 'Cada persona recibe las indicaciones correspondientes a su etapa.' },
+  { icon: 'brand', title: 'Marca empleadora', copy: 'La experiencia del proceso también representa a tu empresa.' },
+  { icon: 'relation', title: 'Relación', copy: 'Vuelve a conectar perfiles conocidos con nuevas vacantes.' },
+] as const;
+---
+
+<BaseLayout
+  title="v.ia | Plataforma de reclutamiento con IA de punta a punta"
+  description="Coordina vacantes, candidatos, comunicaciones, documentos y decisiones en una plataforma de reclutamiento con IA, desde la vacante hasta el primer día."
+  currentPath="/"
+>
+  <section class="home-hero">
+    <WaveBackdrop variant="b" class="hero-wave" />
+    <div class="shell hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Plataforma de reclutamiento de punta a punta con IA</p>
+        <h1 class="display-title">Todo tu reclutamiento. <span>Una sola v.ia.</span></h1>
+        <p class="lead">Coordina candidatos, comunicaciones, documentos y decisiones para mantener cada contratación avanzando, desde la vacante hasta el primer día.</p>
+        <a class="btn-primary hero-cta" href={withBase('/contacto')}>Solicita una demostración <span aria-hidden="true">→</span></a>
+        <p class="responsibility"><strong>IA</strong> organiza y recomienda. <strong>Tu equipo</strong> conoce, evalúa y decide.</p>
+      </div>
+
+      <aside class="recruitment-stage" aria-label="Un proceso de reclutamiento conectado desde la vacante hasta el primer día">
+        <WaveBackdrop variant="a" class="brand-wave" />
+        <span class="stage-kicker">Un solo recorrido</span>
+        <img
+          class="stage-person"
+          src={withBase('/assets/photography/home-recruiter-cutout-v1.webp')}
+          alt=""
+          width="1024"
+          height="1536"
+          decoding="async"
+        />
+        <span class="stage-status"><LineIcon name="systems" /><strong>Proceso conectado</strong></span>
+        <span class="stage-node node-vacancy"><LineIcon name="publish" /><b>Vacante</b></span>
+        <span class="stage-node node-talent"><LineIcon name="attract" /><b>Talento</b></span>
+        <span class="stage-node node-interview"><LineIcon name="interview" /><b>Entrevista</b></span>
+        <span class="stage-node node-first-day"><LineIcon name="integrate" /><b>Primer día</b></span>
+      </aside>
+    </div>
+  </section>
+
+  <section class="journey-section" aria-labelledby="journey-title">
+    <WaveBackdrop variant="a" class="journey-wave" />
+    <div class="shell journey-inner">
+      <div class="journey-heading">
+        <p class="eyebrow">Proceso completo</p>
+        <h2 id="journey-title" class="section-title">Una contratación completa. <span>Cinco momentos conectados.</span></h2>
+        <a class="text-link" href={withBase('/plataforma')}>Conoce cómo funciona</a>
+      </div>
+      <ProcessSpine steps={journey} />
+    </div>
+  </section>
+
+  <section class="section-space evidence-section" aria-labelledby="evidence-title">
+    <div class="shell">
+      <div class="evidence-heading">
+        <p class="eyebrow">IA asistiva</p>
+        <h2 id="evidence-title" class="section-title">Más contexto para elegir al <span>talento adecuado.</span></h2>
+      </div>
+      <div class="evidence-panel">
+        <div class="evidence-list">
+          {evidence.map(([title, copy], index) => (
+            <article>
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <div><h3>{title}</h3><p>{copy}</p></div>
+            </article>
+          ))}
+        </div>
+        <div class="evidence-visual" role="img" aria-label="El perfil, los criterios y la evidencia se reúnen para que el equipo evalúe y decida">
+          <span class="dossier-kicker">Contexto reunido</span>
+          <div class="decision-dossier">
+            <div><span>01</span><LineIcon name="attract" /><strong>Perfil</strong></div>
+            <div><span>02</span><LineIcon name="clarity" /><strong>Criterios</strong></div>
+            <div><span>03</span><LineIcon name="decide" /><strong>Evidencia</strong></div>
+            <p><LineIcon name="systems" /><span><small>Tu equipo conserva el criterio</small><strong>Evalúa y decide</strong></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space breadth-section" aria-labelledby="breadth-title">
+    <div class="shell breadth-layout">
+      <div class="breadth-copy">
+        <p class="eyebrow">Para cualquier perfil</p>
+        <h2 id="breadth-title" class="section-title">Del alto volumen a la <span>alta especialización.</span></h2>
+        <p class="lead">Cada vacante conserva sus propios criterios mientras v.ia organiza el flujo que necesita.</p>
+        <a class="text-link" href={withBase('/reclutamiento-masivo')}>Explora el reclutamiento masivo</a>
+      </div>
+      <div class="profile-diagonal" aria-label="Tipos de perfil">
+        <div><i></i><span>Volumen operativo</span></div>
+        <div><i></i><span>Talento especializado</span></div>
+        <div><i></i><span>Posiciones directivas</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="talent-section" aria-labelledby="talent-title">
+    <div class="shell talent-heading">
+      <p class="eyebrow">Talento en el centro</p>
+      <h2 id="talent-title" class="section-title">El talento importa <span>en cada etapa.</span></h2>
+      <p class="lead">v.ia mantiene la comunicación desde el primer contacto hasta el primer día y fortalece una bolsa propia para futuras oportunidades.</p>
+    </div>
+    <div class="shell talent-people-stage" style={`--wave-url: url("${withBase('/assets/brand/wave-a.png')}")`} role="img" aria-label="Perfiles operativos, especializados y directivos avanzan por una experiencia de reclutamiento coordinada">
+      <img
+        src={withBase('/assets/photography/talent-profile-strip-v1.webp')}
+        alt=""
+        width="1664"
+        height="945"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+    <div class="benefit-band">
+      <div class="shell benefit-grid">
+        {benefits.map((benefit) => (
+          <article>
+            <div class="benefit-icon"><LineIcon name={benefit.icon} /></div>
+            <h3>{benefit.title}</h3><p>{benefit.copy}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space integrations-section" aria-labelledby="integrations-title">
+    <WaveBackdrop variant="b" class="integrations-wave" />
+    <div class="shell integrations-grid">
+      <div>
+        <p class="eyebrow">Continuidad operativa</p>
+        <h2 id="integrations-title" class="section-title">El reclutamiento continúa <span>donde opera tu empresa.</span></h2>
+        <p class="lead">Conecta v.ia con sistemas de reclutamiento (ATS), gestión de personas (HRIS) y nómina para dar continuidad hasta la incorporación.</p>
+      </div>
+      <div class="systems-editorial" style={`--wave-url: url("${withBase('/assets/brand/wave-a.png')}")`} role="img" aria-label="v.ia conectada con ATS, HRIS y nómina">
+        <div class="systems-icon"><LineIcon name="systems" /></div>
+        <div class="systems-list"><span>ATS</span><i></i><strong>v.ia</strong><i></i><span>HRIS</span><i></i><span>Nómina</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing-section" aria-labelledby="closing-title">
+    <WaveBackdrop variant="a" class="closing-wave" />
+    <div class="shell closing-inner">
+      <p class="eyebrow">El siguiente paso</p>
+      <h2 id="closing-title" class="section-title">Conoce v.ia <span>en acción.</span></h2>
+      <p class="lead">Recorre una contratación completa y descubre cómo v.ia puede integrarse a tu proceso.</p>
+      <a class="btn-primary" href={withBase('/contacto')}>Solicita una demostración <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .home-hero { position: relative; min-height: 0; overflow: hidden; padding: clamp(68px,8vw,104px) 0 clamp(78px,8vw,108px); }
+  :global(.hero-wave) { top: -140px; right: -40px; width: min(760px,62vw); opacity: .34; }
+  .hero-grid { position: relative; display: grid; grid-template-columns: minmax(0,1.04fr) minmax(390px,.96fr); align-items: center; gap: clamp(54px,8vw,112px); }
+  .hero-copy { position: relative; z-index: 2; }
+  .display-title span { position: relative; z-index: 0; display: inline; }
+  .display-title span::after { position: absolute; z-index: -1; right: -.08em; bottom: .08em; left: -.08em; height: .24em; background: rgba(225,254,102,.8); content: ""; }
+  .section-title span { color: #27414f; }
+  .hero-cta { margin-top: 32px; border-color: #161a23; background: #161a23; color: #f9f9f9; box-shadow: 0 12px 28px rgba(22,26,35,.16); }
+  .hero-cta:hover { border-color: #27414f; background: #27414f; }
+  .responsibility { max-width: 50ch; margin: 28px 0 0; border-left: 3px solid #8dbd2f; color: #27414f; padding-left: 17px; font-size: 1rem; line-height: 1.6; }
+  .responsibility strong { color: #27414f; }
+
+  .recruitment-stage { position: relative; z-index: 1; min-height: 520px; overflow: hidden; border-radius: 30px; background: #edebdf; box-shadow: 0 26px 64px rgba(22,26,35,.1); }
+  .recruitment-stage::before, .recruitment-stage::after { position: absolute; top: 54%; left: 50%; border: 1px solid rgba(39,65,79,.16); border-radius: 50%; content: ""; transform: translate(-50%,-50%); }
+  .recruitment-stage::before { width: 350px; height: 350px; background: rgba(249,249,249,.34); } .recruitment-stage::after { width: 270px; height: 270px; border-style: dashed; }
+  :global(.brand-wave) { top: -185px; right: -285px; width: 650px; opacity: .24; }
+  .stage-kicker { position: absolute; z-index: 3; top: 30px; left: 32px; color: #27414f; font-size: .875rem; font-weight: 850; letter-spacing: .14em; text-transform: uppercase; }
+  .stage-person { position: absolute; z-index: 2; bottom: -22px; left: 50%; width: min(58%,290px); height: 440px; transform: translateX(-50%); object-fit: contain; object-position: center bottom; filter: drop-shadow(0 20px 22px rgba(22,26,35,.14)); }
+  .stage-status { position: absolute; z-index: 4; right: 50%; bottom: 24px; display: flex; align-items: center; gap: 9px; transform: translateX(50%); border-radius: 999px; background: #161a23; color: #edebdf; padding: 11px 17px; box-shadow: 0 12px 24px rgba(22,26,35,.18); white-space: nowrap; }
+  .stage-status :global(.line-icon) { width: 24px; height: 24px; color: #e1fe66; }
+  .stage-status strong { font-size: .875rem; line-height: 1.2; }
+  .stage-node { position: absolute; z-index: 3; display: grid; width: max(104px, 6em); justify-items: center; gap: 8px; color: #27414f; font-size: .875rem; line-height: 1.25; text-align: center; }
+  .stage-node :global(.line-icon) { width: 42px; height: 42px; padding: 9px; border: 1px solid rgba(39,65,79,.14); border-radius: 50%; background: #f9f9f9; box-sizing: content-box; box-shadow: 0 9px 22px rgba(22,26,35,.07); }
+  .node-vacancy { top: 18%; left: 8%; } .node-talent { top: 17%; right: 8%; } .node-interview { bottom: 18%; left: 10%; } .node-first-day { right: 9%; bottom: 18%; }
+
+  .journey-section { position: relative; overflow: hidden; padding: clamp(72px,9vw,116px) 0; }
+  :global(.journey-wave) { top: -25%; left: -28%; width: min(760px,68vw); opacity: .18; }
+  .journey-inner { position: relative; }
+  .journey-heading { width: min(100%,820px); }
+  .journey-heading .text-link { margin-top: 22px; }
+
+  .evidence-heading { display: grid; justify-items: center; text-align: center; }
+  .evidence-panel { position: relative; display: grid; grid-template-columns: .95fr 1.05fr; align-items: center; gap: clamp(42px,7vw,86px); margin-top: 58px; border-radius: 30px; background: #edebdf; box-shadow: 0 24px 58px rgba(22,26,35,.09); padding: clamp(32px,6vw,72px); }
+  .evidence-list { display: grid; }
+  .evidence-list article { display: grid; grid-template-columns: 42px 1fr; gap: 16px; border-top: 1px solid rgba(39,65,79,.17); padding-block: 20px; }
+  .evidence-list article:last-child { border-bottom: 1px solid rgba(39,65,79,.17); }
+  .evidence-list article > span { color: #27414f; font-size: .875rem; font-weight: 800; }
+  .evidence-list h3 { margin: 0; color: #161a23; font-size: 1.05rem; }
+  .evidence-list p { margin: 6px 0 0; color: #27414f; font-size: 1rem; line-height: 1.6; }
+  .evidence-visual { position: relative; min-height: 390px; padding: 34px 22px 18px 42px; }
+  .evidence-visual::before, .evidence-visual::after { position: absolute; border: 1px solid rgba(39,65,79,.13); border-radius: 20px; background: #f9f9f9; content: ""; }
+  .evidence-visual::before { inset: 52px 2px 2px 54px; transform: rotate(2.4deg); opacity: .62; }
+  .evidence-visual::after { inset: 40px 16px 12px 40px; transform: rotate(-1.4deg); opacity: .82; }
+  .dossier-kicker { position: relative; z-index: 3; display: inline-block; margin-left: 26px; color: #27414f; font-size: .875rem; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; }
+  .decision-dossier { position: relative; z-index: 2; overflow: hidden; margin-top: 18px; border-radius: 20px; background: #f9f9f9; box-shadow: 0 20px 42px rgba(22,26,35,.1); }
+  .decision-dossier > div { display: grid; grid-template-columns: 42px 36px 1fr; align-items: center; gap: 13px; margin-inline: 26px; border-top: 1px solid rgba(39,65,79,.16); padding-block: 17px; }
+  .decision-dossier > div:first-child { border-top: 0; }
+  .decision-dossier > div > span { color: #8dbd2f; font-size: .875rem; font-weight: 850; }
+  .decision-dossier > div :global(.line-icon) { width: 29px; height: 29px; color: #27414f; stroke-width: 1.25; }
+  .decision-dossier > div strong { color: #27414f; font-size: 1rem; }
+  .decision-dossier > p { display: grid; grid-template-columns: 44px 1fr; align-items: center; gap: 16px; margin: 0; background: #161a23; color: #edebdf; padding: 22px 26px; }
+  .decision-dossier > p :global(.line-icon) { color: #e1fe66; }
+  .decision-dossier > p span { display: grid; gap: 3px; }
+  .decision-dossier > p small { color: rgba(237,235,223,.72); font-size: .875rem; line-height: 1.3; }
+  .decision-dossier > p strong { font-size: 1rem; }
+
+  .breadth-section { overflow: hidden; padding-bottom: clamp(58px,7vw,88px); }
+  .breadth-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(52px,9vw,120px); }
+  .breadth-copy .text-link { margin-top: 23px; }
+  .profile-diagonal { display: grid; align-content: center; gap: 40px; padding-block: 20px; }
+  .profile-diagonal div { display: flex; align-items: center; gap: 17px; color: #27414f; font-size: clamp(1rem,2vw,1.4rem); font-weight: 700; }
+  .profile-diagonal div:nth-child(2) { transform: translateX(12%); } .profile-diagonal div:nth-child(3) { transform: translateX(24%); }
+  .profile-diagonal i { width: 10px; height: 10px; flex: 0 0 10px; background: #8dbd2f; }
+  .talent-section { padding-top: clamp(56px,7vw,90px); }
+  .talent-heading { display: grid; justify-items: center; padding-bottom: 56px; text-align: center; }
+  .talent-heading .lead { max-width: 70ch; }
+  .talent-people-stage { position: relative; z-index: 2; min-height: 420px; overflow: hidden; border-radius: 28px 28px 0 0; background: #edebdf; box-shadow: 0 22px 52px rgba(22,26,35,.08); }
+  .talent-people-stage::before { position: absolute; inset: 0; background: var(--wave-url) 50% 42% / 1120px auto no-repeat; content: ""; opacity: .11; }
+  .talent-people-stage img { position: absolute; z-index: 2; right: 2%; bottom: -2%; width: 92%; height: 96%; object-fit: contain; object-position: center bottom; filter: drop-shadow(0 18px 22px rgba(22,26,35,.1)); }
+  .benefit-band { margin-top: -1px; background: #161a23; padding-block: clamp(68px,8vw,92px); }
+  .benefit-grid { display: grid; grid-template-columns: repeat(3,1fr); }
+  .benefit-grid article { display: grid; justify-items: center; border-right: 1px solid rgba(237,235,223,.16); padding: 0 clamp(28px,5vw,62px); text-align: center; }
+  .benefit-grid article:last-child { border-right: 0; }
+  .benefit-icon { display: grid; width: 72px; height: 72px; place-items: center; border-radius: 50%; background: #edebdf; color: #27414f; box-shadow: 0 12px 26px rgba(22,26,35,.16); }
+  .benefit-icon :global(.line-icon) { width: 42px; height: 42px; stroke-width: 1.2; }
+  .benefit-grid h3 { margin: 24px 0 0; color: #f9f9f9; font-size: 1.08rem; }
+  .benefit-grid p { margin: 11px 0 0; color: rgba(237,235,223,.72); font-size: 1rem; line-height: 1.6; }
+
+  .integrations-section { position: relative; overflow: hidden; }
+  :global(.integrations-wave) { right: -28%; bottom: -62%; width: min(780px,65vw); opacity: .19; }
+  .integrations-grid { position: relative; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(52px,9vw,116px); }
+  .systems-editorial { position: relative; display: grid; min-height: 286px; overflow: hidden; gap: 24px; align-content: center; justify-items: center; border-radius: 28px; background: #161a23; padding: 38px; box-shadow: 0 22px 54px rgba(22,26,35,.12); }
+  .systems-editorial::before { position: absolute; inset: 0; background: var(--wave-url) 48% 48% / 720px auto no-repeat; content: ""; opacity: .38; }
+  .systems-icon { position: relative; z-index: 1; display: grid; width: 88px; height: 88px; place-items: center; border-radius: 50%; background: #edebdf; color: #27414f; box-shadow: 0 14px 30px rgba(22,26,35,.2); }
+  .systems-list { position: relative; z-index: 1; display: grid; width: 100%; grid-template-columns: auto 1fr auto 1fr auto 1fr auto; align-items: center; gap: 9px; color: #edebdf; font-size: .875rem; font-weight: 750; }
+  .systems-list i { height: 1px; background: rgba(225,254,102,.42); }
+  .systems-list strong { display: grid; width: 58px; height: 58px; place-items: center; border-radius: 50%; background: #e1fe66; color: #161a23; font-size: .9rem; box-shadow: 0 10px 22px rgba(22,26,35,.2); }
+
+  .closing-section { position: relative; overflow: hidden; background: #edebdf; padding-block: clamp(70px,8vw,98px); }
+  :global(.closing-wave) { top: -126%; right: -9%; width: min(760px,65vw); opacity: .2; }
+  .closing-inner { position: relative; display: grid; justify-items: center; text-align: center; }
+  .closing-inner .lead { max-width: 58ch; }
+  .closing-inner .btn-primary { margin-top: 28px; border-color: #161a23; background: #161a23; color: #f9f9f9; }
+
+  @media (max-width: 980px) {
+    .home-hero { min-height: 0; }
+    .hero-grid, .evidence-panel, .breadth-layout, .integrations-grid { grid-template-columns: 1fr; }
+    .recruitment-stage { width: min(100%,650px); min-height: 390px; justify-self: center; }
+    :global(.hero-wave) { top: 28%; right: -42%; width: 920px; }
+    .evidence-visual { width: min(100%,520px); justify-self: center; }
+    .profile-diagonal { width: min(100%,620px); }
+    .profile-diagonal div:nth-child(2) { transform: translateX(8%); } .profile-diagonal div:nth-child(3) { transform: translateX(16%); }
+    .systems-editorial { width: min(100%,620px); }
+    .talent-people-stage { width: min(calc(100% - 40px),760px); min-height: 390px; }
+  }
+
+  @media (max-width: 700px) {
+    .home-hero { padding: 42px 0 58px; }
+    .hero-grid { gap: 32px; }
+    :global(.hero-wave) { top: 36%; right: -112%; width: 900px; opacity: .2; }
+    .recruitment-stage { min-height: 310px; border-radius: 24px; }
+    :global(.brand-wave) { top: -120px; left: -260px; width: 650px; }
+    .stage-route { grid-template-columns: 1fr; justify-items: center; gap: 6px; }
+    .stage-route i { width: 1px; height: 16px; }
+    .evidence-panel { gap: 18px; padding: 28px 20px 42px; }
+    .evidence-visual { min-height: 360px; padding: 24px 4px 6px 18px; }
+    .evidence-visual::before { inset: 44px -3px 0 25px; }
+    .evidence-visual::after { inset: 35px 4px 7px 16px; }
+    .dossier-kicker { margin-left: 14px; }
+    .decision-dossier > div { grid-template-columns: 36px 32px 1fr; margin-inline: 18px; }
+    .decision-dossier > p { padding: 20px 18px; }
+    .profile-diagonal { gap: 27px; }
+    .profile-diagonal div:nth-child(2) { transform: translateX(4%); } .profile-diagonal div:nth-child(3) { transform: translateX(8%); }
+    .talent-heading { justify-items: start; text-align: left; }
+    .benefit-grid { grid-template-columns: 1fr; }
+    .benefit-grid article { border-right: 0; border-bottom: 1px solid rgba(237,235,223,.16); padding: 42px 18px; }
+    .benefit-grid article:first-child { padding-top: 0; } .benefit-grid article:last-child { border-bottom: 0; padding-bottom: 0; }
+    .systems-list { grid-template-columns: 1fr; justify-items: center; }
+    .systems-list i { width: 1px; height: 17px; }
+    :global(.closing-wave) { top: -40%; right: -98%; width: 780px; opacity: .2; }
+  }
+
+  @media (max-width: 700px) {
+    .recruitment-stage { min-height: 420px; }
+    .recruitment-stage::before { width: 250px; height: 250px; }
+    .recruitment-stage::after { width: 190px; height: 190px; }
+    .stage-person { bottom: -18px; width: min(61%,244px); height: 340px; }
+    .stage-status { bottom: 18px; padding: 9px 14px; }
+    .stage-node { width: 82px; font-size: .875rem; }
+    .stage-node :global(.line-icon) { width: 28px; height: 28px; padding: 6px; }
+    .stage-kicker { top: 20px; left: 21px; font-size: .875rem; }
+    .node-vacancy { top: 18%; left: 2%; } .node-talent { top: 17%; right: 2%; }
+    .node-interview { bottom: 19%; left: 2%; } .node-first-day { right: 2%; bottom: 19%; }
+    .talent-people-stage { min-height: 340px; border-radius: 24px 24px 0 0; }
+    .talent-people-stage img { right: -10%; width: 120%; height: 92%; }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    :global(.brand-wave), :global(.closing-wave) { animation: wave-drift 12s ease-in-out infinite alternate; }
+    @keyframes wave-drift { to { transform: translate3d(-2.5%,2%,0) rotate(1deg); } }
+  }
+</style>

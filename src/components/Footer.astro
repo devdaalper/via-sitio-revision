@@ -1,0 +1,200 @@
+---
+import { withBase } from '../utils/paths';
+---
+
+<footer id="site-footer" class="site-footer">
+  <div class="footer-frame">
+    <div class="footer-wave" style={`--wave-url: url("${withBase('/assets/brand/wave-a.png')}")`} aria-hidden="true"></div>
+
+    <div class="shell footer-brand">
+      <a class="footer-logo" href={withBase('/')} aria-label="v.ia, inicio">
+        <img src={withBase('/assets/brand/logo-on-light.svg')} alt="v.ia — Contrata con inteligencia" />
+      </a>
+      <p>Plataforma de reclutamiento de punta a punta con IA.</p>
+    </div>
+
+    <div class="shell footer-grid">
+      <nav aria-label="Navegación del pie">
+        <span>Explora</span>
+        <a href={withBase('/plataforma')}>Cómo funciona</a>
+        <a href={withBase('/reclutamiento-masivo')}>Reclutamiento masivo</a>
+        <a href={withBase('/contacto')}>Contacto</a>
+      </nav>
+
+      <div class="legal-state">
+        <span>Documentos legales</span>
+        <p>Aviso de privacidad · Términos de uso</p>
+      </div>
+
+      <div class="footer-signature">
+        <span>v.ia</span>
+        <p>Contrata con inteligencia</p>
+      </div>
+    </div>
+
+    <div class="shell footer-bottom">
+      <span>© 2026 v.ia</span>
+      <span>Contrata con inteligencia</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: #f9f9f9;
+    padding-top: 12px;
+  }
+
+  .footer-frame {
+    position: relative;
+    width: calc(100% - 24px);
+    margin-inline: auto;
+    overflow: hidden;
+    border-radius: 34px 34px 0 0;
+    background: #161a23;
+    color: #edebdf;
+    padding: clamp(62px, 7vw, 90px) 0 26px;
+  }
+
+  .footer-wave {
+    position: absolute;
+    top: -360px;
+    right: -90px;
+    left: -170px;
+    height: 760px;
+    background: var(--wave-url) center 42% / 1220px auto no-repeat;
+    opacity: 0.52;
+    pointer-events: none;
+  }
+
+  .footer-brand {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .footer-logo {
+    display: flex;
+    width: min(340px, 58vw);
+    aspect-ratio: 18 / 11;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-logo img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .footer-brand > p {
+    max-width: 48ch;
+    margin: 10px 0 0;
+    color: rgba(237, 235, 223, 0.72);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .footer-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: clamp(38px, 7vw, 90px);
+    margin-top: clamp(46px, 6vw, 68px);
+    border-top: 1px solid rgba(237, 235, 223, 0.17);
+    padding-top: 34px;
+  }
+
+  .footer-grid nav,
+  .legal-state,
+  .footer-signature {
+    display: grid;
+    align-content: start;
+    justify-items: start;
+    gap: 11px;
+  }
+
+  .footer-grid nav > span,
+  .legal-state > span,
+  .footer-signature > span {
+    color: #e1fe66;
+    font-size: 0.875rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .footer-grid nav a {
+    color: #edebdf;
+    font-size: 0.9375rem;
+    font-weight: 650;
+    text-decoration: none;
+  }
+
+  .footer-grid nav a:hover {
+    color: #e1fe66;
+  }
+
+  .legal-state p,
+  .footer-signature p {
+    max-width: 34ch;
+    margin: 0;
+    color: rgba(237, 235, 223, 0.66);
+    font-size: 0.9375rem;
+    line-height: 1.55;
+  }
+
+  .footer-bottom {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    border-top: 1px solid rgba(237, 235, 223, 0.12);
+    padding-top: 22px;
+    color: rgba(237, 235, 223, 0.48);
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 760px) {
+    .site-footer {
+      padding-top: 8px;
+    }
+
+    .footer-frame {
+      width: calc(100% - 14px);
+      border-radius: 24px 24px 0 0;
+      padding-top: 54px;
+    }
+
+    .footer-wave {
+      top: -250px;
+      right: -350px;
+      left: -330px;
+      height: 650px;
+      background-size: 930px auto;
+      opacity: 0.58;
+    }
+
+    .footer-logo {
+      width: min(240px, 76vw);
+    }
+
+    .footer-brand > p {
+      max-width: 28ch;
+    }
+
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 34px;
+      margin-top: 44px;
+      padding-top: 34px;
+    }
+
+    .footer-bottom {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 6px;
+    }
+  }
+</style>
