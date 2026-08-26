@@ -31,6 +31,9 @@ const animationRequirements = [
   ['coordenada vertical del punto oficial', 'top: 72.12%'],
   ['reproducción única por sesión', 'via-logo-bounce-seen'],
   ['repetición manual para revisión', 'replay-logo'],
+  ['trayectoria física muestreada', 'Array.from({ length: 121 }'],
+  ['gravedad continua', 'const gravity ='],
+  ['cancelación al desplazarse', "window.addEventListener('scroll', finishLogoAnimation"],
   ['reducción de movimiento', 'prefers-reduced-motion: reduce'],
   ['limpieza al terminar', "removeAttribute('data-logo-animate')"],
 ];
