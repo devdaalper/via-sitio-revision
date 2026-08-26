@@ -24,6 +24,8 @@ const links = [
 
       <a class="brand-mark" href={withBase('/')} aria-label="v.ia, inicio">
         <img src={withBase('/assets/brand/logo-on-light.svg')} alt="v.ia — Contrata con inteligencia" />
+        <span class="logo-dot-mask" aria-hidden="true"></span>
+        <span class="logo-dot-ball" aria-hidden="true"></span>
       </a>
 
       <a class="header-contact" href={withBase('/contacto')}>Solicita una demostración <span aria-hidden="true">→</span></a>
@@ -55,6 +57,33 @@ const links = [
   const header = document.querySelector('[data-site-header]');
   const toggle = header?.querySelector('[data-menu-toggle]');
   const menu = header?.querySelector('[data-mobile-nav]');
+  const logoDotBall = header?.querySelector('.logo-dot-ball');
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const forceLogoReplay = new URLSearchParams(window.location.search).has('replay-logo');
+  let animateLogo = !reduceMotion;
+
+  if (animateLogo && !forceLogoReplay) {
+    try {
+      animateLogo = window.sessionStorage.getItem('via-logo-bounce-seen') !== 'true';
+    } catch {
+      animateLogo = true;
+    }
+  }
+
+  if (animateLogo) {
+    header?.setAttribute('data-logo-animate', '');
+
+    try {
+      window.sessionStorage.setItem('via-logo-bounce-seen', 'true');
+    } catch {
+      // La animación puede ejecutarse aunque el almacenamiento esté restringido.
+    }
+
+    logoDotBall?.addEventListener('animationend', () => {
+      header?.removeAttribute('data-logo-animate');
+    }, { once: true });
+  }
 
   const collapseAt = 96;
   const expandAt = 8;
@@ -145,6 +174,8 @@ const links = [
   }
 
   .brand-mark {
+    position: relative;
+    isolation: isolate;
     display: flex;
     width: 206px;
     aspect-ratio: 18 / 11;
@@ -155,10 +186,70 @@ const links = [
   }
 
   .brand-mark img {
+    position: relative;
+    z-index: 0;
     display: block;
     width: 100%;
     height: auto;
     transition: width 180ms ease;
+  }
+
+  .logo-dot-mask,
+  .logo-dot-ball {
+    position: absolute;
+    z-index: 1;
+    top: 72.12%;
+    left: 43.38%;
+    display: none;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+  }
+
+  .logo-dot-mask {
+    width: 12.9%;
+    background: #161a23;
+  }
+
+  .logo-dot-ball {
+    z-index: 2;
+    width: 12.51%;
+    background: #e1fe66;
+    box-shadow: 0 6px 16px rgba(22, 26, 35, 0.2);
+  }
+
+  .site-header[data-logo-animate] .logo-dot-mask,
+  .site-header[data-logo-animate] .logo-dot-ball {
+    display: block;
+  }
+
+  .site-header[data-logo-animate] .logo-dot-ball {
+    animation: logo-dot-bounce 1.65s cubic-bezier(.32,.02,.2,1) both;
+  }
+
+  @keyframes logo-dot-bounce {
+    0% { top: 13%; left: 84%; transform: translate(-50%,-50%) scale(1); }
+    8% { top: 27%; left: 92%; transform: translate(-50%,-50%) scale(.82,1.12); }
+    20% { top: 72.12%; left: 79%; transform: translate(-50%,-50%) scale(1.14,.84); }
+    30% { top: 43%; left: 70%; transform: translate(-50%,-50%) scale(.96,1.04); }
+    38% { top: 27%; left: 63%; transform: translate(-50%,-50%) scale(1); }
+    50% { top: 72.12%; left: 55%; transform: translate(-50%,-50%) scale(1.1,.9); }
+    60% { top: 48%; left: 50%; transform: translate(-50%,-50%) scale(.98,1.02); }
+    68% { top: 39%; left: 47%; transform: translate(-50%,-50%) scale(1); }
+    77% { top: 72.12%; left: 45.4%; transform: translate(-50%,-50%) scale(1.06,.94); }
+    85% { top: 57%; left: 44.4%; transform: translate(-50%,-50%) scale(.99,1.01); }
+    91% { top: 52%; left: 43.9%; transform: translate(-50%,-50%) scale(1); }
+    96% { top: 69%; left: 43.55%; transform: translate(-50%,-50%) scale(1.025,.975); }
+    100% { top: 72.12%; left: 43.38%; transform: translate(-50%,-50%) scale(1); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .site-header[data-logo-animate] .logo-dot-mask,
+    .site-header[data-logo-animate] .logo-dot-ball {
+      display: none;
+      animation: none;
+    }
   }
 
   .site-header[data-condensed] .header-frame { border-radius: 20px; box-shadow: 0 9px 24px rgba(22,26,35,.14); }

@@ -26,6 +26,15 @@ const componentRequirements = {
   'Footer.astro': ['width: min(340px, 58vw)', 'width: min(240px, 76vw)'],
 };
 
+const animationRequirements = [
+  ['coordenada horizontal del punto oficial', 'left: 43.38%'],
+  ['coordenada vertical del punto oficial', 'top: 72.12%'],
+  ['reproducción única por sesión', 'via-logo-bounce-seen'],
+  ['repetición manual para revisión', 'replay-logo'],
+  ['reducción de movimiento', 'prefers-reduced-motion: reduce'],
+  ['limpieza al terminar', "removeAttribute('data-logo-animate')"],
+];
+
 for (const componentName of ['Header.astro', 'Footer.astro']) {
   const source = readFileSync(join(root, 'src', 'components', componentName), 'utf8');
   if (!source.includes('/assets/brand/logo-on-light.svg')) {
@@ -36,10 +45,15 @@ for (const componentName of ['Header.astro', 'Footer.astro']) {
   }
 }
 
+const headerSource = readFileSync(join(root, 'src', 'components', 'Header.astro'), 'utf8');
+for (const [label, fragment] of animationRequirements) {
+  if (!headerSource.includes(fragment)) failures.push(`Header.astro: falta ${label}`);
+}
+
 if (failures.length) {
   console.error('La implementación del logotipo se apartó del vector oficial:');
   for (const failure of failures) console.error(`- ${failure}`);
   process.exit(1);
 }
 
-console.log('Logotipo verificado: mesa completa, proporción 18:11 y geometría oficial preservadas.');
+console.log('Logotipo verificado: geometría oficial preservada y aterrizaje animado protegido.');
