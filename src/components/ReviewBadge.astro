@@ -1,0 +1,22 @@
+---
+const reviewId = 'VIA-WEB-R001';
+const reviewStatus = 'EN REVISIÓN';
+const reviewDate = '28 AGO 2026';
+const reviewHubUrl = 'https://devdaalper.github.io/via-web-revisiones/';
+---
+
+<a
+  class="review-badge"
+  href={reviewHubUrl}
+  aria-label={`${reviewId}, ${reviewStatus}, publicada el ${reviewDate}. Abrir centro de revisiones.`}
+  data-review-id={reviewId}
+  data-review-status={reviewStatus}
+>
+  <span class="review-badge__dot" aria-hidden="true"></span>
+  <span class="review-badge__copy">
+    <strong>{reviewId}</strong>
+    <span>{reviewStatus} · {reviewDate}</span>
+  </span>
+  <span class="review-badge__link" aria-hidden="true">Historial&nbsp;→</span>
+</a>
+

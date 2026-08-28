@@ -317,6 +317,77 @@ textarea {
   padding: 0;
 }
 
+.review-badge {
+  position: fixed;
+  z-index: 90;
+  right: 18px;
+  bottom: 18px;
+  display: flex;
+  min-height: 52px;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(225, 254, 102, 0.55);
+  border-radius: 999px;
+  background: var(--dark);
+  color: var(--surface);
+  padding: 8px 14px 8px 11px;
+  box-shadow: 0 12px 30px rgba(22, 26, 35, 0.22);
+  font-size: 14px;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.review-badge:focus-visible {
+  outline: 3px solid var(--lime);
+  outline-offset: 3px;
+}
+
+.review-badge__dot {
+  width: 12px;
+  height: 12px;
+  flex: 0 0 12px;
+  border-radius: 999px;
+  background: var(--lime);
+}
+
+.review-badge__copy {
+  display: grid;
+  gap: 2px;
+}
+
+.review-badge__copy strong {
+  color: var(--surface);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.review-badge__copy span {
+  color: rgba(237, 235, 223, 0.76);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.review-badge__link {
+  border-left: 1px solid rgba(237, 235, 223, 0.22);
+  color: var(--lime);
+  padding-left: 10px;
+  font-weight: 750;
+}
+
+@media (max-width: 560px) {
+  .review-badge {
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    justify-content: center;
+  }
+
+  .review-badge__link {
+    margin-left: auto;
+  }
+}
+
 @media (max-width: 700px) {
   .shell {
     width: min(100% - 32px, 1200px);

@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import ReviewBadge from '../components/ReviewBadge.astro';
 import { withBase } from '../utils/paths';
 import '../styles/global.css';
 
@@ -14,6 +15,7 @@ interface Props {
 const { title, description, currentPath = Astro.url.pathname, noindex = false } = Astro.props;
 const isReviewDeployment = import.meta.env.BASE_URL !== '/';
 const shouldNoindex = noindex || isReviewDeployment;
+const reviewId = isReviewDeployment ? 'VIA-WEB-R001' : undefined;
 ---
 
 <!doctype html>
@@ -23,6 +25,9 @@ const shouldNoindex = noindex || isReviewDeployment;
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
     {shouldNoindex && <meta name="robots" content="noindex, nofollow" />}
+    {reviewId && <meta name="via:review-id" content={reviewId} />}
+    {reviewId && <meta name="via:review-status" content="EN REVISIÓN" />}
+    {reviewId && <meta name="via:review-date" content="2026-08-28" />}
     <meta name="theme-color" content="#F9F9F9" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -40,5 +45,6 @@ const shouldNoindex = noindex || isReviewDeployment;
       <slot />
     </main>
     <Footer />
+    {isReviewDeployment && <ReviewBadge />}
   </body>
 </html>
