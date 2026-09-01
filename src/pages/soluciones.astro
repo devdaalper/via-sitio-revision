@@ -63,9 +63,8 @@ const roles = [
         <p class="lead lead-on-dark">v.ia se conecta con portales de gobierno, plataformas de nómina y bolsas de empleo para centralizar todo sin duplicar información ni procesos.</p>
       </div>
       <div class="integration-list">
-        {integrations.map((item, index) => (
+        {integrations.map((item) => (
           <article>
-            <span>{String(index + 1).padStart(2, '0')}</span>
             <div class="integration-icon" aria-hidden="true"><LineIcon name={item.icon} /></div>
             <div><h3>{item.title}</h3><p>{item.copy}</p></div>
           </article>
@@ -123,9 +122,8 @@ const roles = [
   .integrations-layout { position: relative; display: grid; grid-template-columns: .85fr 1.15fr; align-items: start; gap: clamp(54px,9vw,116px); }
   .integrations-copy { position: sticky; top: 132px; }
   .integration-list { display: grid; }
-  .integration-list article { display: grid; grid-template-columns: 40px 54px 1fr; align-items: start; gap: 17px; border-top: 1px solid rgba(237,235,223,.17); padding-block: 26px; }
+  .integration-list article { display: grid; grid-template-columns: 54px 1fr; align-items: start; gap: 17px; border-top: 1px solid rgba(237,235,223,.17); padding-block: 26px; }
   .integration-list article:last-child { border-bottom: 1px solid rgba(237,235,223,.17); }
-  .integration-list article > span { color: #e1fe66; font-size: .875rem; font-weight: 850; letter-spacing: .08em; padding-top: 12px; }
   .integration-icon { display: grid; width: 54px; height: 54px; place-items: center; border-radius: 50%; background: #edebdf; color: #27414f; }
   .integration-icon :global(.line-icon) { width: 30px; height: 30px; stroke-width: 1.25; }
   .integration-list h3 { margin: 4px 0 0; color: #e1fe66; font-size: 1.15rem; }
@@ -147,7 +145,7 @@ const roles = [
     .page-hero { padding-block: 54px 70px; }
     :global(.hero-wave) { width: 720px; opacity: .18; }
     .feature-band article, .roles-band article { padding-inline: 8px; }
-    .integration-list article { grid-template-columns: 32px 46px 1fr; gap: 12px; }
+    .integration-list article { grid-template-columns: 46px 1fr; gap: 12px; }
     .integration-icon { width: 46px; height: 46px; }
     .closing-section { margin: 7px; border-radius: 25px 25px 0 0; }
     :global(.closing-wave) { top: -28%; left: -80%; width: 720px; }

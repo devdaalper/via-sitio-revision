@@ -107,7 +107,7 @@ for (const [file, fragments] of Object.entries(fullCopyCoverage)) {
 }
 
 const requiredMarkerMarkup = {
-  home: ['una sola plataforma', '70%', 'Pilares', 'no promesas.', 'sin límites.'],
+  home: ['una sola plataforma', 'Pilares', 'no promesas.', 'tu equipo decida.', 'sin límites.'],
   process: ['de la vacante a la contratación', 'v.ia cambia tu reclutamiento'],
   solutions: ['Un equipo que trabaja por ti.', 'v.ia trabaja para todos', 'v.ia se adapta a tu empresa.'],
 };
@@ -118,6 +118,18 @@ for (const [file, fragments] of Object.entries(requiredMarkerMarkup)) {
       errors.push(`${file}: el fragmento no conserva marcador de fondo: “${fragment}”`);
     }
   }
+}
+
+if (/<mark[^>]*>70%<\/mark>/.test(sources.home)) {
+  errors.push('home: 70% tiene un marcador no indicado en el documento anotado.');
+}
+
+if (sources.home.includes('pillar-index')) {
+  errors.push('home: reapareció la numeración añadida a los pilares.');
+}
+
+if (sources.solutions.includes('String(index + 1).padStart')) {
+  errors.push('solutions: reapareció la numeración añadida a integraciones.');
 }
 
 const stepCount = (sources.process.match(/title:/g) ?? []).length;

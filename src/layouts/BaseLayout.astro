@@ -15,7 +15,7 @@ interface Props {
 const { title, description, currentPath = Astro.url.pathname, noindex = false } = Astro.props;
 const isReviewDeployment = import.meta.env.BASE_URL !== '/';
 const shouldNoindex = noindex || isReviewDeployment;
-const reviewId = isReviewDeployment ? 'VIA-WEB-R002' : undefined;
+const reviewId = isReviewDeployment ? 'VIA-WEB-R003' : undefined;
 ---
 
 <!doctype html>
@@ -41,7 +41,7 @@ const reviewId = isReviewDeployment ? 'VIA-WEB-R002' : undefined;
   <body>
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
     <Header currentPath={currentPath} />
-    <main id="contenido">
+    <main id="contenido" tabindex="-1">
       <slot />
     </main>
     <Footer />

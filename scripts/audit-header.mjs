@@ -22,6 +22,10 @@ if (source.includes("window.scrollY > 24")) {
   failures.push('Regresó el umbral único que provocaba oscilación');
 }
 
+if (/data-condensed\][^\n]*header-inner[^\n]*min-height/.test(source)) {
+  failures.push('El estado condensado vuelve a cambiar la altura del header y desplaza el scroll');
+}
+
 if (failures.length) {
   console.error('El encabezado sticky perdió su protección contra intermitencia:');
   for (const failure of failures) console.error(`- ${failure}`);
