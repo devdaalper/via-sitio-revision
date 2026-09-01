@@ -7,11 +7,12 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "check": "astro check && npm run audit:colors && npm run audit:typography && npm run audit:logo && npm run audit:header",
+    "check": "astro check && npm run audit:colors && npm run audit:typography && npm run audit:logo && npm run audit:header && npm run audit:client-feedback",
     "audit:colors": "node scripts/audit-colors.mjs",
     "audit:typography": "node scripts/audit-typography.mjs",
     "audit:logo": "node scripts/audit-logo.mjs",
-    "audit:header": "node scripts/audit-header.mjs"
+    "audit:header": "node scripts/audit-header.mjs",
+    "audit:client-feedback": "node scripts/audit-client-feedback.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "4.3.3",

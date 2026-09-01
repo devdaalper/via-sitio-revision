@@ -15,7 +15,7 @@ interface Props {
 const { title, description, currentPath = Astro.url.pathname, noindex = false } = Astro.props;
 const isReviewDeployment = import.meta.env.BASE_URL !== '/';
 const shouldNoindex = noindex || isReviewDeployment;
-const reviewId = isReviewDeployment ? 'VIA-WEB-R001' : undefined;
+const reviewId = isReviewDeployment ? 'VIA-WEB-R002' : undefined;
 ---
 
 <!doctype html>
@@ -27,7 +27,7 @@ const reviewId = isReviewDeployment ? 'VIA-WEB-R001' : undefined;
     {shouldNoindex && <meta name="robots" content="noindex, nofollow" />}
     {reviewId && <meta name="via:review-id" content={reviewId} />}
     {reviewId && <meta name="via:review-status" content="EN REVISIÓN" />}
-    {reviewId && <meta name="via:review-date" content="2026-08-28" />}
+    {reviewId && <meta name="via:review-date" content="2026-08-31" />}
     <meta name="theme-color" content="#F9F9F9" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

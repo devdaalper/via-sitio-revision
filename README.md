@@ -1,7 +1,7 @@
-# Sitio v.ia — primera entrega
+# Sitio v.ia — revisión R002
 
-Implementación paralela en Astro + Tailwind de la primera entrega de contenido aprobada el
-25-ago-2026. No modifica ni sustituye `prototipo/` o `prototipo-design-md/`.
+Implementación en Astro + Tailwind de la reestructura de contenido enviada por Marketing y Diseño
+el 31-ago-2026. La revisión pública R001 permanece inmutable.
 
 ## Comandos
 
@@ -24,7 +24,8 @@ un lanzamiento de producción.
 
 - `/` — Home;
 - `/plataforma` — Cómo funciona;
-- `/reclutamiento-masivo` — caso de uso de alto volumen;
+- `/soluciones` — agentes con IA, integraciones y soluciones por rol;
+- `/reclutamiento-masivo` — ruta heredada, fuera de la navegación principal;
 - `/contacto` — formulario diseñado, sin captación activa;
 - `/privacidad` y `/terminos` — rutas técnicas no indexables, pendientes de contenido aprobado.
 
@@ -32,10 +33,13 @@ un lanzamiento de producción.
 
 - El formulario usa `data-lead-status="inactive"`; todos sus controles permanecen
   desactivados. No hay destino, persistencia ni mensaje de éxito simulado.
-- Las representaciones de producto son editoriales y se identifican como tales. Las capturas reales
-  y anonimizadas siguen pendientes de preparar y autorizar.
+- Los visuales reales de entrevista por chat y videollamada siguen pendientes de recibir de Olivia;
+  mientras tanto se usan iconos editoriales sin simular interfaz de producto.
 - Privacidad y términos no contienen borradores inventados y están marcados con `noindex`.
-- No se publican métricas porcentuales ni nombres de clientes.
+- Las métricas porcentuales de esta revisión provienen directamente del documento instruccional del
+  cliente y se implementan como contenido confirmado para R002.
+- Las URLs oficiales de Instagram, Facebook y LinkedIn se configuran mediante variables públicas;
+  los iconos quedan inactivos mientras esas URLs no se proporcionen.
 
 ## Activos
 
