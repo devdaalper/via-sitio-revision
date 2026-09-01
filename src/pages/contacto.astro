@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import WaveBackdrop from '../components/WaveBackdrop.astro';
 import LineIcon from '../components/LineIcon.astro';
+import { withBase } from '../utils/paths';
 ---
 
 <BaseLayout
@@ -56,7 +57,7 @@ import LineIcon from '../components/LineIcon.astro';
           </div>
           <label class="consent-row">
             <input type="checkbox" name="consent" disabled />
-            <span>He leído y acepto el Aviso de privacidad.</span>
+            <span>He leído y acepto el <a href={withBase('/privacidad')}>Aviso de privacidad</a>.</span>
           </label>
           <button class="submit-button" type="submit" disabled aria-disabled="true">Solicita una demostración</button>
         </form>
@@ -96,6 +97,7 @@ import LineIcon from '../components/LineIcon.astro';
   .field input:disabled::placeholder, .field textarea:disabled::placeholder { color: #27414f; opacity: 1; }
   .consent-row { display: grid; grid-template-columns: 22px 1fr; align-items: start; gap: 11px; color: #27414f; font-size: 1rem; line-height: 1.6; }
   .consent-row input { width: 20px; height: 20px; margin: 1px 0 0; accent-color: #8dbd2f; opacity: 1; }
+  .consent-row a { display: inline-flex; min-height: 44px; align-items: center; color: #27414f; font-weight: 750; text-underline-offset: 3px; }
   .submit-button { min-height: 52px; border: 1px solid rgba(39,65,79,.48); border-radius: 999px; background: #edebdf; color: #27414f; padding: 14px 24px; font-weight: 800; opacity: 1; cursor: not-allowed; }
   .availability-note { margin: 0; background: #161a23; color: #edebdf; padding: 18px 24px; font-size: .875rem; line-height: 1.5; text-align: center; }
 

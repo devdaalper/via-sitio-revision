@@ -29,7 +29,10 @@ const socialLinks = [
 
       <div class="legal-state">
         <span>Documentos legales</span>
-        <p>Aviso de privacidad · Términos de uso</p>
+        <div class="legal-links">
+          <a href={withBase('/privacidad')}>Aviso de privacidad</a>
+          <a href={withBase('/terminos')}>Términos de uso</a>
+        </div>
       </div>
 
       <div class="footer-signature">
@@ -148,6 +151,9 @@ const socialLinks = [
   }
 
   .footer-grid nav a {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
     color: #edebdf;
     font-size: 0.9375rem;
     font-weight: 650;
@@ -165,6 +171,26 @@ const socialLinks = [
     color: rgba(237, 235, 223, 0.66);
     font-size: 0.9375rem;
     line-height: 1.55;
+  }
+
+  .legal-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 16px;
+  }
+
+  .legal-links a {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    color: rgba(237, 235, 223, 0.78);
+    font-size: 0.9375rem;
+    font-weight: 650;
+    text-decoration: none;
+  }
+
+  .legal-links a:hover {
+    color: #e1fe66;
   }
 
   .social-links {
@@ -258,6 +284,12 @@ const socialLinks = [
       gap: 34px;
       margin-top: 44px;
       padding-top: 34px;
+    }
+
+    .legal-links {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 0;
     }
 
     .footer-bottom {

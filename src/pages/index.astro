@@ -36,7 +36,7 @@ const capabilities = [
     <div class="shell hero-content">
       <p class="eyebrow">Plataforma integral de reclutamiento impulsada con IA, desde la requisición hasta la nómina.</p>
       <h1 id="home-title" class="display-title">Todo tu reclutamiento en <mark class="marker">una sola plataforma</mark></h1>
-      <p class="lead">v.ia filtra candidatos, realiza evaluaciones, agenda entrevistas, mantiene comunicación y valida documentos para la contratación.</p>
+      <p class="lead"><span class="accent-text">v.ia</span> filtra candidatos, realiza evaluaciones, agenda entrevistas, mantiene comunicación y valida documentos para la contratación.</p>
       <a class="btn-primary hero-button" href={withBase('/contacto')}>Solicita un demo <span aria-hidden="true">→</span></a>
     </div>
   </section>
@@ -44,7 +44,6 @@ const capabilities = [
   <section class="section-space-sm video-section" aria-labelledby="video-title">
     <div class="shell video-layout">
       <div class="video-heading">
-        <p class="eyebrow">Menos tiempo operativo</p>
         <h2 id="video-title" class="section-title">Reduce hasta un <mark class="marker">70%</mark> el tiempo de cada contratación.</h2>
       </div>
       <div class="video-frame">
@@ -62,7 +61,6 @@ const capabilities = [
   <section class="section-space pillars-section" aria-labelledby="pillars-title">
     <div class="shell pillars-layout">
       <div class="pillars-heading">
-        <p class="eyebrow">Una operación conectada</p>
         <h2 id="pillars-title" class="section-title"><mark class="marker">Pilares</mark> que transforman tu reclutamiento</h2>
       </div>
       <ol class="pillar-list">
@@ -120,9 +118,8 @@ const capabilities = [
   <section class="section-space capabilities-section" aria-labelledby="capabilities-title">
     <div class="shell">
       <div class="capabilities-heading">
-        <p class="eyebrow">Preparada para crecer contigo</p>
         <h2 id="capabilities-title" class="section-title">Diseñado para operar <mark class="marker">sin límites.</mark></h2>
-        <p class="lead">Tres capacidades que hacen de v.ia una plataforma lista para cualquier operación, industria y escala.</p>
+        <p class="lead">Tres capacidades que hacen de <span class="accent-text">v.ia</span> una plataforma lista para cualquier operación, industria y escala.</p>
       </div>
       <div class="capability-band">
         {capabilities.map((capability) => (
@@ -147,14 +144,15 @@ const capabilities = [
 </BaseLayout>
 
 <style>
-  .marker { position: relative; z-index: 0; display: inline; background: none; color: inherit; }
-  .marker::after { position: absolute; z-index: -1; right: -.08em; bottom: .06em; left: -.08em; height: .27em; background: #e1fe66; content: ""; }
+  .marker { display: inline; border-radius: .06em; background: #e1fe66; box-decoration-break: clone; color: #161a23; padding-inline: .06em; -webkit-box-decoration-break: clone; }
+  .accent-text { color: #8dbd2f; font-weight: 800; }
   .lime-text { color: #e1fe66; }
   .home-hero { position: relative; overflow: hidden; padding-block: clamp(74px,10vw,132px); }
   :global(.hero-wave) { top: 50%; left: 50%; width: min(1080px,92vw); transform: translate(-50%,-50%); opacity: .25; }
   .hero-content { position: relative; display: grid; justify-items: center; text-align: center; }
   .hero-content .eyebrow { max-width: 82ch; justify-content: center; }
   .hero-content .display-title { max-width: 15ch; }
+  #home-title .marker { white-space: nowrap; }
   .hero-content .lead { max-width: 72ch; }
   .hero-button { margin-top: 30px; border-color: #161a23; background: #161a23; color: #f9f9f9; }
   .hero-button:hover { border-color: #27414f; background: #27414f; }
@@ -170,7 +168,7 @@ const capabilities = [
   .pillar-index { color: #27414f; font-size: .875rem; font-weight: 850; letter-spacing: .08em; padding-top: 10px; }
   .pillar-icon { display: grid; width: 48px; height: 48px; place-items: center; border-radius: 50%; background: #edebdf; color: #27414f; }
   .pillar-icon :global(.line-icon) { width: 27px; height: 27px; stroke-width: 1.3; }
-  .pillar-list h3 { display: inline-block; margin: 0; border-radius: 8px; background: #161a23; color: #e1fe66; padding: 6px 10px; font-size: 1.05rem; line-height: 1.25; }
+  .pillar-list h3 { margin: 0; color: #8dbd2f; font-size: 1.05rem; font-weight: 780; line-height: 1.25; }
   .pillar-list p { margin: 7px 0 0; color: #27414f; font-size: 1rem; line-height: 1.55; }
   .human-section { padding: 12px; }
   .human-panel { position: relative; display: grid; min-height: 560px; overflow: hidden; grid-template-columns: 1.06fr .94fr; align-items: center; border-radius: 34px; background: #161a23; color: #edebdf; padding: clamp(52px,8vw,96px); }
@@ -182,7 +180,7 @@ const capabilities = [
   .metrics-grid { display: grid; grid-template-columns: repeat(4,1fr); margin-top: 54px; border-block: 1px solid rgba(39,65,79,.18); }
   .metrics-grid article { min-height: 230px; border-right: 1px solid rgba(39,65,79,.16); padding: 42px clamp(22px,3vw,38px); }
   .metrics-grid article:last-child { border-right: 0; }
-  .metrics-grid strong { display: inline-block; border-radius: 14px; background: #161a23; color: #e1fe66; padding: 12px 15px 10px; font-size: clamp(2.5rem,5vw,4.4rem); font-weight: 780; letter-spacing: -.055em; line-height: 1; }
+  .metrics-grid strong { color: #8dbd2f; font-size: clamp(2.5rem,5vw,4.4rem); font-weight: 780; letter-spacing: -.055em; line-height: 1; }
   .metrics-grid p { margin: 22px 0 0; color: #27414f; font-size: 1rem; font-weight: 650; line-height: 1.5; }
   .process-teaser { position: relative; overflow: hidden; background: #161a23; padding-block: clamp(70px,8vw,102px); }
   :global(.process-wave) { top: -155%; left: 31%; width: 980px; opacity: .52; }
@@ -195,7 +193,7 @@ const capabilities = [
   .capability-band article:last-child { border-right: 0; }
   .capability-band article > span { display: grid; width: 68px; height: 68px; place-items: center; border-radius: 50%; background: #161a23; color: #e1fe66; }
   .capability-band article > span :global(.line-icon) { width: 36px; height: 36px; stroke-width: 1.25; }
-  .capability-band h3 { display: inline-block; margin: 26px 0 0; border-radius: 8px; background: #161a23; color: #e1fe66; padding: 6px 10px; font-size: 1.05rem; line-height: 1.25; }
+  .capability-band h3 { margin: 26px 0 0; color: #8dbd2f; font-size: 1.05rem; font-weight: 780; line-height: 1.25; }
   .capability-band p { margin: 12px 0 0; color: #27414f; font-size: 1rem; line-height: 1.6; }
   .closing-section { position: relative; overflow: hidden; margin: 12px; border-radius: 34px 34px 0 0; background: #161a23; padding-block: clamp(76px,9vw,112px); }
   :global(.closing-wave) { top: -80%; left: 45%; width: 900px; opacity: .48; }
@@ -217,6 +215,7 @@ const capabilities = [
   }
   @media (max-width: 600px) {
     .home-hero { padding-block: 56px 72px; }
+    .home-hero .display-title { font-size: clamp(1.82rem,9vw,2.45rem); }
     :global(.hero-wave) { width: 720px; opacity: .19; }
     .hero-content .eyebrow { font-size: .875rem; line-height: 1.45; }
     .video-frame { border-radius: 22px; }

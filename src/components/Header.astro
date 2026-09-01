@@ -335,6 +335,9 @@ const links = [
 
   .desktop-nav a {
     position: relative;
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
     color: rgba(237, 235, 223, 0.82);
     font-size: 0.9375rem;
     font-weight: 700;
@@ -345,7 +348,7 @@ const links = [
   .desktop-nav a::after {
     position: absolute;
     right: 0;
-    bottom: -9px;
+    bottom: 2px;
     left: 0;
     height: 2px;
     transform: scaleX(0);

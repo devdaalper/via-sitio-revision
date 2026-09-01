@@ -66,8 +66,9 @@ textarea {
 }
 
 :focus-visible {
-  outline: 3px solid var(--green);
+  outline: 3px solid var(--dark);
   outline-offset: 4px;
+  box-shadow: 0 0 0 7px var(--lime);
 }
 
 .skip-link {
