@@ -15,7 +15,7 @@ interface Props {
 const { title, description, currentPath = Astro.url.pathname, noindex = false } = Astro.props;
 const isReviewDeployment = import.meta.env.BASE_URL !== '/';
 const shouldNoindex = noindex || isReviewDeployment;
-const reviewId = isReviewDeployment ? 'VIA-WEB-R003' : undefined;
+const reviewId = isReviewDeployment ? 'VIA-WEB-R002' : undefined;
 ---
 
 <!doctype html>

@@ -137,7 +137,7 @@ textarea {
   font-size: clamp(2.7rem, 6.4vw, 5.65rem);
   font-weight: 760;
   letter-spacing: -0.055em;
-  line-height: 0.98;
+  line-height: 1.24;
   text-wrap: balance;
 }
 
@@ -148,7 +148,7 @@ textarea {
   font-size: clamp(2.45rem, 5.2vw, 4.9rem);
   font-weight: 760;
   letter-spacing: -0.05em;
-  line-height: 1.02;
+  line-height: 1.24;
   text-wrap: balance;
 }
 
@@ -159,7 +159,7 @@ textarea {
   font-size: clamp(2rem, 4vw, 3.65rem);
   font-weight: 740;
   letter-spacing: -0.042em;
-  line-height: 1.08;
+  line-height: 1.24;
   text-wrap: balance;
 }
 

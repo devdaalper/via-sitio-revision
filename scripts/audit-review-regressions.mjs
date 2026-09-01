@@ -19,8 +19,16 @@ if (!/position:\s*relative/.test(badgeBlock)) {
   failures.push('La placa de revisión no conserva su posición dentro del flujo.');
 }
 
-if (!layout.includes("'VIA-WEB-R003'")) failures.push('El layout no identifica R003.');
-if (!badge.includes("'VIA-WEB-R003'")) failures.push('La placa no identifica R003.');
+for (const selector of ['.display-title', '.page-title', '.section-title']) {
+  const escaped = selector.replace('.', '\\.');
+  const match = globalStyles.match(new RegExp(`${escaped}\\s*\\{[^}]*line-height:\\s*([0-9.]+)`, 's'));
+  if (!match || Number(match[1]) < 1.24) {
+    failures.push(`${selector} no conserva el interlineado mínimo 1.24 requerido por los resaltados.`);
+  }
+}
+
+if (!layout.includes("'VIA-WEB-R002'")) failures.push('El layout no identifica R002.');
+if (!badge.includes("'VIA-WEB-R002'")) failures.push('La placa no identifica R002.');
 
 if (failures.length) {
   console.error('Regresiones de la auditoría adversarial:');
@@ -28,4 +36,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log('Regresiones R003 verificadas: foco, placa en flujo e identificación correctos.');
+console.log('Regresiones R002 verificadas: foco, placa en flujo e identificación correctos.');
