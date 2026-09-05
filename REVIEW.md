@@ -1,17 +1,20 @@
 # Revisión de trabajo
 
-- Identificador en preparación: `VIA-WEB-R002`
-- Estado: `VALIDACIÓN LOCAL`
-- Fecha de preparación: `2026-08-31`
+- Nombre público: **Versión 5 · Revisión actual**
+- Identificador: `VIA-WEB-R002`
+- Estado: `EN REVISIÓN`
+- Fecha visible: `2026-09-04`
+- Commit fuente: `d4e2239f5ed385cf6e3f8b16bf1021e1b070e8a6`
 - Fuente de instrucciones: Google Doc `MAPA SITIO WEB`, enviado por Marketing y Diseño.
 
-## Última revisión pública inmutable
+## Revisión pública vigente
 
-- Identificador: `VIA-WEB-R001`
-- Fecha de publicación: `2026-08-28`
+- Identificador: `VIA-WEB-R002`
+- Nombre público: **Versión 5**
+- Fecha de actualización: `2026-09-04`
 - Centro de revisiones: <https://devdaalper.github.io/via-web-revisiones/>
-- URL inmutable: <https://devdaalper.github.io/via-web-revisiones/r001/>
-- Alias de la versión vigente: <https://devdaalper.github.io/via-sitio-revision/>
+- URL para compartir: <https://devdaalper.github.io/via-web-revisiones/r002/>
 
-Una revisión compartida no se sobrescribe. Cualquier cambio posterior que deba volver a enviarse al
-equipo recibe el siguiente identificador consecutivo y una URL inmutable nueva.
+Mientras el equipo no haya iniciado la revisión formal de Versión 5, las correcciones internas de
+acabado permanecen en R002. Después de recibir feedback formal, la siguiente entrega evaluable debe
+crear un número nuevo. Ver `../docs/ESTADO-ACTUAL-SITIO-VIA.md`.

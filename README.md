@@ -1,7 +1,7 @@
 # Sitio v.ia — revisión R002
 
-Implementación en Astro + Tailwind de la reestructura de contenido enviada por Marketing y Diseño
-el 31-ago-2026. La revisión pública R001 permanece inmutable.
+Implementación en Astro + Tailwind de la reestructura de contenido enviada por Marketing y Diseño.
+El corte vigente es **Versión 5 · VIA-WEB-R002**.
 
 ## Comandos
 
@@ -13,12 +13,13 @@ npm run build
 npm run preview
 ```
 
-## Revisión pública
+## Revisión pública vigente
 
-La versión de revisión se publica desde el repositorio independiente
-`devdaalper/via-sitio-revision` mediante GitHub Actions. El build público usa la base
-`/via-sitio-revision` y añade `noindex, nofollow`; no sustituye al prototipo anterior ni representa
-un lanzamiento de producción.
+- URL para compartir: <https://devdaalper.github.io/via-web-revisiones/r002/>
+- Rama fuente: `codex/via-r002-final-polish`.
+- Commit fuente documentado: `d4e2239f5ed385cf6e3f8b16bf1021e1b070e8a6`.
+- La revisión añade `noindex, nofollow` y no representa un lanzamiento de producción.
+- Estado maestro: `../docs/ESTADO-ACTUAL-SITIO-VIA.md`.
 
 ## Rutas
 
