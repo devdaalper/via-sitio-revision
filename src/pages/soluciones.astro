@@ -29,6 +29,7 @@ const roles = [
   title="Soluciones V.IA | IA, automatización e integraciones"
   description="Conoce cómo V.IA combina entrevistas con IA, automatización e integraciones para cada rol del proceso de reclutamiento."
   currentPath="/soluciones"
+  connectFooter
 >
   <section class="page-hero" aria-labelledby="page-title">
     <WaveBackdrop variant="b" class="hero-wave" />
@@ -132,8 +133,9 @@ const roles = [
   .feature-band h3, .roles-band h3 { margin: 25px 0 0; color: #8dbd2f; font-size: 1.05rem; font-weight: 780; line-height: 1.25; }
   .feature-band p, .roles-band p { margin: 12px 0 0; color: #27414f; font-size: 1rem; line-height: 1.62; }
   .integrations-section { position: relative; overflow: hidden; background: #161a23; padding-block: clamp(76px,9vw,116px); }
-  :global(.integrations-wave) { top: -42%; left: -10%; width: 860px; opacity: .45; }
-  .integrations-layout { position: relative; display: grid; grid-template-columns: .85fr 1.15fr; align-items: start; gap: clamp(54px,9vw,116px); }
+  :global(.integrations-wave) { top: -42%; left: -10%; width: 860px; opacity: .45; -webkit-mask-image: radial-gradient(ellipse at 28% 28%, #161a23 0 44%, rgba(22,26,35,.88) 56%, transparent 78%); mask-image: radial-gradient(ellipse at 28% 28%, #161a23 0 44%, rgba(22,26,35,.88) 56%, transparent 78%); }
+  .integrations-section::after { position: absolute; z-index: 0; inset: 0; background: linear-gradient(to bottom, #161a23 0%, rgba(22,26,35,0) 15%, rgba(22,26,35,0) 84%, #161a23 100%); content: ""; pointer-events: none; }
+  .integrations-layout { position: relative; z-index: 1; display: grid; grid-template-columns: .85fr 1.15fr; align-items: start; gap: clamp(54px,9vw,116px); }
   .integrations-copy { position: sticky; top: 132px; }
   .integration-list { display: grid; }
   .integration-list article { display: grid; grid-template-columns: 54px 1fr; align-items: center; gap: 17px; border-top: 1px solid rgba(237,235,223,.17); padding-block: 26px; }
@@ -145,8 +147,9 @@ const roles = [
   .role-access { margin-top: 46px; border-top: 1px solid rgba(39,65,79,.18); padding-top: 34px; }
   .role-access .lead { max-width: 72ch; }
   .closing-section { position: relative; overflow: hidden; margin: 12px 12px 0; border-radius: 34px 34px 0 0; background: #161a23; padding-block: clamp(76px,9vw,112px); }
-  :global(.closing-wave) { top: -80%; left: 45%; width: 900px; opacity: .48; }
-  .closing-content { position: relative; display: grid; justify-items: center; text-align: center; }
+  :global(.closing-wave) { top: -118%; right: -12%; left: auto; width: 820px; opacity: .38; }
+  .closing-section::after { position: absolute; z-index: 0; inset: 0; background: linear-gradient(to bottom, #161a23 0%, rgba(22,26,35,0) 22%, rgba(22,26,35,0) 76%, #161a23 100%); content: ""; pointer-events: none; }
+  .closing-content { position: relative; z-index: 1; display: grid; justify-items: center; text-align: center; }
   .closing-content .section-title { max-width: 20ch; }
   .closing-content .lead { max-width: 63ch; }
   .closing-content .btn-primary { margin-top: 30px; }
@@ -164,6 +167,6 @@ const roles = [
     .integration-list article { grid-template-columns: 46px 1fr; gap: 12px; }
     .integration-icon { width: 46px; height: 46px; }
     .closing-section { margin: 7px 7px 0; border-radius: 25px 25px 0 0; }
-    :global(.closing-wave) { top: -28%; left: -80%; width: 720px; }
+    :global(.closing-wave) { display: none; }
   }
 </style>

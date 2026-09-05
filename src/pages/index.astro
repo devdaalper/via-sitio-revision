@@ -30,6 +30,7 @@ const capabilities = [
   title="V.IA | Todo tu reclutamiento en una sola plataforma"
   description="V.IA centraliza y automatiza el reclutamiento con IA, desde la requisición de la vacante hasta la nómina."
   currentPath="/"
+  connectFooter
 >
   <section class="home-hero" aria-labelledby="home-title">
     <WaveBackdrop variant="b" class="hero-wave" />
@@ -187,6 +188,7 @@ const capabilities = [
   .human-section { padding: 12px; }
   .human-panel { position: relative; display: grid; min-height: 560px; overflow: hidden; grid-template-columns: 1.06fr .94fr; align-items: center; gap: clamp(34px,6vw,80px); border-radius: 34px; background: #161a23; color: #edebdf; padding: clamp(52px,8vw,96px); }
   :global(.human-wave) { top: -38%; right: -15%; width: 760px; opacity: .48; }
+  .human-panel::after, .process-teaser::after { position: absolute; z-index: 0; inset: 0; background: linear-gradient(to bottom, #161a23 0%, rgba(22,26,35,0) 18%, rgba(22,26,35,0) 80%, #161a23 100%); content: ""; pointer-events: none; }
   .human-copy { position: relative; z-index: 2; }
   .human-video { position: relative; z-index: 2; overflow: hidden; aspect-ratio: 16/9; border-radius: 28px; background: #f9f9f9; box-shadow: 0 20px 48px rgba(22,26,35,.24); }
   .human-video video { width: 100%; height: 100%; object-fit: contain; }
@@ -198,7 +200,7 @@ const capabilities = [
   .metrics-grid p { margin: 22px 0 0; color: #27414f; font-size: 1rem; font-weight: 650; line-height: 1.5; }
   .process-teaser { position: relative; overflow: hidden; background: #161a23; padding-block: clamp(70px,8vw,102px); }
   :global(.process-wave) { top: -155%; left: 31%; width: 980px; opacity: .52; }
-  .process-teaser-inner { position: relative; display: grid; grid-template-columns: 1.1fr .9fr; align-items: end; gap: clamp(52px,9vw,120px); }
+  .process-teaser-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1.1fr .9fr; align-items: end; gap: clamp(52px,9vw,120px); }
   .process-teaser-copy { display: grid; justify-items: start; gap: 24px; }
   .process-teaser-copy p { max-width: 35ch; margin: 0; color: rgba(237,235,223,.78); font-size: 1.08rem; }
   .capabilities-heading { max-width: 790px; }
@@ -210,8 +212,9 @@ const capabilities = [
   .capability-band h3 { margin: 26px 0 0; color: #8dbd2f; font-size: 1.05rem; font-weight: 780; line-height: 1.25; }
   .capability-band p { margin: 12px 0 0; color: #27414f; font-size: 1rem; line-height: 1.6; }
   .closing-section { position: relative; overflow: hidden; margin: 12px 12px 0; border-radius: 34px 34px 0 0; background: #161a23; padding-block: clamp(76px,9vw,112px); }
-  :global(.closing-wave) { top: -80%; left: 45%; width: 900px; opacity: .48; }
-  .closing-content { position: relative; display: grid; justify-items: center; text-align: center; }
+  :global(.closing-wave) { top: -118%; right: -12%; left: auto; width: 820px; opacity: .38; }
+  .closing-section::after { position: absolute; z-index: 0; inset: 0; background: linear-gradient(to bottom, #161a23 0%, rgba(22,26,35,0) 22%, rgba(22,26,35,0) 76%, #161a23 100%); content: ""; pointer-events: none; }
+  .closing-content { position: relative; z-index: 1; display: grid; justify-items: center; text-align: center; }
   .closing-content .section-title { max-width: 21ch; }
   .closing-content .lead { max-width: 63ch; }
   .closing-content .btn-primary { margin-top: 30px; }
@@ -245,7 +248,7 @@ const capabilities = [
     :global(.process-wave) { top: -50%; left: -95%; width: 720px; }
     .capability-band article { padding-inline: 8px; }
     .closing-section { margin: 7px 7px 0; border-radius: 25px 25px 0 0; }
-    :global(.closing-wave) { top: -30%; left: -75%; width: 720px; }
+    :global(.closing-wave) { display: none; }
   }
   @media (min-width: 961px) and (max-height: 800px) {
     .home-hero { padding-block: 64px; }

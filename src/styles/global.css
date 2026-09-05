@@ -50,6 +50,31 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+.home-hero::after,
+.page-hero::after {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background: linear-gradient(to bottom, #f9f9f9 0%, rgba(249, 249, 249, 0) 16%, rgba(249, 249, 249, 0) 78%, #f9f9f9 100%);
+  content: "";
+  pointer-events: none;
+}
+
+.home-hero > .shell,
+.page-hero > .shell {
+  z-index: 1;
+}
+
+.footer-connected .site-footer .footer-frame {
+  margin-top: -1px;
+  border-radius: 0;
+}
+
+.footer-connected .site-footer .footer-wave {
+  top: -240px;
+  opacity: 0.42;
+}
+
 a {
   color: inherit;
 }

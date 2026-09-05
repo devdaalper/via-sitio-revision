@@ -192,7 +192,8 @@ const sectors = ['Staffing y outsourcing', 'Retail', 'BPO y contact centers', 'M
 
   .decision-section { position: relative; overflow: hidden; }
   :global(.decision-wave) { top: -52%; left: -25%; width: min(740px,70vw); opacity: .18; }
-  .decision-layout { position: relative; display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(56px,9vw,120px); }
+  .decision-section::after { position: absolute; z-index: 0; inset: 0; background: linear-gradient(to bottom, #f9f9f9 0%, rgba(249,249,249,0) 16%, rgba(249,249,249,0) 82%, #f9f9f9 100%); content: ""; pointer-events: none; }
+  .decision-layout { position: relative; z-index: 1; display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(56px,9vw,120px); }
   .decision-list { display: grid; margin: 0; padding: 0; list-style: none; }
   .decision-list li { display: grid; grid-template-columns: 62px 1fr; gap: 24px; border-top: 1px solid rgba(39,65,79,.18); padding-block: 26px; }
   .decision-list li:first-child { border-top: 0; padding-top: 0; }
@@ -201,7 +202,8 @@ const sectors = ['Staffing y outsourcing', 'Retail', 'BPO y contact centers', 'M
 
   .docs-section { padding-block: clamp(84px,11vw,140px); }
   :global(.docs-wave) { right: -22%; bottom: -64%; width: min(800px,72vw); opacity: .2; }
-  .docs-grid { position: relative; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 90px; }
+  .docs-section::after { position: absolute; z-index: 0; inset: 0; background: linear-gradient(to bottom, #161a23 0%, rgba(22,26,35,0) 16%, rgba(22,26,35,0) 80%, #161a23 100%); content: ""; pointer-events: none; }
+  .docs-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 90px; }
   .mexico-note { margin: 32px 0 0; border-top: 1px solid rgba(237,235,223,.16); color: rgba(237,235,223,.7); padding-top: 22px; font-size: 1rem; line-height: 1.6; }
   .mexico-note strong { color: #e1fe66; }
   .document-sequence { margin: 0; padding: 0; border-block: 1px solid rgba(237,235,223,.2); list-style: none; }

@@ -76,7 +76,8 @@ import { withBase } from '../utils/paths';
 <style>
   .contact-page { position: relative; overflow: hidden; min-height: calc(100vh - 82px); padding-block: clamp(68px,9vw,116px); }
   :global(.contact-wave) { left: -26%; bottom: -42%; width: min(760px,72vw); opacity: .22; }
-  .contact-grid { position: relative; display: grid; grid-template-columns: .86fr 1.14fr; align-items: start; gap: clamp(54px,8vw,105px); }
+  .contact-page::after { position: absolute; z-index: 0; inset: 0; background: linear-gradient(to bottom, #f9f9f9 0%, rgba(249,249,249,0) 16%, rgba(249,249,249,0) 80%, #f9f9f9 100%); content: ""; pointer-events: none; }
+  .contact-grid { position: relative; z-index: 1; display: grid; grid-template-columns: .86fr 1.14fr; align-items: start; gap: clamp(54px,8vw,105px); }
   .contact-intro { position: sticky; top: 126px; }
   .accent-text { color: #8dbd2f; font-weight: 800; }
 
@@ -113,6 +114,7 @@ import { withBase } from '../utils/paths';
   }
 
   @media (max-width: 560px) {
+    :global(.contact-wave) { display: none; }
     .form-heading { padding-inline: 22px; }
     .demo-form { padding: 26px 20px; }
   }

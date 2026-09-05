@@ -10,9 +10,10 @@ interface Props {
   description: string;
   currentPath?: string;
   noindex?: boolean;
+  connectFooter?: boolean;
 }
 
-const { title, description, currentPath = Astro.url.pathname, noindex = false } = Astro.props;
+const { title, description, currentPath = Astro.url.pathname, noindex = false, connectFooter = false } = Astro.props;
 const isReviewDeployment = import.meta.env.BASE_URL !== '/';
 const shouldNoindex = noindex || isReviewDeployment;
 const reviewId = isReviewDeployment ? 'VIA-WEB-R002' : undefined;
@@ -38,7 +39,7 @@ const reviewId = isReviewDeployment ? 'VIA-WEB-R002' : undefined;
     <link rel="icon" type="image/svg+xml" href={withBase('/assets/brand/favicon.svg')} />
     <title>{title}</title>
   </head>
-  <body>
+  <body class:list={{ 'footer-connected': connectFooter }}>
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
     <Header currentPath={currentPath} />
     <main id="contenido" tabindex="-1">

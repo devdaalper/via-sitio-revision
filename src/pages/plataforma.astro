@@ -27,6 +27,7 @@ const candidateBenefits = [
   title="Cómo funciona V.IA | De la vacante a la contratación"
   description="Conoce las nueve etapas que V.IA conecta y automatiza desde la requisición de la vacante hasta la incorporación."
   currentPath="/plataforma"
+  connectFooter
 >
   <section class="page-hero" aria-labelledby="page-title">
     <WaveBackdrop variant="b" class="hero-wave" />
@@ -131,8 +132,9 @@ const candidateBenefits = [
   .candidate-band h3 { margin: 25px 0 0; color: #8dbd2f; font-size: 1.05rem; font-weight: 780; line-height: 1.25; }
   .candidate-band p { margin: 12px 0 0; color: #27414f; font-size: 1rem; line-height: 1.62; }
   .closing-section { position: relative; overflow: hidden; margin: 12px 12px 0; border-radius: 34px 34px 0 0; background: #161a23; padding-block: clamp(76px,9vw,112px); }
-  :global(.closing-wave) { top: -115%; right: -8%; width: 920px; opacity: .52; }
-  .closing-content { position: relative; display: grid; justify-items: center; text-align: center; }
+  :global(.closing-wave) { top: -118%; right: -12%; width: 820px; opacity: .38; }
+  .closing-section::after { position: absolute; z-index: 0; inset: 0; background: linear-gradient(to bottom, #161a23 0%, rgba(22,26,35,0) 22%, rgba(22,26,35,0) 76%, #161a23 100%); content: ""; pointer-events: none; }
+  .closing-content { position: relative; z-index: 1; display: grid; justify-items: center; text-align: center; }
   .closing-content .section-title { max-width: 21ch; }
   .closing-content .lead { max-width: 54ch; }
   .closing-content .btn-primary { margin-top: 28px; }
@@ -157,6 +159,6 @@ const candidateBenefits = [
     .step-medallion :global(.line-icon) { width: 24px; height: 24px; }
     .candidate-band article { padding-inline: 8px; }
     .closing-section { margin: 7px 7px 0; border-radius: 25px 25px 0 0; }
-    :global(.closing-wave) { top: -32%; right: -90%; width: 720px; }
+    :global(.closing-wave) { display: none; }
   }
 </style>
