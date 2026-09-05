@@ -6,14 +6,16 @@ import { withBase } from '../utils/paths';
 
 const interviews = [
   { icon: 'interview', title: 'Entrevista por chat', copy: 'Conversación automatizada que evalúa al candidato en tiempo real.' },
-  { icon: 'video', title: 'Entrevista por videollamada', copy: 'v.ia conduce y registra la entrevista sin necesidad de un reclutador presente.' },
+  { icon: 'video', title: 'Entrevista por videollamada', copy: 'V.IA conduce y registra la entrevista sin necesidad de un reclutador presente.' },
   { icon: 'data', title: 'Resultados integrados', copy: 'Todo queda en el expediente del candidato listo para que tu equipo evalúe.' },
 ] as const;
 
 const integrations = [
   { icon: 'government', title: 'IMSS y RENAPO', copy: 'Validación oficial de identidad y registros del candidato en tiempo real.' },
   { icon: 'jobs', title: 'Bolsas de empleo', copy: 'Descarga automática de CVs desde los portales que ya usas.' },
-  { icon: 'payroll', title: 'Sistemas de nómina', copy: 'Alta del colaborador directo desde v.ia sin salir de la plataforma.' },
+  { icon: 'payroll', title: 'Sistemas de nómina', copy: 'Alta del colaborador directo desde V.IA sin salir de la plataforma.' },
+  { icon: 'systems', title: 'Comunicación y sistemas de talento', copy: 'Integra Office 365, WhatsApp, CRM, ATS y HCM para conectar comunicación, candidatos y operación.' },
+  { icon: 'documents', title: 'Evaluación y firma digital', copy: 'Conecta plataformas de psicometría y firma digital para completar el proceso sin salir de V.IA.' },
 ] as const;
 
 const roles = [
@@ -24,31 +26,35 @@ const roles = [
 ---
 
 <BaseLayout
-  title="Soluciones v.ia | IA, automatización e integraciones"
-  description="Conoce cómo v.ia combina entrevistas con IA, automatización e integraciones para cada rol del proceso de reclutamiento."
+  title="Soluciones V.IA | IA, automatización e integraciones"
+  description="Conoce cómo V.IA combina entrevistas con IA, automatización e integraciones para cada rol del proceso de reclutamiento."
   currentPath="/soluciones"
 >
   <section class="page-hero" aria-labelledby="page-title">
     <WaveBackdrop variant="b" class="hero-wave" />
     <div class="shell hero-content">
-      <p class="eyebrow">Lo que v.ia hace por tu equipo</p>
+      <p class="eyebrow">Lo que V.IA hace por tu equipo</p>
       <h1 id="page-title" class="page-title">Más que una plataforma. <mark class="marker">Un equipo que trabaja por ti.</mark></h1>
-      <p class="lead"><span class="accent-text">v.ia</span> combina inteligencia artificial, automatización e integraciones para que tu proceso de reclutamiento opere solo, mientras tu equipo se enfoca en decidir.</p>
+      <p class="lead"><span class="accent-text">V.IA</span> combina inteligencia artificial, automatización e integraciones para que tu proceso de reclutamiento opere solo, mientras tu equipo se enfoca en decidir.</p>
     </div>
   </section>
 
   <section class="section-space interviews-section" aria-labelledby="interviews-title">
     <div class="shell section-heading">
       <p class="eyebrow">Agentes con IA</p>
-      <h2 id="interviews-title" class="section-title">Entrevistas que no dependen de tu equipo.</h2>
-      <p class="lead"><span class="accent-text">v.ia</span> conduce la primera entrevista por chat o videollamada, evalúa respuestas y concentra los resultados en el expediente del candidato, sin que el reclutador tenga que intervenir.</p>
+      <h2 id="interviews-title" class="section-title">Entrevistas reales, que le <mark class="marker">ahorran tiempo a tu equipo.</mark></h2>
+      <p class="lead"><span class="accent-text">V.IA</span> <strong>realiza filtros por chat, llamada de audio o videollamada</strong>; evalúa respuestas y concentra los resultados en el expediente del candidato, sin que el reclutador tenga que intervenir.</p>
     </div>
     <div class="shell feature-band interview-band">
       {interviews.map((item) => (
         <article>
           <span class="feature-icon" aria-hidden="true"><LineIcon name={item.icon} /></span>
           <h3>{item.title}</h3>
-          <p>{item.copy}</p>
+          <p set:html={item.title === 'Entrevista por chat'
+            ? 'Conversación automatizada que <strong>evalúa al candidato en tiempo real.</strong>'
+            : item.title === 'Entrevista por videollamada'
+              ? '<strong class="accent-text">V.IA</strong> conduce y <strong>registra la entrevista</strong> sin necesidad de un reclutador presente.'
+              : '<strong>Todo queda en el expediente</strong> del candidato listo para que tu equipo evalúe.'} />
         </article>
       ))}
     </div>
@@ -60,13 +66,13 @@ const roles = [
       <div class="integrations-copy">
         <p class="eyebrow eyebrow-on-dark">Conectado a tu operación</p>
         <h2 id="integrations-title" class="section-title section-title-on-dark">Se integra con los sistemas que ya usas.</h2>
-        <p class="lead lead-on-dark">v.ia se conecta con portales de gobierno, plataformas de nómina y bolsas de empleo para centralizar todo sin duplicar información ni procesos.</p>
+        <p class="lead lead-on-dark"><span class="accent-text">V.IA</span> se conecta con portales de gobierno, plataformas de nómina y bolsas de empleo para <strong>centralizar todo sin duplicar información ni procesos.</strong></p>
       </div>
       <div class="integration-list">
         {integrations.map((item) => (
           <article>
             <div class="integration-icon" aria-hidden="true"><LineIcon name={item.icon} /></div>
-            <div><h3>{item.title}</h3><p>{item.copy}</p></div>
+            <div><h3>{item.title}</h3><p set:html={item.copy.replaceAll('V.IA', '<strong class="accent-text">V.IA</strong>')} /></div>
           </article>
         ))}
       </div>
@@ -76,24 +82,32 @@ const roles = [
   <section class="section-space roles-section" aria-labelledby="roles-title">
     <div class="shell roles-heading">
       <p class="eyebrow">Diseñado para cada rol</p>
-      <h2 id="roles-title" class="section-title"><mark class="marker">v.ia trabaja para todos</mark> los que participan en el proceso.</h2>
-      <p class="lead">Cada área tiene necesidades distintas. v.ia se adapta a lo que cada rol necesita.</p>
+      <h2 id="roles-title" class="section-title"><mark class="marker">V.IA trabaja para todos</mark> los que participan en el proceso.</h2>
+      <p class="lead">Cada área tiene necesidades distintas. <span class="accent-text">V.IA</span> se adapta a lo que cada rol necesita.</p>
     </div>
     <div class="shell roles-band">
       {roles.map((role) => (
         <article>
           <span aria-hidden="true"><LineIcon name={role.icon} /></span>
           <h3>{role.title}</h3>
-          <p>{role.copy}</p>
+          <p set:html={role.title === 'Director de RH'
+            ? 'Visibilidad total, datos para reportar y <strong>tiempo para lo estratégico.</strong>'
+            : role.title === 'Reclutador'
+              ? 'Menos operación, <strong>más candidatos relevantes</strong> y decisiones con criterio.'
+              : '<strong>Vacantes cubiertas más rápido</strong>, costos controlados y RH estratégico.'} />
         </article>
       ))}
+    </div>
+    <div class="shell role-access">
+      <p class="eyebrow">Control y visibilidad por rol</p>
+      <p class="lead">Cada equipo accede a la información que necesita, con <strong>permisos configurados según su nivel de responsabilidad:</strong> Director, Gerente o Reclutador.</p>
     </div>
   </section>
 
   <section class="closing-section" aria-labelledby="closing-title">
     <WaveBackdrop variant="b" class="closing-wave" />
     <div class="shell closing-content">
-      <h2 id="closing-title" class="section-title section-title-on-dark">Descubre cómo <mark class="marker marker-on-dark">v.ia se adapta a tu empresa.</mark></h2>
+      <h2 id="closing-title" class="section-title section-title-on-dark">Descubre cómo <mark class="marker marker-on-dark">V.IA se adapta a tu empresa.</mark></h2>
       <p class="lead lead-on-dark">Cuéntanos cómo recluta tu empresa hoy y te mostramos qué solución encaja mejor con tu proceso.</p>
       <a class="btn-primary" href={withBase('/contacto')}>Habla con un especialista <span aria-hidden="true">→</span></a>
     </div>
@@ -103,7 +117,7 @@ const roles = [
 <style>
   .marker { display: inline; border-radius: .06em; background: #e1fe66; box-decoration-break: clone; color: #161a23; padding-inline: .06em; -webkit-box-decoration-break: clone; }
   .marker-on-dark { border-radius: .08em; background: #e1fe66; box-decoration-break: clone; color: #161a23; padding-inline: .08em; -webkit-box-decoration-break: clone; }
-  .accent-text { color: #8dbd2f; font-weight: 800; }
+  :global(.accent-text) { color: #8dbd2f; font-weight: 800; }
   .page-hero { position: relative; overflow: hidden; padding-block: clamp(72px,9vw,118px); }
   :global(.hero-wave) { top: 50%; left: 50%; width: min(1050px,92vw); transform: translate(-50%,-50%); opacity: .23; }
   .hero-content { position: relative; display: grid; justify-items: center; text-align: center; }
@@ -122,13 +136,15 @@ const roles = [
   .integrations-layout { position: relative; display: grid; grid-template-columns: .85fr 1.15fr; align-items: start; gap: clamp(54px,9vw,116px); }
   .integrations-copy { position: sticky; top: 132px; }
   .integration-list { display: grid; }
-  .integration-list article { display: grid; grid-template-columns: 54px 1fr; align-items: start; gap: 17px; border-top: 1px solid rgba(237,235,223,.17); padding-block: 26px; }
+  .integration-list article { display: grid; grid-template-columns: 54px 1fr; align-items: center; gap: 17px; border-top: 1px solid rgba(237,235,223,.17); padding-block: 26px; }
   .integration-list article:last-child { border-bottom: 1px solid rgba(237,235,223,.17); }
   .integration-icon { display: grid; width: 54px; height: 54px; place-items: center; border-radius: 50%; background: #edebdf; color: #27414f; }
   .integration-icon :global(.line-icon) { width: 30px; height: 30px; stroke-width: 1.25; }
   .integration-list h3 { margin: 4px 0 0; color: #e1fe66; font-size: 1.15rem; }
   .integration-list p { margin: 8px 0 0; color: rgba(237,235,223,.74); font-size: 1rem; line-height: 1.58; }
-  .closing-section { position: relative; overflow: hidden; margin: 12px; border-radius: 34px 34px 0 0; background: #161a23; padding-block: clamp(76px,9vw,112px); }
+  .role-access { margin-top: 46px; border-top: 1px solid rgba(39,65,79,.18); padding-top: 34px; }
+  .role-access .lead { max-width: 72ch; }
+  .closing-section { position: relative; overflow: hidden; margin: 12px 12px 0; border-radius: 34px 34px 0 0; background: #161a23; padding-block: clamp(76px,9vw,112px); }
   :global(.closing-wave) { top: -80%; left: 45%; width: 900px; opacity: .48; }
   .closing-content { position: relative; display: grid; justify-items: center; text-align: center; }
   .closing-content .section-title { max-width: 20ch; }
@@ -147,7 +163,7 @@ const roles = [
     .feature-band article, .roles-band article { padding-inline: 8px; }
     .integration-list article { grid-template-columns: 46px 1fr; gap: 12px; }
     .integration-icon { width: 46px; height: 46px; }
-    .closing-section { margin: 7px; border-radius: 25px 25px 0 0; }
+    .closing-section { margin: 7px 7px 0; border-radius: 25px 25px 0 0; }
     :global(.closing-wave) { top: -28%; left: -80%; width: 720px; }
   }
 </style>

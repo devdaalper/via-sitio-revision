@@ -20,7 +20,8 @@ interface Props {
     | 'jobs'
     | 'payroll'
     | 'leader'
-    | 'recruiter';
+    | 'recruiter'
+    | 'folder';
 }
 
 const { name } = Astro.props;
@@ -125,6 +126,11 @@ const { name } = Astro.props;
   {name === 'recruiter' && (
     <>
       <circle cx="11" cy="10" r="4" /><path d="M4.5 25c.8-5.2 3-7.8 6.5-7.8s5.7 2.6 6.5 7.8M20 13h8M24 9v8M20 23h7" />
+    </>
+  )}
+  {name === 'folder' && (
+    <>
+      <path d="M4 9h9l3 3h12v15H4z" /><path d="M4 9V6h9l3 3h8" />
     </>
   )}
 </svg>
