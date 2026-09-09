@@ -14,7 +14,6 @@ const links = [
 
 <header class="site-header" data-site-header>
   <div class="header-frame">
-    <div class="header-wave" style={`--wave-url: url("${withBase('/assets/brand/wave-a.png')}")`} aria-hidden="true"></div>
     <div class="shell header-inner">
       <nav class="desktop-nav" aria-label="Navegación principal">
         {links.map((link) => (
@@ -50,6 +49,22 @@ const links = [
         <a class="mobile-contact" href={withBase('/contacto')}>Solicita una demostración <span aria-hidden="true">→</span></a>
       </div>
     </nav>
+    <noscript>
+      <nav class="mobile-nav" aria-label="Navegación móvil">
+        <div class="shell mobile-nav-inner">
+          {links.map((link) => (
+            <a href={withBase(link.href)} aria-current={currentPath === link.href ? 'page' : undefined}>{link.label}</a>
+          ))}
+          <a class="mobile-contact" href={withBase('/contacto')}>Solicita una demostración <span aria-hidden="true">→</span></a>
+        </div>
+      </nav>
+      <style is:inline>
+        [data-site-header] [data-menu-toggle] { display: none; }
+        @media (max-width: 960px) {
+          [data-site-header] { position: relative; }
+        }
+      </style>
+    </noscript>
   </div>
 </header>
 
@@ -175,6 +190,9 @@ const links = [
   const expandAt = 8;
   let condensed = window.scrollY >= collapseAt;
   let updatePending = false;
+  const contentActions = [...document.querySelectorAll<HTMLElement>('main .btn-primary, .closing-section .btn-primary, .close-band .btn-primary')]
+    .filter(action => !action.matches(':disabled, [aria-disabled="true"]'));
+  const headerFrame = header?.querySelector('.header-frame');
 
   header?.toggleAttribute('data-condensed', condensed);
 
@@ -184,22 +202,49 @@ const links = [
 
     window.requestAnimationFrame(() => {
       const scrollPosition = Math.max(window.scrollY, 0);
+      const contentTop = (headerFrame?.getBoundingClientRect().bottom ?? 0) + 12;
+      const hasContentAction = contentActions.some(action => {
+        const rect = action.getBoundingClientRect();
+        return rect.width > 0 && rect.height > 0 &&
+          Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, contentTop) >= rect.height / 2;
+      });
 
       if (!condensed && scrollPosition >= collapseAt) condensed = true;
       if (condensed && scrollPosition <= expandAt) condensed = false;
 
       header?.toggleAttribute('data-condensed', condensed);
+      header?.toggleAttribute('data-content-action', hasContentAction);
       updatePending = false;
     });
   };
 
   window.addEventListener('scroll', updateHeader, { passive: true });
+  window.addEventListener('resize', updateHeader, { passive: true });
+  const headerResize = new ResizeObserver(updateHeader);
+  if (headerFrame) headerResize.observe(headerFrame);
+  document.fonts.ready.then(updateHeader);
+  updateHeader();
 
+  const closeMenu = () => {
+    toggle?.setAttribute('aria-expanded', 'false');
+    toggle?.setAttribute('aria-label', 'Abrir menú');
+    if (menu instanceof HTMLElement) menu.hidden = true;
+  };
   toggle?.addEventListener('click', () => {
     const open = toggle.getAttribute('aria-expanded') === 'true';
-    toggle.setAttribute('aria-expanded', String(!open));
-    toggle.setAttribute('aria-label', open ? 'Abrir menú' : 'Cerrar menú');
-    if (menu instanceof HTMLElement) menu.hidden = open;
+    if (open) {
+      closeMenu();
+    } else {
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', 'Cerrar menú');
+      if (menu instanceof HTMLElement) menu.hidden = false;
+    }
+  });
+  header?.addEventListener('keydown', (event) => {
+    if (event instanceof KeyboardEvent && event.key === 'Escape' && toggle?.getAttribute('aria-expanded') === 'true') {
+      closeMenu();
+      if (toggle instanceof HTMLElement) toggle.focus();
+    }
   });
 </script>
 
@@ -208,7 +253,7 @@ const links = [
     position: sticky;
     z-index: 50;
     top: 0;
-    background: rgba(249, 249, 249, 0.98);
+    background: transparent;
     padding: 10px 12px 0;
   }
 
@@ -221,32 +266,6 @@ const links = [
     background: #161a23;
     box-shadow: 0 12px 30px rgba(22, 26, 35, 0.12);
     transition: border-radius 180ms ease, box-shadow 180ms ease;
-  }
-
-  .header-wave {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-  }
-
-  .header-wave::before,
-  .header-wave::after {
-    position: absolute;
-    top: -120px;
-    width: 650px;
-    height: 600px;
-    background: var(--wave-url) center / contain no-repeat;
-    content: "";
-    opacity: 0.7;
-  }
-
-  .header-wave::before {
-    left: -32px;
-  }
-
-  .header-wave::after {
-    right: -32px;
-    transform: scaleX(-1);
   }
 
   .header-inner {
@@ -395,6 +414,22 @@ const links = [
     background: #e1fe66;
     transform: translateY(-1px);
   }
+  /* The visible section owns the primary action; navigation stays available
+     without a second equally bright button. Dimensions remain unchanged. */
+  .site-header[data-content-action] .header-contact {
+    background: transparent;
+    color: #edebdf;
+    box-shadow: inset 0 0 0 1px #edebdf;
+  }
+  .site-header[data-content-action] .header-contact:hover {
+    color: #e1fe66;
+    box-shadow: inset 0 0 0 1px #e1fe66;
+  }
+  .site-header[data-content-action] .header-contact:focus-visible {
+    outline: 3px solid #e1fe66;
+    outline-offset: 4px;
+  }
+  .header-contact:active, .mobile-contact:active { transform: translateY(1px); }
 
   .menu-toggle,
   .mobile-nav {
@@ -490,22 +525,6 @@ const links = [
 
     .brand-mark img {
       width: 100%;
-    }
-
-    .header-wave::before,
-    .header-wave::after {
-      top: -84px;
-      width: 450px;
-      height: 420px;
-      opacity: 0.66;
-    }
-
-    .header-wave::before {
-      left: -175px;
-    }
-
-    .header-wave::after {
-      right: -175px;
     }
 
     .site-header[data-condensed] .brand-mark { width: 108px; }

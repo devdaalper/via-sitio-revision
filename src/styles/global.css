@@ -50,29 +50,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.home-hero::after,
-.page-hero::after {
-  position: absolute;
-  z-index: 0;
-  inset: 0;
-  background: linear-gradient(to bottom, #f9f9f9 0%, rgba(249, 249, 249, 0) 16%, rgba(249, 249, 249, 0) 78%, #f9f9f9 100%);
-  content: "";
-  pointer-events: none;
-}
 
 .home-hero > .shell,
 .page-hero > .shell {
   z-index: 1;
-}
-
-.footer-connected .site-footer .footer-frame {
-  margin-top: -1px;
-  border-radius: 0;
-}
-
-.footer-connected .site-footer .footer-wave {
-  top: -240px;
-  opacity: 0.42;
 }
 
 a {
@@ -118,6 +99,16 @@ textarea {
   width: min(1200px, calc(100% - 48px));
   margin-inline: auto;
 }
+
+/* All artwork is behind these content surfaces in the same page canvas. */
+.wave-section { position: relative; }
+.inset-panel {
+  width: min(1440px, calc(100% - clamp(32px, 8vw, 128px)));
+  margin-inline: auto;
+  border-radius: 34px;
+  box-shadow: var(--shadow-soft);
+}
+@media (max-width: 600px) { .inset-panel { border-radius: 25px; } }
 
 .section-space {
   padding-block: clamp(72px, 10vw, 128px);

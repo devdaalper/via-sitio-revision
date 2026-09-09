@@ -1,0 +1,16 @@
+---
+import waveA from '../data/wave-a-centerlines.json';
+import waveB from '../data/wave-b-centerlines.json';
+
+interface Props { variant?: 'a' | 'b'; }
+const { variant = 'b' } = Astro.props;
+const artwork = variant === 'a' ? waveA : waveB;
+---
+
+<svg class="wave-art" data-wave-art={variant} viewBox={artwork.viewBox.join(' ')} width={artwork.viewBox[2]} height={artwork.viewBox[3]} focusable="false">
+  <g fill="none" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round">
+    {artwork.lines.map((line) => (
+      <path d={line.d} stroke={`rgb(${line.rgb.join(',')})`} vector-effect="non-scaling-stroke" />
+    ))}
+  </g>
+</svg>

@@ -1,0 +1,461 @@
+[
+  {
+    "id": "HOME-04",
+    "page": "home",
+    "text": "Solicita una demo"
+  },
+  {
+    "id": "HOME-07",
+    "page": "home",
+    "text": "Reduce hasta un 70% el tiempo de contratación."
+  },
+  {
+    "id": "HOME-09",
+    "page": "home",
+    "text": "hasta un 70%"
+  },
+  {
+    "id": "HOME-10",
+    "page": "home",
+    "text": "el tiempo de"
+  },
+  {
+    "id": "HOME-13",
+    "page": "home",
+    "text": "Pilares que transforman tu selección de talento"
+  },
+  {
+    "id": "HOME-14",
+    "page": "home",
+    "text": "Pilares que"
+  },
+  {
+    "id": "HOME-17",
+    "page": "home",
+    "text": "LO IMPORTANTE DEL PROCESO ES LO HUMANO.",
+    "sourceCase": "css-uppercase"
+  },
+  {
+    "id": "HOME-23",
+    "page": "home",
+    "text": "V.IA ejecuta. Tú mantienes el control."
+  },
+  {
+    "id": "HOME-25",
+    "page": "home",
+    "text": "Tú mantienes el control."
+  },
+  {
+    "id": "HOME-26",
+    "page": "home",
+    "text": "V.IA se encarga de lo operativo para que tu equipo de RH deje de ejecutar y empiece a estrategizar: menos revisión de CVs, más tiempo para el clima laboral, los líderes y las decisiones que realmente importan."
+  },
+  {
+    "id": "HOME-27",
+    "page": "home",
+    "text": "tu equipo de RH deje de ejecutar y empiece a estrategizar:"
+  },
+  {
+    "id": "HOME-28",
+    "page": "home",
+    "text": "más tiempo para el clima laboral, los líderes y las decisiones que realmente importan."
+  },
+  {
+    "id": "HOME-29",
+    "page": "home",
+    "text": "V.IA automatiza para que tu equipo decida."
+  },
+  {
+    "id": "HOME-31",
+    "page": "home",
+    "text": "tu equipo decida."
+  },
+  {
+    "id": "HOME-32",
+    "page": "home",
+    "text": "Más de 8 etapas del proceso de reclutamiento automatizadas en V.IA"
+  },
+  {
+    "id": "HOME-33",
+    "page": "home",
+    "text": "proceso de reclutamiento"
+  },
+  {
+    "id": "HOME-35",
+    "page": "home",
+    "text": "Tres capacidades que hacen de V.IA una plataforma lista para cualquier operación, industria y escala."
+  },
+  {
+    "id": "HOME-36",
+    "page": "home",
+    "text": "Mejor experiencia para todos"
+  },
+  {
+    "id": "HOME-37",
+    "page": "home",
+    "text": "Candidatos y reclutadores tienen visibilidad en tiempo real de cada etapa del proceso, sin fricciones ni silencios."
+  },
+  {
+    "id": "HOME-38",
+    "page": "home",
+    "text": "visibilidad en tiempo real de cada etapa"
+  },
+  {
+    "id": "HOME-39",
+    "page": "home",
+    "text": "Validación documental oficial"
+  },
+  {
+    "id": "HOME-40",
+    "page": "home",
+    "text": "V.IA se integra con portales de gobierno para verificar documentos automáticamente y eliminar riesgos legales desde el inicio."
+  },
+  {
+    "id": "HOME-41",
+    "page": "home",
+    "text": "integra con portales de gobierno"
+  },
+  {
+    "id": "HOME-42",
+    "page": "home",
+    "text": "Operación global y escalable"
+  },
+  {
+    "id": "HOME-43",
+    "page": "home",
+    "text": "Multipaís, multi-idioma y multiplataforma. V.IA se adapta a donde está tu operación sin importar el volumen."
+  },
+  {
+    "id": "HOME-44",
+    "page": "home",
+    "text": "Multipaís, multi-idioma y multiplataforma."
+  },
+  {
+    "id": "HOME-45",
+    "page": "home",
+    "text": "Te mostramos cómo V.IA reduce tiempos, elimina tareas manuales y devuelve el control a tu equipo de RH."
+  },
+  {
+    "id": "HOME-49",
+    "page": "home",
+    "text": "Plataforma de reclutamiento impulsada por IA"
+  },
+  {
+    "id": "FUNC-02",
+    "page": "process",
+    "text": "V.IA gestiona todo el ciclo de reclutamiento en un solo lugar: publica vacantes, filtra perfiles con IA, coordina entrevistas, valida documentos y acompaña el proceso hasta la nómina."
+  },
+  {
+    "id": "FUNC-10",
+    "page": "process",
+    "text": "Agenda una demostración"
+  },
+  {
+    "id": "FUNC-11",
+    "page": "process",
+    "text": "V.IA cuida la experiencia de cada persona que pasa por el proceso"
+  },
+  {
+    "id": "FUNC-12",
+    "page": "process",
+    "text": "Cada candidato sabe exactamente en qué etapa está y qué sigue. Sin silencio, sin incertidumbre."
+  },
+  {
+    "id": "FUNC-13",
+    "page": "process",
+    "text": "Cada candidato sabe exactamente en qué etapa está"
+  },
+  {
+    "id": "FUNC-14",
+    "page": "process",
+    "text": "La forma en que tratas a un candidato dice mucho de tu empresa. V.IA cuida esa experiencia en cada paso del proceso."
+  },
+  {
+    "id": "FUNC-14A",
+    "page": "process",
+    "text": "Marca empleadora"
+  },
+  {
+    "id": "FUNC-15",
+    "page": "process",
+    "text": "La forma en que tratas a un candidato dice mucho de tu empresa."
+  },
+  {
+    "id": "FUNC-16",
+    "page": "process",
+    "text": "Un rechazo no es un adiós. Los perfiles quedan activos para reconectarse cuando surja la oportunidad correcta."
+  },
+  {
+    "id": "FUNC-17",
+    "page": "process",
+    "text": "Los perfiles quedan activos para reconectarse"
+  },
+  {
+    "id": "FUNC-18",
+    "page": "process",
+    "text": "Conoce cómo V.IA cambia tu reclutamiento"
+  },
+  {
+    "id": "FUNC-21",
+    "page": "process",
+    "text": "cambia tu reclutamiento"
+  },
+  {
+    "id": "FUNC-22",
+    "page": "process",
+    "text": "DALE A TU EQUIPO DE RH LO QUE NECESITA",
+    "sourceCase": "css-uppercase"
+  },
+  {
+    "id": "FUNC-23",
+    "page": "process",
+    "text": "Ahorra tiempo, costos de operación y mejora la eficiencia de RH."
+  },
+  {
+    "id": "SOL-02",
+    "page": "solutions",
+    "text": "V.IA combina inteligencia artificial, automatización e integraciones para que tu proceso de reclutamiento opere solo, mientras tu equipo se enfoca en decidir."
+  },
+  {
+    "id": "SOL-04",
+    "page": "solutions",
+    "text": "Entrevistas reales, que le ahorran tiempo a tu equipo."
+  },
+  {
+    "id": "SOL-05",
+    "page": "solutions",
+    "text": "ahorran tiempo a tu equipo."
+  },
+  {
+    "id": "SOL-06",
+    "page": "solutions",
+    "text": "V.IA realiza filtros por chat, llamada de audio o videollamada; evalúa respuestas y concentra los resultados en el expediente del candidato, sin que el reclutador tenga que intervenir."
+  },
+  {
+    "id": "SOL-07",
+    "page": "solutions",
+    "text": "realiza filtros por chat, llamada de audio o videollamada"
+  },
+  {
+    "id": "SOL-08",
+    "page": "solutions",
+    "text": "Entrevista por chat"
+  },
+  {
+    "id": "SOL-09",
+    "page": "solutions",
+    "text": "Conversación automatizada que evalúa al candidato en tiempo real."
+  },
+  {
+    "id": "SOL-09",
+    "page": "solutions",
+    "text": "evalúa al candidato en tiempo real."
+  },
+  {
+    "id": "SOL-11",
+    "page": "solutions",
+    "text": "Entrevista por videollamada"
+  },
+  {
+    "id": "SOL-12",
+    "page": "solutions",
+    "text": "V.IA conduce y registra la entrevista sin necesidad de un reclutador presente."
+  },
+  {
+    "id": "SOL-12",
+    "page": "solutions",
+    "text": "registra la entrevista"
+  },
+  {
+    "id": "SOL-14",
+    "page": "solutions",
+    "text": "Resultados integrados"
+  },
+  {
+    "id": "SOL-15",
+    "page": "solutions",
+    "text": "Todo queda en el expediente del candidato listo para que tu equipo evalúe."
+  },
+  {
+    "id": "SOL-15",
+    "page": "solutions",
+    "text": "Todo queda en el expediente"
+  },
+  {
+    "id": "SOL-17",
+    "page": "solutions",
+    "text": "V.IA se conecta con portales de gobierno, plataformas de nómina y bolsas de empleo para centralizar todo sin duplicar información ni procesos."
+  },
+  {
+    "id": "SOL-18",
+    "page": "solutions",
+    "text": "centralizar todo sin duplicar información ni procesos."
+  },
+  {
+    "id": "SOL-20",
+    "page": "solutions",
+    "text": "Validación oficial de identidad y registros del candidato en tiempo real."
+  },
+  {
+    "id": "SOL-21",
+    "page": "solutions",
+    "text": "Descarga automática de CVs desde los portales que ya usas."
+  },
+  {
+    "id": "SOL-22",
+    "page": "solutions",
+    "text": "Sistemas de nómina"
+  },
+  {
+    "id": "SOL-22",
+    "page": "solutions",
+    "text": "Alta del colaborador directo desde V.IA sin salir de la plataforma."
+  },
+  {
+    "id": "SOL-23",
+    "page": "solutions",
+    "text": "Comunicación y sistemas de talento"
+  },
+  {
+    "id": "SOL-23",
+    "page": "solutions",
+    "text": "Integra Office 365, WhatsApp, CRM, ATS y HCM para conectar comunicación, candidatos y operación."
+  },
+  {
+    "id": "SOL-24",
+    "page": "solutions",
+    "text": "Evaluación y firma digital"
+  },
+  {
+    "id": "SOL-24",
+    "page": "solutions",
+    "text": "Conecta plataformas de psicometría y firma digital para completar el proceso sin salir de V.IA."
+  },
+  {
+    "id": "SOL-26",
+    "page": "solutions",
+    "text": "V.IA trabaja para todos los que participan en el proceso."
+  },
+  {
+    "id": "SOL-27",
+    "page": "solutions",
+    "text": "V.IA trabaja para todos"
+  },
+  {
+    "id": "SOL-28",
+    "page": "solutions",
+    "text": "Cada área tiene necesidades distintas. V.IA se adapta a lo que cada rol necesita."
+  },
+  {
+    "id": "SOL-30",
+    "page": "solutions",
+    "text": "Visibilidad total, datos para reportar y tiempo para lo estratégico."
+  },
+  {
+    "id": "SOL-30",
+    "page": "solutions",
+    "text": "tiempo para lo estratégico."
+  },
+  {
+    "id": "SOL-31",
+    "page": "solutions",
+    "text": "Menos operación, más candidatos relevantes y decisiones con criterio."
+  },
+  {
+    "id": "SOL-31",
+    "page": "solutions",
+    "text": "más candidatos relevantes"
+  },
+  {
+    "id": "SOL-32",
+    "page": "solutions",
+    "text": "Vacantes cubiertas más rápido, costos controlados y RH estratégico."
+  },
+  {
+    "id": "SOL-32",
+    "page": "solutions",
+    "text": "Vacantes cubiertas más rápido"
+  },
+  {
+    "id": "SOL-33",
+    "page": "solutions",
+    "text": "CONTROL Y VISIBILIDAD POR ROL",
+    "sourceCase": "css-uppercase"
+  },
+  {
+    "id": "SOL-34",
+    "page": "solutions",
+    "text": "Cada equipo accede a la información que necesita, con permisos configurados según su nivel de responsabilidad: Director, Gerente o Reclutador."
+  },
+  {
+    "id": "SOL-35",
+    "page": "solutions",
+    "text": "permisos configurados según su nivel de responsabilidad:"
+  },
+  {
+    "id": "SOL-36",
+    "page": "solutions",
+    "text": "Descubre cómo V.IA se adapta a tu empresa."
+  },
+  {
+    "id": "SOL-37",
+    "page": "solutions",
+    "text": "V.IA se adapta a tu empresa."
+  },
+  {
+    "id": "CONT-01",
+    "page": "contact",
+    "text": "SOLICITA UNA DEMOSTRACIÓN",
+    "sourceCase": "css-uppercase"
+  },
+  {
+    "id": "CONT-02",
+    "page": "contact",
+    "text": "Descubre cómo V.IA puede integrarse a tu proceso de reclutamiento."
+  },
+  {
+    "id": "CONT-04",
+    "page": "contact",
+    "text": "Déjanos tus datos y recibe una demostración adaptada a las necesidades de tu equipo."
+  },
+  {
+    "id": "CONT-05",
+    "page": "contact",
+    "text": "recibe una demostración adaptada a las necesidades"
+  },
+  {
+    "id": "CONT-08",
+    "page": "contact",
+    "text": "¿Cuál es el tamaño de tu empresa?"
+  },
+  {
+    "id": "CONT-09",
+    "page": "contact",
+    "text": "1–50 colaboradores"
+  },
+  {
+    "id": "CONT-10",
+    "page": "contact",
+    "text": "51–100 colaboradores"
+  },
+  {
+    "id": "CONT-11",
+    "page": "contact",
+    "text": "101–250 colaboradores"
+  },
+  {
+    "id": "CONT-12",
+    "page": "contact",
+    "text": "251–500 colaboradores"
+  },
+  {
+    "id": "CONT-13",
+    "page": "contact",
+    "text": "501–1,000 colaboradores"
+  },
+  {
+    "id": "CONT-14",
+    "page": "contact",
+    "text": "Más de 1,000 colaboradores"
+  }
+]

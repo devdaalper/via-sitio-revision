@@ -1,0 +1,11 @@
+---
+import WaveBackdrop from './WaveBackdrop.astro';
+
+interface Props {
+  variant?: 'a' | 'b';
+  placement: 'hero' | 'panel' | 'header' | 'footer';
+}
+const { variant = 'a', placement } = Astro.props;
+---
+
+<WaveBackdrop variant={variant} placement={placement} class={`edge-waves edge-waves--${placement}`} />

@@ -1,5 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { missingEmphasis } from './feedback-emphasis.mjs';
+import { missingCopy } from './feedback-contract.mjs';
 
 const root = resolve(import.meta.dirname, '..');
 const sources = Object.fromEntries(Object.entries({
@@ -25,8 +27,8 @@ const required = {
   ],
   process: [
     '<span class="accent-text">V.IA</span> gestiona todo el ciclo de reclutamiento',
-    "{ icon: 'publish', title: 'Publicación automatizada'", "{ icon: 'decide', title: 'Preselección'",
-    "{ icon: 'folder', title: 'Recopilación de documentación'", "{ icon: 'decide', title: 'Incorporación del colaborador'",
+    "{ clientIcon: 17728513, title: 'Publicación automatizada'", "{ clientIcon: 1924454, title: 'Preselección'",
+    "{ clientIcon: 12808775, title: 'Recopilación de documentación'", "{ clientIcon: 942833, title: 'Incorporación del colaborador'",
     'class="btn-primary map-button"', '<span class="accent-text">V.IA</span> cuida la experiencia',
     'Cada candidato sabe exactamente en qué etapa está', 'Marca empleadora', 'Los perfiles quedan activos para reconectarse',
     'Conoce cómo <span class="accent-text">V.IA</span> <mark class="marker marker-on-dark">cambia tu reclutamiento</mark>',
@@ -61,7 +63,7 @@ const forbidden = {
   contact: ['Todo tu reclutamiento.<br />Una sola v.ia.'],
 };
 
-const errors = [];
+const errors = [...missingEmphasis(sources), ...missingCopy(sources)];
 for (const [file, fragments] of Object.entries(required)) {
   for (const fragment of fragments) if (!sources[file].includes(fragment)) errors.push(`${file}: falta “${fragment}”`);
 }
@@ -81,4 +83,4 @@ if (errors.length) {
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
-console.log('Pestaña AJUSTES verificada: copy, énfasis, video, iconos, cinco integraciones, roles, formulario y footer.');
+console.log('Fragmentos de AJUSTES y negritas requeridas verificados en fuente. La aceptación visual requiere inspección renderizada.');

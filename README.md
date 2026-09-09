@@ -17,7 +17,8 @@ npm run preview
 
 - URL para compartir: <https://devdaalper.github.io/via-web-revisiones/r002/>
 - Rama fuente: `codex/via-r002-final-polish`.
-- Commit fuente documentado: `d4e2239f5ed385cf6e3f8b16bf1021e1b070e8a6`.
+- Fecha del corte: 9 de septiembre de 2026.
+- Commit fuente: consultar el [manifiesto público](https://devdaalper.github.io/via-web-revisiones/revision-manifest.json).
 - La revisión añade `noindex, nofollow` y no representa un lanzamiento de producción.
 - Estado maestro: `../docs/ESTADO-ACTUAL-SITIO-VIA.md`.
 
@@ -38,12 +39,16 @@ npm run preview
   mientras tanto se usan iconos editoriales sin simular interfaz de producto.
 - Privacidad y términos no contienen borradores inventados y están marcados con `noindex`.
 - Las métricas porcentuales de esta revisión provienen directamente del documento instruccional del
-  cliente y se implementan como contenido confirmado para R002.
+  cliente y están aprobadas para revisión en R002; su ratificación para lanzamiento sigue pendiente.
 - Las URLs oficiales de Instagram, Facebook y LinkedIn se configuran mediante variables públicas;
   los iconos quedan inactivos mientras esas URLs no se proporcionen.
 
 ## Activos
 
-Los logos y las curvas se copiaron del paquete oficial ya analizado en el proyecto. El header usa la
-variante oficial sobre fondo oscuro porque el paquete no contiene todavía una exportación oscura
-validada para fondos claros.
+Los logos provienen del editable oficial. Las curvas A y B conservan los trazados y tintas de los
+originales, recuperados en SVG con trazo de 0.9 px y opacidad 0.8 sobre un lienzo compartido.
+Los cuatro iconos exactos del proceso conservan procedencia, hash y atribución visible.
+
+El corte incorpora la integración del video de personas, jerarquía del CTA de cabecera, selector
+corregido en Safari y navegación alternativa sin JavaScript. Se verificaron siete páginas en ocho
+perfiles de Chrome, Firefox y WebKit, más dos perfiles con la base de GitHub Pages.

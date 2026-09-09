@@ -13,7 +13,9 @@
     "audit:logo": "node scripts/audit-logo.mjs",
     "audit:header": "node scripts/audit-header.mjs",
     "audit:client-feedback": "node scripts/audit-client-feedback.mjs",
-    "audit:review-regressions": "node scripts/audit-review-regressions.mjs"
+    "audit:review-regressions": "node scripts/audit-review-regressions.mjs",
+    "audit:rendered": "node scripts/audit-rendered.mjs",
+    "audit:feedback-mutations": "node scripts/audit-feedback-mutations.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "4.3.3",
@@ -22,6 +24,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",
+    "playwright": "1.63.0",
     "typescript": "6.0.3"
   }
 }

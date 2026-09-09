@@ -1,0 +1,30 @@
+---
+import { withBase } from '../utils/paths';
+
+interface Props { id: 17728513 | 1924454 | 12808775 | 942833; }
+const { id } = Astro.props;
+// Optical normalization uses the alpha bounds of the unmodified 512px PNGs.
+const scale = { 17728513: 1.06, 1924454: 1, 12808775: 1.18, 942833: 1 }[id];
+const source = withBase(`/assets/icons/flaticon/${id}.png`);
+---
+
+<span class="client-process-icon" data-client-icon={id} aria-hidden="true"
+  style={`--client-icon: url("${source}"); --icon-scale: ${scale}`}>
+</span>
+
+<style>
+  .client-process-icon {
+    display: block;
+    width: 34px;
+    height: 34px;
+    background: currentColor;
+    mask: var(--client-icon) center / contain no-repeat;
+    transform: scale(var(--icon-scale));
+  }
+  @media (max-width: 800px) {
+    .client-process-icon { width: 28px; height: 28px; }
+  }
+  @media (forced-colors: active) {
+    .client-process-icon { forced-color-adjust: none; background: CanvasText; }
+  }
+</style>

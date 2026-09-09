@@ -1,19 +1,19 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LineIcon from '../components/LineIcon.astro';
-import WaveBackdrop from '../components/WaveBackdrop.astro';
+import ClientProcessIcon from '../components/ClientProcessIcon.astro';
 import { withBase } from '../utils/paths';
 
 const steps = [
   { icon: 'publish', title: 'Requisición de vacante', copy: 'RH establece el perfil y las necesidades de la vacante.' },
   { icon: 'attract', title: 'Creación de perfil ideal', copy: 'V.IA crea el perfil del candidato ideal.' },
-  { icon: 'publish', title: 'Publicación automatizada', copy: 'V.IA automatiza la publicación de la vacante en múltiples portales y redes.' },
+  { clientIcon: 17728513, title: 'Publicación automatizada', copy: 'V.IA automatiza la publicación de la vacante en múltiples portales y redes.' },
   { icon: 'documents', title: 'Lectura inteligente', copy: 'V.IA entiende y extrae la información de los CVs.' },
   { icon: 'search', title: 'Matching con IA', copy: 'Clasifica por compatibilidad y aplica los criterios de la vacante.' },
-  { icon: 'decide', title: 'Preselección', copy: 'V.IA ayuda a generar evaluaciones y filtros automatizados.' },
+  { clientIcon: 1924454, title: 'Preselección', copy: 'V.IA ayuda a generar evaluaciones y filtros automatizados.' },
   { icon: 'interview', title: 'Programación de entrevistas', copy: 'V.IA realiza y programa entrevistas por chat o videollamada.' },
-  { icon: 'folder', title: 'Recopilación de documentación', copy: 'V.IA valida la identidad y los registros del candidato directamente desde RENAPO e IMSS, sin procesos manuales.' },
-  { icon: 'decide', title: 'Incorporación del colaborador', copy: 'Das la bienvenida al nuevo integrante de tu equipo.' },
+  { clientIcon: 12808775, title: 'Recopilación de documentación', copy: 'V.IA valida la identidad y los registros del candidato directamente desde RENAPO e IMSS, sin procesos manuales.' },
+  { clientIcon: 942833, title: 'Incorporación del colaborador', copy: 'Das la bienvenida al nuevo integrante de tu equipo.' },
 ] as const;
 
 const candidateBenefits = [
@@ -27,10 +27,8 @@ const candidateBenefits = [
   title="Cómo funciona V.IA | De la vacante a la contratación"
   description="Conoce las nueve etapas que V.IA conecta y automatiza desde la requisición de la vacante hasta la incorporación."
   currentPath="/plataforma"
-  connectFooter
 >
   <section class="page-hero" aria-labelledby="page-title">
-    <WaveBackdrop variant="b" class="hero-wave" />
     <div class="shell hero-content">
       <p class="eyebrow">Plataforma de reclutamiento impulsada con IA</p>
       <h1 id="page-title" class="page-title">Un proceso conectado, <mark class="marker">de la vacante a la contratación</mark></h1>
@@ -38,7 +36,7 @@ const candidateBenefits = [
     </div>
   </section>
 
-  <section class="process-map-section" aria-labelledby="map-title">
+  <section class="process-map-section inset-panel" aria-labelledby="map-title">
     <h2 id="map-title" class="sr-only">Etapas del proceso de reclutamiento</h2>
     <div class="shell process-map">
       <ol>
@@ -50,7 +48,7 @@ const candidateBenefits = [
               <p>{step.copy}</p>
             </article>
             <span class="step-medallion" aria-hidden="true">
-              <LineIcon name={step.icon} />
+              {'clientIcon' in step ? <ClientProcessIcon id={step.clientIcon} /> : <LineIcon name={step.icon} />}
               <b>{String(index + 1).padStart(2, '0')}</b>
             </span>
           </li>
@@ -60,6 +58,15 @@ const candidateBenefits = [
     <div class="shell map-action">
       <a class="btn-primary map-button" href={withBase('/contacto')}>Agenda una demostración <span aria-hidden="true">→</span></a>
     </div>
+    <aside class="shell icon-credits" aria-label="Créditos de iconos">
+      <p>Iconos de Flaticon:</p>
+      <ul>
+        <li><a href="https://www.flaticon.es/iconos-gratis/publicacion-digital">Publicación digital — Afian Rochmah Afif</a></li>
+        <li><a href="https://www.flaticon.es/iconos-gratis/hora">Selección — Eucalyp</a></li>
+        <li><a href="https://www.flaticon.es/iconos-gratis/datos-de-la-carpeta">Carpeta — Taufik</a></li>
+        <li><a href="https://www.flaticon.es/iconos-gratis/empresario">Incorporación — Magnific</a></li>
+      </ul>
+    </aside>
   </section>
 
   <section class="section-space candidate-section" aria-labelledby="candidate-title">
@@ -83,8 +90,7 @@ const candidateBenefits = [
     </div>
   </section>
 
-  <section class="closing-section" aria-labelledby="closing-title">
-    <WaveBackdrop variant="a" class="closing-wave" />
+  <section slot="closing" class="closing-section" aria-labelledby="closing-title">
     <div class="shell closing-content">
       <p class="eyebrow eyebrow-on-dark">Dale a tu equipo de RH lo que necesita</p>
       <h2 id="closing-title" class="section-title section-title-on-dark">Conoce cómo <span class="accent-text">V.IA</span> <mark class="marker marker-on-dark">cambia tu reclutamiento</mark></h2>
@@ -98,8 +104,7 @@ const candidateBenefits = [
   .marker { display: inline; border-radius: .06em; background: #e1fe66; box-decoration-break: clone; color: #161a23; padding-inline: .06em; -webkit-box-decoration-break: clone; }
   .marker-on-dark { border-radius: .08em; background: #e1fe66; box-decoration-break: clone; color: #161a23; padding-inline: .08em; -webkit-box-decoration-break: clone; }
   :global(.accent-text) { color: #8dbd2f; font-weight: 800; }
-  .page-hero { position: relative; overflow: hidden; padding-block: clamp(72px,9vw,118px); }
-  :global(.hero-wave) { top: 50%; left: 50%; width: min(1050px,92vw); transform: translate(-50%,-50%); opacity: .23; }
+  .page-hero { position: relative; padding-block: clamp(72px,9vw,118px); }
   .hero-content { position: relative; display: grid; justify-items: center; text-align: center; }
   .hero-content .eyebrow { justify-content: center; }
   .hero-content .page-title { max-width: 18ch; }
@@ -123,6 +128,10 @@ const candidateBenefits = [
   .map-action { display: grid; justify-items: center; margin-top: 48px; }
   .map-action .map-button { border-color: #e1fe66; background: #e1fe66; color: #161a23; }
   .map-action .map-button:hover { border-color: #8dbd2f; background: #8dbd2f; color: #161a23; }
+  .icon-credits { margin-top: 32px; color: #27414f; text-align: center; font-size: .875rem; line-height: 1.5; }
+  .icon-credits p { margin: 0; }
+  .icon-credits ul { display: flex; justify-content: center; flex-wrap: wrap; gap: 0 20px; margin: 8px 0 0; padding: 0; list-style: none; }
+  .icon-credits a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: underline; text-underline-offset: .2em; }
   .candidate-heading { max-width: 800px; }
   .candidate-band { display: grid; grid-template-columns: repeat(3,1fr); margin-top: 56px; border-block: 1px solid rgba(39,65,79,.18); }
   .candidate-band article { border-right: 1px solid rgba(39,65,79,.16); padding: 38px clamp(28px,4vw,52px) 44px; }
@@ -132,8 +141,6 @@ const candidateBenefits = [
   .candidate-band h3 { margin: 25px 0 0; color: #8dbd2f; font-size: 1.05rem; font-weight: 780; line-height: 1.25; }
   .candidate-band p { margin: 12px 0 0; color: #27414f; font-size: 1rem; line-height: 1.62; }
   .closing-section { position: relative; overflow: hidden; margin: 12px 12px 0; border-radius: 34px 34px 0 0; background: #161a23; padding-block: clamp(76px,9vw,112px); }
-  :global(.closing-wave) { top: -118%; right: -12%; width: 820px; opacity: .38; }
-  .closing-section::after { position: absolute; z-index: 0; inset: 0; background: linear-gradient(to bottom, #161a23 0%, rgba(22,26,35,0) 22%, rgba(22,26,35,0) 76%, #161a23 100%); content: ""; pointer-events: none; }
   .closing-content { position: relative; z-index: 1; display: grid; justify-items: center; text-align: center; }
   .closing-content .section-title { max-width: 21ch; }
   .closing-content .lead { max-width: 54ch; }
@@ -150,7 +157,6 @@ const candidateBenefits = [
   }
   @media (max-width: 520px) {
     .page-hero { padding-block: 54px 70px; }
-    :global(.hero-wave) { width: 720px; opacity: .18; }
     .process-map { width: min(100% - 24px,1200px); }
     .process-map ol::before { left: 28px; }
     .process-map li { grid-template-columns: 56px 1fr; gap: 10px; padding-block: 12px; }
@@ -159,6 +165,6 @@ const candidateBenefits = [
     .step-medallion :global(.line-icon) { width: 24px; height: 24px; }
     .candidate-band article { padding-inline: 8px; }
     .closing-section { margin: 7px 7px 0; border-radius: 25px 25px 0 0; }
-    :global(.closing-wave) { display: none; }
   }
+  @media (max-width: 760px) { .page-hero { padding-top: 96px; } .closing-section { padding-top: 88px; } }
 </style>

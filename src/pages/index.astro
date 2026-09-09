@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LineIcon from '../components/LineIcon.astro';
-import WaveBackdrop from '../components/WaveBackdrop.astro';
+import EdgeWaves from '../components/EdgeWaves.astro';
+import AmbientVideo from '../components/AmbientVideo.astro';
 import { withBase } from '../utils/paths';
 
 const pillars = [
@@ -30,10 +31,8 @@ const capabilities = [
   title="V.IA | Todo tu reclutamiento en una sola plataforma"
   description="V.IA centraliza y automatiza el reclutamiento con IA, desde la requisición de la vacante hasta la nómina."
   currentPath="/"
-  connectFooter
 >
   <section class="home-hero" aria-labelledby="home-title">
-    <WaveBackdrop variant="b" class="hero-wave" />
     <div class="shell hero-content">
       <p class="eyebrow">Plataforma integral de reclutamiento impulsada con IA, desde la requisición hasta la nómina.</p>
       <h1 id="home-title" class="display-title">Todo tu reclutamiento en <mark class="marker">una sola plataforma</mark></h1>
@@ -76,26 +75,25 @@ const capabilities = [
     </div>
   </section>
 
-  <section class="human-section" aria-labelledby="human-title">
+  <section id="lo-humano" class="human-section wave-section" aria-labelledby="human-title">
+    <EdgeWaves variant="a" placement="panel" />
     <div class="shell human-panel">
-      <WaveBackdrop variant="a" class="human-wave" />
-      <div class="human-copy">
-        <p class="eyebrow eyebrow-on-dark">Lo importante del proceso es lo humano.</p>
-        <h2 id="human-title" class="section-title section-title-on-dark"><span class="accent-text">V.IA</span> ejecuta. <mark class="marker marker-on-dark">Tú mantienes el control.</mark></h2>
-        <p class="lead lead-on-dark"><span class="accent-text">V.IA</span> se encarga de lo operativo para que <strong>tu equipo de RH deje de ejecutar y empiece a estrategizar:</strong> menos revisión de CVs, <strong>más tiempo para el clima laboral, los líderes y las decisiones que realmente importan.</strong></p>
+      <div class="human-heading">
+        <p class="eyebrow">Lo importante del proceso es lo humano.</p>
+        <h2 id="human-title" class="section-title"><span class="accent-text">V.IA</span> ejecuta. <span class="emphasis-line"><mark class="marker marker-on-dark">Tú mantienes el control.</mark></span></h2>
       </div>
       <div class="human-video">
-        <video
+        <AmbientVideo
           src={withBase('/assets/video/crowd-walk-via.mp4')}
           poster={withBase('/assets/video/crowd-walk-via-poster.jpg')}
-          aria-label="Personas caminando en un entorno luminoso"
-          autoplay
-          muted
-          loop
-          playsinline
-          preload="metadata"
-        ></video>
+          label="Personas caminando en un entorno luminoso"
+          presentation="integrated"
+        />
       </div>
+      <p class="lead human-copy">
+        <span class="human-copy-intro"><span class="accent-text">V.IA</span> se encarga de lo operativo para que <strong>tu equipo de RH deje de ejecutar y empiece a estrategizar:</strong></span>
+        <span class="human-copy-outcome">menos revisión de CVs, <strong>más tiempo para el clima laboral, los líderes y las decisiones que realmente importan.</strong></span>
+      </p>
     </div>
   </section>
 
@@ -113,12 +111,13 @@ const capabilities = [
     </div>
   </section>
 
-  <section class="process-teaser" aria-labelledby="process-title">
-    <WaveBackdrop variant="a" class="process-wave" />
+  <div class="wave-section">
+    <EdgeWaves placement="panel" />
+  <section class="process-teaser inset-panel" aria-labelledby="process-title">
     <div class="shell process-teaser-inner">
       <div>
         <p class="eyebrow eyebrow-on-dark">Cómo funciona</p>
-        <h2 id="process-title" class="section-title section-title-on-dark"><span class="accent-text">V.IA</span> automatiza para que <mark class="marker marker-on-dark">tu equipo decida.</mark></h2>
+        <h2 id="process-title" class="section-title section-title-on-dark"><span class="accent-text">V.IA</span> automatiza para que <span class="emphasis-line"><mark class="marker marker-on-dark">tu equipo decida.</mark></span></h2>
       </div>
       <div class="process-teaser-copy">
         <p>Más de 8 etapas del <strong>proceso de reclutamiento</strong> automatizadas en <span class="accent-text">V.IA</span></p>
@@ -126,6 +125,8 @@ const capabilities = [
       </div>
     </div>
   </section>
+
+  </div>
 
   <section class="section-space capabilities-section" aria-labelledby="capabilities-title">
     <div class="shell">
@@ -149,8 +150,7 @@ const capabilities = [
     </div>
   </section>
 
-  <section class="closing-section" aria-labelledby="closing-title">
-    <WaveBackdrop variant="b" class="closing-wave" />
+  <section slot="closing" class="closing-section" aria-labelledby="closing-title">
     <div class="shell closing-content">
       <h2 id="closing-title" class="section-title section-title-on-dark">¿Listo para llevar tu reclutamiento al siguiente nivel con V.IA?</h2>
       <p class="lead lead-on-dark">Te mostramos cómo <span class="accent-text">V.IA</span> reduce tiempos, elimina tareas manuales y devuelve el control a tu equipo de RH.</p>
@@ -160,11 +160,11 @@ const capabilities = [
 </BaseLayout>
 
 <style>
+  .emphasis-line { display: block; }
   .marker { display: inline; border-radius: .06em; background: #e1fe66; box-decoration-break: clone; color: #161a23; padding-inline: .06em; -webkit-box-decoration-break: clone; }
   :global(.accent-text) { color: #8dbd2f; font-weight: 800; }
   .marker-on-dark { background: #e1fe66; color: #161a23; }
-  .home-hero { position: relative; overflow: hidden; padding-block: clamp(74px,10vw,132px); }
-  :global(.hero-wave) { top: 50%; left: 50%; width: min(1080px,92vw); transform: translate(-50%,-50%); opacity: .25; }
+  .home-hero { position: relative; padding-block: clamp(74px,10vw,132px); }
   .hero-content { position: relative; display: grid; justify-items: center; text-align: center; }
   .hero-content .eyebrow { max-width: 82ch; justify-content: center; }
   .hero-content .display-title { max-width: 15ch; }
@@ -172,7 +172,7 @@ const capabilities = [
   .hero-content .lead { max-width: 72ch; }
   .hero-button { margin-top: 30px; border-color: #e1fe66; background: #e1fe66; color: #161a23; }
   .hero-button:hover { border-color: #8dbd2f; background: #8dbd2f; color: #161a23; }
-  .video-section { background: #edebdf; }
+  .video-section { position: relative; width: min(1440px, calc(100% - clamp(32px, 8vw, 128px))); margin-inline: auto; border-radius: 34px; background: #edebdf; box-shadow: var(--shadow-soft); }
   .video-layout { display: grid; grid-template-columns: .72fr 1.28fr; align-items: center; gap: clamp(48px,8vw,104px); }
   .video-frame { position: relative; overflow: hidden; aspect-ratio: 16/9; border-radius: 28px; background: #161a23; box-shadow: 0 24px 58px rgba(22,26,35,.14); }
   .video-frame video { width: 100%; height: 100%; object-fit: cover; }
@@ -185,13 +185,26 @@ const capabilities = [
   .pillar-icon :global(.line-icon) { width: 27px; height: 27px; stroke-width: 1.3; }
   .pillar-list h3 { margin: 0; color: #8dbd2f; font-size: 1.05rem; font-weight: 780; line-height: 1.25; }
   .pillar-list p { margin: 7px 0 0; color: #27414f; font-size: 1rem; line-height: 1.55; }
-  .human-section { padding: 12px; }
-  .human-panel { position: relative; display: grid; min-height: 560px; overflow: hidden; grid-template-columns: 1.06fr .94fr; align-items: center; gap: clamp(34px,6vw,80px); border-radius: 34px; background: #161a23; color: #edebdf; padding: clamp(52px,8vw,96px); }
-  :global(.human-wave) { top: -38%; right: -15%; width: 760px; opacity: .48; }
-  .human-panel::after, .process-teaser::after { position: absolute; z-index: 0; inset: 0; background: linear-gradient(to bottom, #161a23 0%, rgba(22,26,35,0) 18%, rgba(22,26,35,0) 80%, #161a23 100%); content: ""; pointer-events: none; }
-  .human-copy { position: relative; z-index: 2; }
-  .human-video { position: relative; z-index: 2; overflow: hidden; aspect-ratio: 16/9; border-radius: 28px; background: #f9f9f9; box-shadow: 0 20px 48px rgba(22,26,35,.24); }
-  .human-video video { width: 100%; height: 100%; object-fit: contain; }
+  .human-section { padding: 48px 12px; scroll-margin-top: 188px; }
+  .human-panel { position: relative; display: grid; width: 100%; max-width: none; grid-template-columns: repeat(12,minmax(0,1fr)); row-gap: 12px; padding: 64px max(clamp(24px,4vw,64px),calc((100% - 1080px) / 2)); }
+  /* The narrower official A ribbon keeps its bend within this composition,
+     leaving the last pillars and the following results readable. */
+  #lo-humano :global(.wave-art) { transform: translate(-14%,-30%); }
+  .human-heading { position: relative; z-index: 2; grid-column: 1 / 11; grid-row: 1; }
+  .human-heading .section-title { max-width: 25ch; }
+  .human-video { position: relative; grid-column: 1 / 9; grid-row: 2; align-self: end; margin: -80px -8% 0 -26%; }
+  .human-copy { position: relative; z-index: 2; grid-column: 8 / -1; grid-row: 2; align-self: start; max-width: none; margin: 24px 0 0; font-size: clamp(1.04rem,1.35vw,1.15rem); line-height: 1.7; }
+  /* Paint the existing background halo behind glyphs, never over the waves
+     as a rectangular panel. The text keeps its original fill and weight. */
+  .human-copy, .human-heading .eyebrow, .metrics-heading .eyebrow {
+    -webkit-text-stroke: 3px #f9f9f9;
+    paint-order: stroke fill;
+  }
+  .human-copy-intro, .human-copy-outcome { display: block; padding: 8px 12px; }
+  .human-copy-outcome { margin-top: 20px; margin-left: 32px; }
+  @media (min-width: 601px) {
+    :global(.human-video:has(.ambient-video-integrated:not([data-motion-enhanced]))) { grid-column: 1 / 8; margin: 24px 24px 0 0; }
+  }
   .metrics-heading { display: grid; justify-items: center; text-align: center; }
   .metrics-grid { display: grid; grid-template-columns: repeat(4,1fr); margin-top: 54px; border-block: 1px solid rgba(39,65,79,.18); }
   .metrics-grid article { min-height: 230px; border-right: 1px solid rgba(39,65,79,.16); padding: 42px clamp(22px,3vw,38px); }
@@ -199,7 +212,6 @@ const capabilities = [
   .metrics-grid strong { color: #8dbd2f; font-size: clamp(2.5rem,5vw,4.4rem); font-weight: 780; letter-spacing: -.055em; line-height: 1; }
   .metrics-grid p { margin: 22px 0 0; color: #27414f; font-size: 1rem; font-weight: 650; line-height: 1.5; }
   .process-teaser { position: relative; overflow: hidden; background: #161a23; padding-block: clamp(70px,8vw,102px); }
-  :global(.process-wave) { top: -155%; left: 31%; width: 980px; opacity: .52; }
   .process-teaser-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1.1fr .9fr; align-items: end; gap: clamp(52px,9vw,120px); }
   .process-teaser-copy { display: grid; justify-items: start; gap: 24px; }
   .process-teaser-copy p { max-width: 35ch; margin: 0; color: rgba(237,235,223,.78); font-size: 1.08rem; }
@@ -211,9 +223,13 @@ const capabilities = [
   .capability-band article > span :global(.line-icon) { width: 36px; height: 36px; stroke-width: 1.25; }
   .capability-band h3 { margin: 26px 0 0; color: #8dbd2f; font-size: 1.05rem; font-weight: 780; line-height: 1.25; }
   .capability-band p { margin: 12px 0 0; color: #27414f; font-size: 1rem; line-height: 1.6; }
+  /* The shared ribbon can reach these transparent sections between breakpoints.
+     Protect small glyphs consistently, without a rectangular background. */
+  .capabilities-section p, .capabilities-section h3, .metrics-grid p {
+    -webkit-text-stroke: 3px #f9f9f9;
+    paint-order: stroke fill;
+  }
   .closing-section { position: relative; overflow: hidden; margin: 12px 12px 0; border-radius: 34px 34px 0 0; background: #161a23; padding-block: clamp(76px,9vw,112px); }
-  :global(.closing-wave) { top: -118%; right: -12%; left: auto; width: 820px; opacity: .38; }
-  .closing-section::after { position: absolute; z-index: 0; inset: 0; background: linear-gradient(to bottom, #161a23 0%, rgba(22,26,35,0) 22%, rgba(22,26,35,0) 76%, #161a23 100%); content: ""; pointer-events: none; }
   .closing-content { position: relative; z-index: 1; display: grid; justify-items: center; text-align: center; }
   .closing-content .section-title { max-width: 21ch; }
   .closing-content .lead { max-width: 63ch; }
@@ -221,8 +237,12 @@ const capabilities = [
   @media (max-width: 920px) {
     .video-layout, .pillars-layout, .process-teaser-inner { grid-template-columns: 1fr; }
     .pillars-heading { position: static; }
-    .human-panel { grid-template-columns: 1fr; }
-    .human-video { width: min(100%,680px); }
+    .human-section { scroll-margin-top: 150px; }
+    .human-panel { padding-inline: 32px; }
+    .human-heading { grid-column: 1 / -1; }
+    .human-video { grid-column: 1 / 8; margin-top: -32px; }
+    .human-copy { grid-column: 7 / -1; margin-top: 0; }
+    .human-copy-outcome { margin-left: 20px; }
     .metrics-grid { grid-template-columns: repeat(2,1fr); }
     .metrics-grid article:nth-child(2) { border-right: 0; }
     .metrics-grid article:nth-child(-n+2) { border-bottom: 1px solid rgba(39,65,79,.16); }
@@ -231,24 +251,32 @@ const capabilities = [
     .capability-band article:last-child { border-bottom: 0; }
   }
   @media (max-width: 600px) {
+    .video-section { border-radius: 25px; }
     .home-hero { padding-block: 56px 72px; }
     .home-hero .display-title { font-size: clamp(1.82rem,9vw,2.45rem); }
-    :global(.hero-wave) { width: 720px; opacity: .19; }
     .hero-content .eyebrow { font-size: .875rem; line-height: 1.45; }
     .video-frame { border-radius: 22px; }
     .pillar-list li { grid-template-columns: 42px 1fr; gap: 12px; }
     .pillar-icon { width: 42px; height: 42px; }
-    .human-section { padding: 7px; }
-    .human-panel { min-height: 0; border-radius: 25px; padding: 54px 24px; }
+    .human-section { padding: 32px 7px; scroll-margin-top: 136px; }
+    .human-panel { grid-template-columns: 1fr; row-gap: 0; padding: 48px 16px 96px; }
+    .human-heading { grid-column: 1; grid-row: 1; }
+    .human-heading .section-title { max-width: 18ch; }
+    .human-video { --human-motion-width: clamp(520px,140vw,760px); position: static; grid-column: 1; grid-row: 2; align-self: center; width: var(--human-motion-width); margin: 0 0 0 calc((100% - var(--human-motion-width)) / 2 - 6vw); }
+    .human-copy { grid-column: 1; grid-row: 2; margin: 30px 0 0; }
+    .human-copy-intro, .human-copy-outcome { padding: 0; }
+    .human-copy-intro { margin-left: 25%; }
+    .human-copy-outcome { margin: 24px 0 0 35%; }
+    :global(.human-video:has(.ambient-video-integrated:not([data-motion-enhanced]))) { width: 100%; margin: 12px 0; grid-row: 2; }
+    :global(.human-panel:not(:has([data-motion-enhanced])) .human-copy) { grid-row: 3; }
+    :global(.human-panel:not(:has([data-motion-enhanced])) .human-copy-intro), :global(.human-panel:not(:has([data-motion-enhanced])) .human-copy-outcome) { margin-left: 0; }
     .metrics-grid { grid-template-columns: 1fr; }
     .metrics-grid article { min-height: 0; border-right: 0; border-bottom: 1px solid rgba(39,65,79,.16); padding: 32px 4px; }
     .metrics-grid article:nth-child(-n+2) { border-bottom: 1px solid rgba(39,65,79,.16); }
     .metrics-grid article:last-child { border-bottom: 0; }
     .process-teaser { padding-block: 66px; }
-    :global(.process-wave) { top: -50%; left: -95%; width: 720px; }
     .capability-band article { padding-inline: 8px; }
     .closing-section { margin: 7px 7px 0; border-radius: 25px 25px 0 0; }
-    :global(.closing-wave) { display: none; }
   }
   @media (min-width: 961px) and (max-height: 800px) {
     .home-hero { padding-block: 64px; }
@@ -256,4 +284,5 @@ const capabilities = [
   @media (max-width: 600px) and (max-height: 650px) {
     .home-hero { padding-block: 38px 56px; }
   }
+  @media (max-width: 760px) { .home-hero { padding-top: 96px; } .process-teaser, .closing-section { padding-top: 88px; } }
 </style>

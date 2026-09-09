@@ -1,0 +1,44 @@
+---
+import WaveArt from './WaveArt.astro';
+interface Props { profile?: 'centered' | 'editorial'; }
+const { profile = 'centered' } = Astro.props;
+---
+
+<div class:list={['opening-backdrop', `opening-${profile}`]} aria-hidden="true">
+  <WaveArt variant="b" />
+</div>
+
+<style>
+  /* The page owns the artwork. The header and video are surfaces above it,
+     so section boundaries never clip or restart these recovered centerlines. */
+  .opening-backdrop {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    overflow: clip;
+    pointer-events: none;
+  }
+  .opening-backdrop :global(.wave-art) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: max(150%, 1600px);
+    max-width: none;
+    height: auto;
+    transform: translate(-23%, -42%);
+    opacity: .8;
+  }
+  .opening-editorial :global(.wave-art) { transform: translate(-30%, -44%); }
+  @media (min-width: 1101px) and (max-width: 1439px) {
+    .opening-editorial :global(.wave-art) { transform: translate(-30%, -47%); }
+  }
+  @media (max-width: 1100px) {
+    .opening-backdrop :global(.wave-art) { transform: translate(-35%, -43%); }
+    .opening-editorial :global(.wave-art) { transform: translate(-38%, -46%); }
+  }
+  @media (max-width: 760px) {
+    .opening-backdrop :global(.wave-art) { width: 1800px; transform: translate(-36%, -43%); }
+    .opening-editorial :global(.wave-art) { transform: translate(-38%, -46%); }
+  }
+</style>

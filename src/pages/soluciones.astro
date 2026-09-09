@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LineIcon from '../components/LineIcon.astro';
-import WaveBackdrop from '../components/WaveBackdrop.astro';
+import EdgeWaves from '../components/EdgeWaves.astro';
 import { withBase } from '../utils/paths';
 
 const interviews = [
@@ -29,10 +29,8 @@ const roles = [
   title="Soluciones V.IA | IA, automatización e integraciones"
   description="Conoce cómo V.IA combina entrevistas con IA, automatización e integraciones para cada rol del proceso de reclutamiento."
   currentPath="/soluciones"
-  connectFooter
 >
   <section class="page-hero" aria-labelledby="page-title">
-    <WaveBackdrop variant="b" class="hero-wave" />
     <div class="shell hero-content">
       <p class="eyebrow">Lo que V.IA hace por tu equipo</p>
       <h1 id="page-title" class="page-title">Más que una plataforma. <mark class="marker">Un equipo que trabaja por ti.</mark></h1>
@@ -40,7 +38,7 @@ const roles = [
     </div>
   </section>
 
-  <section class="section-space interviews-section" aria-labelledby="interviews-title">
+  <section class="section-space interviews-section inset-panel" aria-labelledby="interviews-title">
     <div class="shell section-heading">
       <p class="eyebrow">Agentes con IA</p>
       <h2 id="interviews-title" class="section-title">Entrevistas reales, que le <mark class="marker">ahorran tiempo a tu equipo.</mark></h2>
@@ -61,8 +59,9 @@ const roles = [
     </div>
   </section>
 
-  <section class="integrations-section" aria-labelledby="integrations-title">
-    <WaveBackdrop variant="a" class="integrations-wave" />
+  <div class="wave-section integrations-stage">
+    <EdgeWaves variant="b" placement="panel" />
+  <section class="integrations-section inset-panel" aria-labelledby="integrations-title">
     <div class="shell integrations-layout">
       <div class="integrations-copy">
         <p class="eyebrow eyebrow-on-dark">Conectado a tu operación</p>
@@ -79,6 +78,8 @@ const roles = [
       </div>
     </div>
   </section>
+
+  </div>
 
   <section class="section-space roles-section" aria-labelledby="roles-title">
     <div class="shell roles-heading">
@@ -105,8 +106,7 @@ const roles = [
     </div>
   </section>
 
-  <section class="closing-section" aria-labelledby="closing-title">
-    <WaveBackdrop variant="b" class="closing-wave" />
+  <section slot="closing" class="closing-section" aria-labelledby="closing-title">
     <div class="shell closing-content">
       <h2 id="closing-title" class="section-title section-title-on-dark">Descubre cómo <mark class="marker marker-on-dark">V.IA se adapta a tu empresa.</mark></h2>
       <p class="lead lead-on-dark">Cuéntanos cómo recluta tu empresa hoy y te mostramos qué solución encaja mejor con tu proceso.</p>
@@ -116,11 +116,25 @@ const roles = [
 </BaseLayout>
 
 <style>
+  @media (min-width: 1400px) {
+    .integrations-stage :global(.wave-art) { transform: translate(-28%, -31%); }
+  }
+  @media (min-width: 1800px) {
+    .integrations-stage :global(.wave-art) { transform: translate(-31%, -34%); }
+  }
+  @media (min-width: 2200px) {
+    .integrations-stage :global(.wave-art) { transform: translate(-28%, -40%); }
+  }
+  .roles-section p, .roles-section h3 {
+    -webkit-text-stroke: 3px #f9f9f9;
+    paint-order: stroke fill;
+  }
   .marker { display: inline; border-radius: .06em; background: #e1fe66; box-decoration-break: clone; color: #161a23; padding-inline: .06em; -webkit-box-decoration-break: clone; }
   .marker-on-dark { border-radius: .08em; background: #e1fe66; box-decoration-break: clone; color: #161a23; padding-inline: .08em; -webkit-box-decoration-break: clone; }
   :global(.accent-text) { color: #8dbd2f; font-weight: 800; }
-  .page-hero { position: relative; overflow: hidden; padding-block: clamp(72px,9vw,118px); }
-  :global(.hero-wave) { top: 50%; left: 50%; width: min(1050px,92vw); transform: translate(-50%,-50%); opacity: .23; }
+  .page-hero { position: relative; padding-block: clamp(72px,9vw,118px); }
+  .interviews-section { background: #edebdf; }
+  .integrations-stage { margin-top: clamp(64px, 8vw, 112px); }
   .hero-content { position: relative; display: grid; justify-items: center; text-align: center; }
   .hero-content .page-title { max-width: 18ch; }
   .hero-content .lead { max-width: 74ch; }
@@ -133,8 +147,6 @@ const roles = [
   .feature-band h3, .roles-band h3 { margin: 25px 0 0; color: #8dbd2f; font-size: 1.05rem; font-weight: 780; line-height: 1.25; }
   .feature-band p, .roles-band p { margin: 12px 0 0; color: #27414f; font-size: 1rem; line-height: 1.62; }
   .integrations-section { position: relative; overflow: hidden; background: #161a23; padding-block: clamp(76px,9vw,116px); }
-  :global(.integrations-wave) { top: -42%; left: -10%; width: 860px; opacity: .45; -webkit-mask-image: radial-gradient(ellipse at 28% 28%, #161a23 0 44%, rgba(22,26,35,.88) 56%, transparent 78%); mask-image: radial-gradient(ellipse at 28% 28%, #161a23 0 44%, rgba(22,26,35,.88) 56%, transparent 78%); }
-  .integrations-section::after { position: absolute; z-index: 0; inset: 0; background: linear-gradient(to bottom, #161a23 0%, rgba(22,26,35,0) 15%, rgba(22,26,35,0) 84%, #161a23 100%); content: ""; pointer-events: none; }
   .integrations-layout { position: relative; z-index: 1; display: grid; grid-template-columns: .85fr 1.15fr; align-items: start; gap: clamp(54px,9vw,116px); }
   .integrations-copy { position: sticky; top: 132px; }
   .integration-list { display: grid; }
@@ -147,8 +159,6 @@ const roles = [
   .role-access { margin-top: 46px; border-top: 1px solid rgba(39,65,79,.18); padding-top: 34px; }
   .role-access .lead { max-width: 72ch; }
   .closing-section { position: relative; overflow: hidden; margin: 12px 12px 0; border-radius: 34px 34px 0 0; background: #161a23; padding-block: clamp(76px,9vw,112px); }
-  :global(.closing-wave) { top: -118%; right: -12%; left: auto; width: 820px; opacity: .38; }
-  .closing-section::after { position: absolute; z-index: 0; inset: 0; background: linear-gradient(to bottom, #161a23 0%, rgba(22,26,35,0) 22%, rgba(22,26,35,0) 76%, #161a23 100%); content: ""; pointer-events: none; }
   .closing-content { position: relative; z-index: 1; display: grid; justify-items: center; text-align: center; }
   .closing-content .section-title { max-width: 20ch; }
   .closing-content .lead { max-width: 63ch; }
@@ -162,11 +172,10 @@ const roles = [
   }
   @media (max-width: 520px) {
     .page-hero { padding-block: 54px 70px; }
-    :global(.hero-wave) { width: 720px; opacity: .18; }
     .feature-band article, .roles-band article { padding-inline: 8px; }
     .integration-list article { grid-template-columns: 46px 1fr; gap: 12px; }
     .integration-icon { width: 46px; height: 46px; }
     .closing-section { margin: 7px 7px 0; border-radius: 25px 25px 0 0; }
-    :global(.closing-wave) { display: none; }
   }
+  @media (max-width: 760px) { .page-hero { padding-top: 96px; } .integrations-section, .closing-section { padding-top: 88px; } }
 </style>

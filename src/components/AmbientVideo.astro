@@ -1,0 +1,94 @@
+---
+interface Props { src: string; poster: string; label: string; presentation?: 'card' | 'integrated'; }
+const { src, poster, label, presentation = 'card' } = Astro.props;
+---
+
+<div class:list={['ambient-video', { 'ambient-video-integrated': presentation === 'integrated' }]} data-ambient-video>
+  <div class="ambient-frame">
+    <video id="human-motion-video" src={src} poster={poster} aria-label={label} controls muted loop playsinline preload="none"></video>
+    <img class="motion-poster" src={poster} alt="" aria-hidden="true" hidden />
+  </div>
+  <div class="motion-controls" hidden>
+    <button type="button" aria-controls="human-motion-video">Reproducir video</button>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-ambient-video]').forEach((container) => {
+    const video = container.querySelector('video')!;
+    const poster = container.querySelector<HTMLImageElement>('.motion-poster')!;
+    const controls = container.querySelector<HTMLElement>('.motion-controls')!;
+    const button = controls.querySelector('button')!;
+    const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let visible = false;
+    let userPaused = false;
+    let explicitPlay = false;
+
+    const labelButton = () => {
+      button.textContent = video.paused ? 'Reproducir video' : 'Pausar video';
+    };
+    const syncPlayback = () => {
+      const staticPoster = preference.matches && !explicitPlay;
+      video.hidden = staticPoster;
+      poster.hidden = !staticPoster;
+      const shouldPlay = visible && !document.hidden && !userPaused && !staticPoster;
+      if (shouldPlay) {
+        video.play().catch(labelButton);
+      } else {
+        video.pause();
+      }
+      labelButton();
+    };
+
+    video.controls = false;
+    controls.hidden = false;
+    container.dataset.motionEnhanced = '';
+    video.addEventListener('play', labelButton);
+    video.addEventListener('pause', labelButton);
+    button.addEventListener('click', () => {
+      if (video.paused) {
+        userPaused = false;
+        explicitPlay = true;
+      } else {
+        userPaused = true;
+        explicitPlay = false;
+      }
+      syncPlayback();
+    });
+    preference.addEventListener('change', () => {
+      explicitPlay = false;
+      userPaused = false;
+      syncPlayback();
+    });
+    document.addEventListener('visibilitychange', syncPlayback);
+    const observer = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting && entry.intersectionRatio >= .25;
+      syncPlayback();
+    }, { threshold: [0, .25] });
+    observer.observe(container);
+    syncPlayback();
+  });
+</script>
+
+<style>
+  .ambient-frame { display: grid; aspect-ratio: 16 / 9; background: #f9f9f9; }
+  .ambient-frame video, .motion-poster { grid-area: 1 / 1; width: 100%; height: 100%; aspect-ratio: 16 / 9; object-fit: contain; }
+  [hidden] { display: none !important; }
+  .motion-controls { display: flex; justify-content: flex-end; background: #161a23; padding: 10px 12px; }
+  .motion-controls button { min-height: 44px; border: 1px solid #edebdf; border-radius: 999px; background: #161a23; color: #edebdf; padding: 10px 18px; font: inherit; font-size: .875rem; font-weight: 600; cursor: pointer; }
+  .motion-controls button:hover { background: #edebdf; color: #161a23; }
+  .motion-controls button:focus-visible { outline: 3px solid #e1fe66; outline-offset: 3px; box-shadow: none; }
+  /* The white footage shares the site's soft-white canvas without changing the source asset. */
+  .ambient-video-integrated .ambient-frame { background: transparent; mix-blend-mode: multiply; }
+  .ambient-video-integrated[data-motion-enhanced] .ambient-frame { overflow: hidden; mask-image: linear-gradient(to right,transparent,#161a23 18%,#161a23 52%,transparent 92%); }
+  .ambient-video-integrated video, .ambient-video-integrated .motion-poster { filter: brightness(1.01); }
+  .ambient-video-integrated[data-motion-enhanced] video, .ambient-video-integrated[data-motion-enhanced] .motion-poster { transform: scale(1.4); transform-origin: 50% 65%; }
+  .ambient-video-integrated .motion-controls { justify-content: flex-start; background: transparent; margin-top: -40px; padding: 0 20%; position: relative; }
+  .ambient-video-integrated .motion-controls button { border-color: rgba(39,65,79,.25); background: #f9f9f9; color: #27414f; padding-inline: 16px; }
+  .ambient-video-integrated .motion-controls button:hover { border-color: #27414f; background: #edebdf; }
+  .ambient-video-integrated .motion-controls button:focus-visible { outline-color: #27414f; }
+  @media (max-width: 600px) {
+    .ambient-video-integrated[data-motion-enhanced] .ambient-frame { mask-image: linear-gradient(to right,transparent,#161a23 18%,#161a23 30%,transparent 55%); }
+    .ambient-video-integrated .motion-controls { position: absolute; z-index: 3; left: 16px; bottom: 24px; margin: 0; padding: 0; }
+  }
+</style>

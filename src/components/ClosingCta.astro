@@ -1,12 +1,10 @@
 ---
-import WaveBackdrop from './WaveBackdrop.astro';
 import { withBase } from '../utils/paths';
 interface Props { title: string; copy: string; }
 const { title, copy } = Astro.props;
 ---
 
 <section class="close-band">
-  <WaveBackdrop variant="a" class="close-wave" />
   <div class="shell close-content">
     <span class="close-kicker">El siguiente paso</span>
     <h2 class="section-title">{title}</h2>
@@ -17,13 +15,10 @@ const { title, copy } = Astro.props;
 
 <style>
   .close-band { position: relative; overflow: hidden; background: #edebdf; padding-block: clamp(74px,9vw,112px); }
-  :global(.close-wave) { top: -92%; right: -8%; width: min(760px,68vw); opacity: .2; }
-  .close-band::after { position: absolute; z-index: 0; inset: 0; background: linear-gradient(to bottom, #edebdf 0%, rgba(237,235,223,0) 20%, rgba(237,235,223,0) 78%, #edebdf 100%); content: ""; pointer-events: none; }
   .close-content { position: relative; z-index: 1; display: grid; justify-items: center; text-align: center; }
   .close-kicker { margin-bottom: 18px; color: #27414f; font-size: .875rem; font-weight: 850; letter-spacing: .15em; text-transform: uppercase; }
   .close-content .section-title { max-width: 22ch; }
   .close-content .lead { max-width: 58ch; }
   .close-button { margin-top: 30px; border-color: #161a23; background: #161a23; color: #f9f9f9; }
   .close-button:hover { border-color: #27414f; background: #27414f; }
-  @media (max-width: 600px) { :global(.close-wave) { display: none; } }
 </style>

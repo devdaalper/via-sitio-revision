@@ -1,0 +1,702 @@
+[
+  {
+    "sourceBlock": "HOME-04",
+    "sourceIndex": 249,
+    "scope": ".video-section",
+    "text": "Reduce",
+    "key": "reduce",
+    "bold": "111111",
+    "green": "000000",
+    "marker": "111111"
+  },
+  {
+    "sourceBlock": "HOME-04",
+    "sourceIndex": 399,
+    "scope": ".video-section",
+    "text": "hasta un 70%",
+    "key": "hastaun70",
+    "bold": "111111111",
+    "green": "000000000",
+    "marker": "111111111"
+  },
+  {
+    "sourceBlock": "HOME-04",
+    "sourceIndex": 412,
+    "scope": ".video-section",
+    "text": "el tiempo de",
+    "key": "eltiempode",
+    "bold": "1111111111",
+    "green": "0000000000",
+    "marker": "0000000000"
+  },
+  {
+    "sourceBlock": "HOME-04",
+    "sourceIndex": 425,
+    "scope": ".video-section",
+    "text": "contratación.",
+    "key": "contratacion",
+    "bold": "111111111111",
+    "green": "000000000000",
+    "marker": "000000000000"
+  },
+  {
+    "sourceBlock": "HOME-05",
+    "sourceIndex": 585,
+    "scope": ".pillars-section",
+    "text": "Pilares que",
+    "key": "pilaresque",
+    "bold": "1111111111",
+    "green": "0000000000",
+    "marker": "1111111111"
+  },
+  {
+    "sourceBlock": "HOME-05",
+    "sourceIndex": 597,
+    "scope": ".pillars-section",
+    "text": "transforman",
+    "key": "transforman",
+    "bold": "11111111111",
+    "green": "00000000000",
+    "marker": "11111111111"
+  },
+  {
+    "sourceBlock": "HOME-05",
+    "sourceIndex": 609,
+    "scope": ".pillars-section",
+    "text": "tu selección",
+    "key": "tuseleccion",
+    "bold": "11111111111",
+    "green": "00000000000",
+    "marker": "00000000000"
+  },
+  {
+    "sourceBlock": "HOME-05",
+    "sourceIndex": 623,
+    "scope": ".pillars-section",
+    "text": "de talento",
+    "key": "detalento",
+    "bold": "111111111",
+    "green": "000000000",
+    "marker": "000000000"
+  },
+  {
+    "sourceBlock": "HOME-08",
+    "sourceIndex": 812,
+    "scope": "#lo-humano",
+    "text": "V.IA ejecuta. Tú mantienes el control.",
+    "key": "viaejecutatumantieneselcontrol",
+    "bold": "111000000000000000000000000000",
+    "green": "111000000000000000000000000000",
+    "marker": "000000000011111111111111111111"
+  },
+  {
+    "sourceBlock": "HOME-08",
+    "sourceIndex": 856,
+    "scope": "#lo-humano",
+    "text": "V.IA se encarga de lo operativo para que tu equipo de RH deje de ejecutar y empiece a estrategizar: menos revisión de CVs, más tiempo para el clima laboral, los líderes y las decisiones que realmente importan.",
+    "key": "viaseencargadelooperativoparaquetuequipoderhdejedeejecutaryempieceaestrategizarmenosrevisiondecvsmastiempoparaelclimalaboralloslideresylasdecisionesquerealmenteimportan",
+    "bold": "111000000000000000000000000000001111111111111111111111111111111111111111111111100000000000000000011111111111111111111111111111111111111111111111111111111111111111111111",
+    "green": "111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "marker": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+    "sourceBlock": "HOME-09",
+    "sourceIndex": 1076,
+    "scope": ".process-teaser",
+    "text": "V.IA automatiza para que tu equipo decida.",
+    "key": "viaautomatizaparaquetuequipodecida",
+    "bold": "1111111111111111111111111111111111",
+    "green": "1110000000000000000000000000000000",
+    "marker": "0000000000000000000011111111111111"
+  },
+  {
+    "sourceBlock": "HOME-09",
+    "sourceIndex": 1160,
+    "scope": ".process-teaser",
+    "text": "Más de 8 etapas del proceso de reclutamiento automatizadas en V.IA",
+    "key": "masde8etapasdelprocesodereclutamientoautomatizadasenvia",
+    "bold": "0000000000000001111111111111111111111000000000000000111",
+    "green": "0000000000000000000000000000000000000000000000000000111",
+    "marker": "0000000000000000000000000000000000000000000000000000000"
+  },
+  {
+    "sourceBlock": "HOME-11",
+    "sourceIndex": 1390,
+    "scope": ".capabilities-section",
+    "text": "Tres capacidades que hacen de V.IA una plataforma lista para cualquier operación, industria y escala.",
+    "key": "trescapacidadesquehacendeviaunaplataformalistaparacualquieroperacionindustriayescala",
+    "bold": "000000000000000000000000011100000000000000000000000000000000000000000000000000000000",
+    "green": "000000000000000000000000011100000000000000000000000000000000000000000000000000000000",
+    "marker": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+    "sourceBlock": "HOME-11",
+    "sourceIndex": 1503,
+    "scope": ".capabilities-section",
+    "text": "Mejor experiencia para todos",
+    "key": "mejorexperienciaparatodos",
+    "bold": "0000000000000000000000000",
+    "green": "1111111111111111111111111",
+    "marker": "0000000000000000000000000"
+  },
+  {
+    "sourceBlock": "HOME-11",
+    "sourceIndex": 1532,
+    "scope": ".capabilities-section",
+    "text": "Candidatos y reclutadores tienen visibilidad en tiempo real de cada etapa del proceso, sin fricciones ni silencios.",
+    "key": "candidatosyreclutadorestienenvisibilidadentiemporealdecadaetapadelprocesosinfriccionesnisilencios",
+    "bold": "0000000000000000000000000000011111111111111111111111111111111110000000000000000000000000000000000",
+    "green": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "marker": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+    "sourceBlock": "HOME-11",
+    "sourceIndex": 1659,
+    "scope": ".capabilities-section",
+    "text": "Validación documental oficial",
+    "key": "validaciondocumentaloficial",
+    "bold": "000000000000000000000000000",
+    "green": "111111111111111111111111111",
+    "marker": "000000000000000000000000000"
+  },
+  {
+    "sourceBlock": "HOME-11",
+    "sourceIndex": 1689,
+    "scope": ".capabilities-section",
+    "text": "V.IA se integra con portales de gobierno para verificar documentos automáticamente y eliminar riesgos legales desde el inicio.",
+    "key": "viaseintegraconportalesdegobiernoparaverificardocumentosautomaticamenteyeliminarriesgoslegalesdesdeelinicio",
+    "bold": "11100111111111111111111111111111100000000000000000000000000000000000000000000000000000000000000000000000000",
+    "green": "11100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "marker": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+    "sourceBlock": "HOME-11",
+    "sourceIndex": 1828,
+    "scope": ".capabilities-section",
+    "text": "Operación global y escalable",
+    "key": "operacionglobalyescalable",
+    "bold": "0000000000000000000000000",
+    "green": "1111111111111111111111111",
+    "marker": "0000000000000000000000000"
+  },
+  {
+    "sourceBlock": "HOME-11",
+    "sourceIndex": 1857,
+    "scope": ".capabilities-section",
+    "text": "Multipaís, multi-idioma y multiplataforma. V.IA se adapta a donde está tu operación sin importar el volumen.",
+    "key": "multipaismultiidiomaymultiplataformaviaseadaptaadondeestatuoperacionsinimportarelvolumen",
+    "bold": "1111111111111111111111111111111111111110000000000000000000000000000000000000000000000000",
+    "green": "0000000000000000000000000000000000001110000000000000000000000000000000000000000000000000",
+    "marker": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+    "sourceBlock": "HOME-12",
+    "sourceIndex": 2005,
+    "scope": ".closing-section",
+    "text": "Te mostramos cómo V.IA reduce tiempos, elimina tareas manuales y devuelve el control a tu equipo de RH.",
+    "key": "temostramoscomoviareducetiemposeliminatareasmanualesydevuelveelcontrolatuequipoderh",
+    "bold": "00000000000000011100000000000000000000000000000000000000000000000000000000000000000",
+    "green": "00000000000000011100000000000000000000000000000000000000000000000000000000000000000",
+    "marker": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+    "sourceBlock": "FUNC-02",
+    "sourceIndex": 2472,
+    "scope": ".page-hero",
+    "text": "V.IA gestiona todo el ciclo de reclutamiento en un solo lugar: publica vacantes, filtra perfiles con IA, coordina entrevistas, valida documentos y acompaña el proceso hasta la nómina.",
+    "key": "viagestionatodoelciclodereclutamientoenunsololugarpublicavacantesfiltraperfilesconiacoordinaentrevistasvalidadocumentosyacompanaelprocesohastalanomina",
+    "bold": "111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "green": "111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "marker": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+    "sourceBlock": "FUNC-05",
+    "sourceIndex": 3386,
+    "scope": ".candidate-section",
+    "text": "V.IA cuida la experiencia de cada persona que pasa por el proceso",
+    "key": "viacuidalaexperienciadecadapersonaquepasaporelproceso",
+    "bold": "11100000000000000000000000000000000000000000000000000",
+    "green": "11100000000000000000000000000000000000000000000000000",
+    "marker": "00000000000000000000000000000000000000000000000000000"
+  },
+  {
+    "sourceBlock": "FUNC-05",
+    "sourceIndex": 3458,
+    "scope": ".candidate-section",
+    "text": "Claridad",
+    "key": "claridad",
+    "bold": "00000000",
+    "green": "11111111",
+    "marker": "00000000"
+  },
+  {
+    "sourceBlock": "FUNC-05",
+    "sourceIndex": 3467,
+    "scope": ".candidate-section",
+    "text": "Cada candidato sabe exactamente en qué etapa está y qué sigue. Sin silencio, sin incertidumbre.",
+    "key": "cadacandidatosabeexactamenteenqueetapaestayquesiguesinsilenciosinincertidumbre",
+    "bold": "111111111111111111111111111111111111111111000000000000000000000000000000000000",
+    "green": "000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "marker": "000000000000000000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+    "sourceBlock": "FUNC-05",
+    "sourceIndex": 3564,
+    "scope": ".candidate-section",
+    "text": "Marca empleadora",
+    "key": "marcaempleadora",
+    "bold": "000000000000000",
+    "green": "111111111111111",
+    "marker": "000000000000000"
+  },
+  {
+    "sourceBlock": "FUNC-05",
+    "sourceIndex": 3581,
+    "scope": ".candidate-section",
+    "text": "La forma en que tratas a un candidato dice mucho de tu empresa. V.IA cuida esa experiencia en cada paso del proceso.",
+    "key": "laformaenquetratasauncandidatodicemuchodetuempresaviacuidaesaexperienciaencadapasodelproceso",
+    "bold": "11111111111111111111111111111111111111111111111111111000000000000000000000000000000000000000",
+    "green": "00000000000000000000000000000000000000000000000000111000000000000000000000000000000000000000",
+    "marker": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+    "sourceBlock": "FUNC-05",
+    "sourceIndex": 3699,
+    "scope": ".candidate-section",
+    "text": "Relación",
+    "key": "relacion",
+    "bold": "00000000",
+    "green": "11111111",
+    "marker": "00000000"
+  },
+  {
+    "sourceBlock": "FUNC-05",
+    "sourceIndex": 3708,
+    "scope": ".candidate-section",
+    "text": "Un rechazo no es un adiós. Los perfiles quedan activos para reconectarse cuando surja la oportunidad correcta.",
+    "key": "unrechazonoesunadioslosperfilesquedanactivosparareconectarsecuandosurjalaoportunidadcorrecta",
+    "bold": "00000000000000000000111111111111111111111111111111111111111100000000000000000000000000000000",
+    "green": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "marker": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+    "sourceBlock": "FUNC-06",
+    "sourceIndex": 3851,
+    "scope": ".closing-section",
+    "text": "Conoce como V.IA cambia tu reclutamiento",
+    "key": "conocecomoviacambiatureclutamiento",
+    "bold": "1111111111111111111111111111111111",
+    "green": "0000000000111000000000000000000000",
+    "marker": "0000000000000111111111111111111111"
+  },
+  {
+    "sourceBlock": "SOL-02",
+    "sourceIndex": 3957,
+    "scope": ".page-hero",
+    "text": "V.IA combina inteligencia artificial, automatización e integraciones para que tu proceso de reclutamiento opere solo, mientras tu equipo se enfoca en decidir.",
+    "key": "viacombinainteligenciaartificialautomatizacioneintegracionesparaquetuprocesodereclutamientooperesolomientrastuequiposeenfocaendecidir",
+    "bold": "1110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "green": "1110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "marker": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+    "sourceBlock": "SOL-03",
+    "sourceIndex": 4174,
+    "scope": ".interviews-section",
+    "text": "Entrevistas reales, que le ahorran tiempo a tu equipo.",
+    "key": "entrevistasrealesqueleahorrantiempoatuequipo",
+    "bold": "11111111111111111111111111111111111111111111",
+    "green": "00000000000000000000000000000000000000000000",
+    "marker": "00000000000000000000001111111111111111111111"
+  },
+  {
+    "sourceBlock": "SOL-03",
+    "sourceIndex": 4233,
+    "scope": ".interviews-section",
+    "text": "V.IA realiza filtros por chat, llamada de audio o videollamada; evalúa respuestas y concentra los resultados en el expediente del candidato, sin que el reclutador tenga que intervenir.",
+    "key": "viarealizafiltrosporchatllamadadeaudioovideollamadaevaluarespuestasyconcentralosresultadosenelexpedientedelcandidatosinqueelreclutadortengaqueintervenir",
+    "bold": "11111111111111111111111111111111111111111111111111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "green": "11100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "marker": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+    "sourceBlock": "SOL-03",
+    "sourceIndex": 4426,
+    "scope": ".interviews-section",
+    "text": "Entrevista por chat",
+    "key": "entrevistaporchat",
+    "bold": "00000000000000000",
+    "green": "11111111111111111",
+    "marker": "00000000000000000"
+  },
+  {
+    "sourceBlock": "SOL-03",
+    "sourceIndex": 4447,
+    "scope": ".interviews-section",
+    "text": "Conversación automatizada que evalúa al candidato en tiempo real.",
+    "key": "conversacionautomatizadaqueevaluaalcandidatoentiemporeal",
+    "bold": "00000000000000000000000000011111111111111111111111111111",
+    "green": "00000000000000000000000000000000000000000000000000000000",
+    "marker": "00000000000000000000000000000000000000000000000000000000"
+  },
+  {
+    "sourceBlock": "SOL-03",
+    "sourceIndex": 4557,
+    "scope": ".interviews-section",
+    "text": "Entrevista por videollamada",
+    "key": "entrevistaporvideollamada",
+    "bold": "0000000000000000000000000",
+    "green": "1111111111111111111111111",
+    "marker": "0000000000000000000000000"
+  },
+  {
+    "sourceBlock": "SOL-03",
+    "sourceIndex": 4586,
+    "scope": ".interviews-section",
+    "text": "V.IA conduce y registra la entrevista sin necesidad de un reclutador presente.",
+    "key": "viaconduceyregistralaentrevistasinnecesidaddeunreclutadorpresente",
+    "bold": "11100000000111111111111111111110000000000000000000000000000000000",
+    "green": "11100000000000000000000000000000000000000000000000000000000000000",
+    "marker": "00000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+    "sourceBlock": "SOL-03",
+    "sourceIndex": 4710,
+    "scope": ".interviews-section",
+    "text": "Resultados integrados",
+    "key": "resultadosintegrados",
+    "bold": "00000000000000000000",
+    "green": "11111111111111111111",
+    "marker": "00000000000000000000"
+  },
+  {
+    "sourceBlock": "SOL-03",
+    "sourceIndex": 4733,
+    "scope": ".interviews-section",
+    "text": "Todo queda en el expediente del candidato listo para que tu equipo evalúe.",
+    "key": "todoquedaenelexpedientedelcandidatolistoparaquetuequipoevalue",
+    "bold": "1111111111111111111111100000000000000000000000000000000000000",
+    "green": "0000000000000000000000000000000000000000000000000000000000000",
+    "marker": "0000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+    "sourceBlock": "SOL-05",
+    "sourceIndex": 4881,
+    "scope": ".integrations-section",
+    "text": "V.IA se conecta con portales de gobierno, plataformas de nómina y bolsas de empleo para centralizar todo sin duplicar información ni procesos.",
+    "key": "viaseconectaconportalesdegobiernoplataformasdenominaybolsasdeempleoparacentralizartodosinduplicarinformacionniprocesos",
+    "bold": "1110000000000000000000000000000000000000000000000000000000000000000000011111111111111111111111111111111111111111111111",
+    "green": "1110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "marker": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+    "sourceBlock": "SOL-05",
+    "sourceIndex": 5041,
+    "scope": ".integrations-section",
+    "text": "IMSS y RENAPO",
+    "key": "imssyrenapo",
+    "bold": "00000000000",
+    "green": "11111111111",
+    "marker": "00000000000"
+  },
+  {
+    "sourceBlock": "SOL-05",
+    "sourceIndex": 5056,
+    "scope": ".integrations-section",
+    "text": "Validación oficial de identidad y registros del candidato en tiempo real.",
+    "key": "validacionoficialdeidentidadyregistrosdelcandidatoentiemporeal",
+    "bold": "00000000000000000000000000000000000000000000000000000000000000",
+    "green": "00000000000000000000000000000000000000000000000000000000000000",
+    "marker": "00000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+    "sourceBlock": "SOL-05",
+    "sourceIndex": 5255,
+    "scope": ".integrations-section",
+    "text": "Bolsas de empleo",
+    "key": "bolsasdeempleo",
+    "bold": "00000000000000",
+    "green": "11111111111111",
+    "marker": "00000000000000"
+  },
+  {
+    "sourceBlock": "SOL-05",
+    "sourceIndex": 5273,
+    "scope": ".integrations-section",
+    "text": "Descarga automática de CVs desde los portales que ya usas.",
+    "key": "descargaautomaticadecvsdesdelosportalesqueyausas",
+    "bold": "000000000000000000000000000000000000000000000000",
+    "green": "000000000000000000000000000000000000000000000000",
+    "marker": "000000000000000000000000000000000000000000000000"
+  },
+  {
+    "sourceBlock": "SOL-05",
+    "sourceIndex": 5343,
+    "scope": ".integrations-section",
+    "text": "Sistemas de nómina",
+    "key": "sistemasdenomina",
+    "bold": "0000000000000000",
+    "green": "1111111111111111",
+    "marker": "0000000000000000"
+  },
+  {
+    "sourceBlock": "SOL-05",
+    "sourceIndex": 5362,
+    "scope": ".integrations-section",
+    "text": "Alta del colaborador directo desde V.IA sin salir de la plataforma.",
+    "key": "altadelcolaboradordirectodesdeviasinsalirdelaplataforma",
+    "bold": "0000000000000000000000000000001110000000000000000000000",
+    "green": "0000000000000000000000000000001110000000000000000000000",
+    "marker": "0000000000000000000000000000000000000000000000000000000"
+  },
+  {
+    "sourceBlock": "SOL-05",
+    "sourceIndex": 5443,
+    "scope": ".integrations-section",
+    "text": "Comunicación y sistemas de talento",
+    "key": "comunicacionysistemasdetalento",
+    "bold": "000000000000000000000000000000",
+    "green": "111111111111111111111111111111",
+    "marker": "000000000000000000000000000000"
+  },
+  {
+    "sourceBlock": "SOL-05",
+    "sourceIndex": 5478,
+    "scope": ".integrations-section",
+    "text": "Integra Office 365, WhatsApp, CRM, ATS y HCM para conectar comunicación, candidatos y operación.",
+    "key": "integraoffice365whatsappcrmatsyhcmparaconectarcomunicacioncandidatosyoperacion",
+    "bold": "000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "green": "000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "marker": "000000000000000000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+    "sourceBlock": "SOL-05",
+    "sourceIndex": 5588,
+    "scope": ".integrations-section",
+    "text": "Evaluación y firma digital",
+    "key": "evaluacionyfirmadigital",
+    "bold": "00000000000000000000000",
+    "green": "11111111111111111111111",
+    "marker": "00000000000000000000000"
+  },
+  {
+    "sourceBlock": "SOL-05",
+    "sourceIndex": 5615,
+    "scope": ".integrations-section",
+    "text": "Conecta plataformas de psicometría y firma digital para completar el proceso sin salir de V.IA.",
+    "key": "conectaplataformasdepsicometriayfirmadigitalparacompletarelprocesosinsalirdevia",
+    "bold": "0000000000000000000000000000000000000000000000000000000000000000000000000000111",
+    "green": "0000000000000000000000000000000000000000000000000000000000000000000000000000111",
+    "marker": "0000000000000000000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+    "sourceBlock": "SOL-06",
+    "sourceIndex": 5744,
+    "scope": ".roles-section",
+    "text": "V.IA trabaja para todos los que participan en el proceso.",
+    "key": "viatrabajaparatodoslosqueparticipanenelproceso",
+    "bold": "1111111111111111111111111111111111111111111111",
+    "green": "0000000000000000000000000000000000000000000000",
+    "marker": "1111111111111111111000000000000000000000000000"
+  },
+  {
+    "sourceBlock": "SOL-06",
+    "sourceIndex": 5806,
+    "scope": ".roles-section",
+    "text": "Cada área tiene necesidades distintas. V.IA se adapta a lo que cada rol necesita.",
+    "key": "cadaareatienenecesidadesdistintasviaseadaptaaloquecadarolnecesita",
+    "bold": "00000000000000000000000000000000011100000000000000000000000000000",
+    "green": "00000000000000000000000000000000011100000000000000000000000000000",
+    "marker": "00000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+    "sourceBlock": "SOL-06",
+    "sourceIndex": 5905,
+    "scope": ".roles-section",
+    "text": "Director de RH",
+    "key": "directorderh",
+    "bold": "000000000000",
+    "green": "111111111111",
+    "marker": "000000000000"
+  },
+  {
+    "sourceBlock": "SOL-06",
+    "sourceIndex": 5921,
+    "scope": ".roles-section",
+    "text": "Visibilidad total, datos para reportar y tiempo para lo estratégico.",
+    "key": "visibilidadtotaldatosparareportarytiempoparaloestrategico",
+    "bold": "000000000000000000000000000000000011111111111111111111111",
+    "green": "000000000000000000000000000000000000000000000000000000000",
+    "marker": "000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+    "sourceBlock": "SOL-06",
+    "sourceIndex": 6001,
+    "scope": ".roles-section",
+    "text": "Reclutador",
+    "key": "reclutador",
+    "bold": "0000000000",
+    "green": "1111111111",
+    "marker": "0000000000"
+  },
+  {
+    "sourceBlock": "SOL-06",
+    "sourceIndex": 6013,
+    "scope": ".roles-section",
+    "text": "Menos operación, más candidatos relevantes y decisiones con criterio.",
+    "key": "menosoperacionmascandidatosrelevantesydecisionesconcriterio",
+    "bold": "00000000000000111111111111111111111110000000000000000000000",
+    "green": "00000000000000000000000000000000000000000000000000000000000",
+    "marker": "00000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+    "sourceBlock": "SOL-06",
+    "sourceIndex": 6094,
+    "scope": ".roles-section",
+    "text": "Director General",
+    "key": "directorgeneral",
+    "bold": "000000000000000",
+    "green": "111111111111111",
+    "marker": "000000000000000"
+  },
+  {
+    "sourceBlock": "SOL-06",
+    "sourceIndex": 6112,
+    "scope": ".roles-section",
+    "text": "Vacantes cubiertas más rápido, costos controlados y RH estratégico.",
+    "key": "vacantescubiertasmasrapidocostoscontroladosyrhestrategico",
+    "bold": "111111111111111111111111110000000000000000000000000000000",
+    "green": "000000000000000000000000000000000000000000000000000000000",
+    "marker": "000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+    "sourceBlock": "SOL-07",
+    "sourceIndex": 6182,
+    "scope": ".role-access",
+    "text": "CONTROL Y VISIBILIDAD POR ROL",
+    "key": "controlyvisibilidadporrol",
+    "bold": "1111111111111111111111111",
+    "green": "0000000000000000000000000",
+    "marker": "0000000000000000000000000"
+  },
+  {
+    "sourceBlock": "SOL-07",
+    "sourceIndex": 6251,
+    "scope": ".role-access",
+    "text": "Cada equipo accede a la información que necesita, con permisos configurados según su nivel de responsabilidad: Director, Gerente o Reclutador.",
+    "key": "cadaequipoaccedealainformacionquenecesitaconpermisosconfiguradossegunsunivelderesponsabilidaddirectorgerenteoreclutador",
+    "bold": "00000000000000000000000000000000000000000000111111111111111111111111111111111111111111111111100000000000000000000000000",
+    "green": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "marker": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+    "sourceBlock": "SOL-08",
+    "sourceIndex": 6416,
+    "scope": ".closing-section",
+    "text": "DESCUBRE CÓMO V.IA SE ADAPTA A TU EMPRESA.",
+    "key": "descubrecomoviaseadaptaatuempresa",
+    "bold": "000000000000111000000000000000000",
+    "green": "000000000000000000000000000000000",
+    "marker": "000000000000111111111111111111111"
+  },
+  {
+    "sourceBlock": "FORM-01",
+    "sourceIndex": 6538,
+    "scope": ".contact-intro",
+    "text": "SOLICITA UNA DEMOSTRACIÓN",
+    "key": "solicitaunademostracion",
+    "bold": "00000000000000000000000",
+    "green": "00000000000000000000000",
+    "marker": "00000000000000000000000"
+  },
+  {
+    "sourceBlock": "FORM-01",
+    "sourceIndex": 6574,
+    "scope": ".contact-intro",
+    "text": "Descubre cómo V.IA puede integrarse a tu proceso de reclutamiento.",
+    "key": "descubrecomoviapuedeintegrarseatuprocesodereclutamiento",
+    "bold": "1111111111111111111111111111111111111111111111111111111",
+    "green": "0000000000001110000000000000000000000000000000000000000",
+    "marker": "0000000000000000000000000000000000000000000000000000000"
+  },
+  {
+    "sourceBlock": "FORM-01",
+    "sourceIndex": 6646,
+    "scope": ".contact-intro",
+    "text": "Déjanos tus datos y recibe una demostración adaptada a las necesidades de tu equipo.",
+    "key": "dejanostusdatosyrecibeunademostracionadaptadaalasnecesidadesdetuequipo",
+    "bold": "0000000000000000111111111111111111111111111111111111111111110000000000",
+    "green": "0000000000000000000000000000000000000000000000000000000000000000000000",
+    "marker": "0000000000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+    "sourceBlock": "FORM-03",
+    "sourceIndex": 6888,
+    "scope": "form",
+    "text": "¿Cuál es el tamaño de tu empresa?",
+    "key": "cualeseltamanodetuempresa",
+    "bold": "0000000000000000000000000",
+    "green": "0000000000000000000000000",
+    "marker": "0000000000000000000000000"
+  },
+  {
+    "sourceBlock": "FORM-03",
+    "sourceIndex": 6923,
+    "scope": "form",
+    "text": "1–50 colaboradores",
+    "key": "150colaboradores",
+    "bold": "0000000000000000",
+    "green": "0000000000000000",
+    "marker": "0000000000000000"
+  },
+  {
+    "sourceBlock": "FORM-03",
+    "sourceIndex": 6942,
+    "scope": "form",
+    "text": "51–100 colaboradores",
+    "key": "51100colaboradores",
+    "bold": "000000000000000000",
+    "green": "000000000000000000",
+    "marker": "000000000000000000"
+  },
+  {
+    "sourceBlock": "FORM-03",
+    "sourceIndex": 6963,
+    "scope": "form",
+    "text": "101–250 colaboradores",
+    "key": "101250colaboradores",
+    "bold": "0000000000000000000",
+    "green": "0000000000000000000",
+    "marker": "0000000000000000000"
+  },
+  {
+    "sourceBlock": "FORM-03",
+    "sourceIndex": 6985,
+    "scope": "form",
+    "text": "251–500 colaboradores",
+    "key": "251500colaboradores",
+    "bold": "0000000000000000000",
+    "green": "0000000000000000000",
+    "marker": "0000000000000000000"
+  },
+  {
+    "sourceBlock": "FORM-03",
+    "sourceIndex": 7007,
+    "scope": "form",
+    "text": "501–1,000 colaboradores",
+    "key": "5011000colaboradores",
+    "bold": "00000000000000000000",
+    "green": "00000000000000000000",
+    "marker": "00000000000000000000"
+  },
+  {
+    "sourceBlock": "FORM-03",
+    "sourceIndex": 7031,
+    "scope": "form",
+    "text": "Más de 1,000 colaboradores",
+    "key": "masde1000colaboradores",
+    "bold": "0000000000000000000000",
+    "green": "0000000000000000000000",
+    "marker": "0000000000000000000000"
+  }
+]

@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import WaveBackdrop from '../components/WaveBackdrop.astro';
 import { withBase } from '../utils/paths';
 ---
 
@@ -8,9 +7,9 @@ import { withBase } from '../utils/paths';
   title="Solicita una demostración de V.IA"
   description="Cuéntanos qué te gustaría mejorar en tu reclutamiento y solicita una demostración de la plataforma V.IA."
   currentPath="/contacto"
+  openingProfile="editorial"
 >
   <section class="contact-page">
-    <WaveBackdrop variant="b" class="contact-wave" />
     <div class="shell contact-grid">
       <div class="contact-intro">
         <p class="eyebrow">Solicita una demostración</p>
@@ -49,7 +48,8 @@ import { withBase } from '../utils/paths';
           </div>
           <div class="field">
             <label for="company-size">¿Cuál es el tamaño de tu empresa? <span aria-hidden="true">*</span></label>
-            <select id="company-size" name="company-size" required disabled>
+            <div class="select-wrap">
+              <select id="company-size" name="company-size" required disabled>
               <option value="" selected>Selecciona una opción</option>
               <option value="1-50">1–50 colaboradores</option>
               <option value="51-100">51–100 colaboradores</option>
@@ -57,7 +57,9 @@ import { withBase } from '../utils/paths';
               <option value="251-500">251–500 colaboradores</option>
               <option value="501-1000">501–1,000 colaboradores</option>
               <option value="1000-plus">Más de 1,000 colaboradores</option>
-            </select>
+              </select>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="m7 10 5 5 5-5" /></svg>
+            </div>
           </div>
           <label class="consent-row">
             <input type="checkbox" name="consent" disabled />
@@ -74,9 +76,7 @@ import { withBase } from '../utils/paths';
 </BaseLayout>
 
 <style>
-  .contact-page { position: relative; overflow: hidden; min-height: calc(100vh - 82px); padding-block: clamp(68px,9vw,116px); }
-  :global(.contact-wave) { left: -26%; bottom: -42%; width: min(760px,72vw); opacity: .22; }
-  .contact-page::after { position: absolute; z-index: 0; inset: 0; background: linear-gradient(to bottom, #f9f9f9 0%, rgba(249,249,249,0) 16%, rgba(249,249,249,0) 80%, #f9f9f9 100%); content: ""; pointer-events: none; }
+  .contact-page { position: relative; min-height: calc(100vh - 82px); padding-block: clamp(68px,9vw,116px); }
   .contact-grid { position: relative; z-index: 1; display: grid; grid-template-columns: .86fr 1.14fr; align-items: start; gap: clamp(54px,8vw,105px); }
   .contact-intro { position: sticky; top: 126px; }
   .accent-text { color: #8dbd2f; font-weight: 800; }
@@ -94,6 +94,9 @@ import { withBase } from '../utils/paths';
   .optional { margin-left: 6px; color: #27414f; font-size: .875rem; font-weight: 600; }
   .field input, .field textarea, .field select { width: 100%; min-height: 52px; border: 1px solid rgba(39,65,79,.48); border-radius: 14px; background: #f9f9f9; color: #27414f; padding: 14px 15px; opacity: 1; -webkit-text-fill-color: #27414f; }
   .field textarea { resize: vertical; }
+  .select-wrap { position: relative; color: #27414f; }
+  .field select { appearance: none; padding-right: 44px; }
+  .select-wrap svg { position: absolute; top: 50%; right: 15px; width: 20px; height: 20px; transform: translateY(-50%); pointer-events: none; }
   .field input::placeholder, .field textarea::placeholder { color: #27414f; opacity: 1; }
   .field input:disabled, .field textarea:disabled, .field select:disabled { cursor: not-allowed; background: #f9f9f9; color: #27414f; opacity: 1; -webkit-text-fill-color: #27414f; }
   .field input:disabled::placeholder, .field textarea:disabled::placeholder { color: #27414f; opacity: 1; }
@@ -114,7 +117,6 @@ import { withBase } from '../utils/paths';
   }
 
   @media (max-width: 560px) {
-    :global(.contact-wave) { display: none; }
     .form-heading { padding-inline: 22px; }
     .demo-form { padding: 26px 20px; }
   }

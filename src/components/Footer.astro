@@ -10,7 +10,6 @@ const socialLinks = [
 
 <footer id="site-footer" class="site-footer">
   <div class="footer-frame">
-    <div class="footer-wave" style={`--wave-url: url("${withBase('/assets/brand/wave-a.png')}")`} aria-hidden="true"></div>
 
     <div class="shell footer-brand">
       <a class="footer-logo" href={withBase('/')} aria-label="V.IA, inicio">
@@ -66,7 +65,7 @@ const socialLinks = [
 
 <style>
   .site-footer {
-    background: #f9f9f9;
+    background: transparent;
     padding-top: 0;
   }
 
@@ -81,16 +80,6 @@ const socialLinks = [
     padding: clamp(62px, 7vw, 90px) 0 26px;
   }
 
-  .footer-wave {
-    position: absolute;
-    top: -360px;
-    right: -90px;
-    left: -170px;
-    height: 760px;
-    background: var(--wave-url) center 42% / 1220px auto no-repeat;
-    opacity: 0.52;
-    pointer-events: none;
-  }
 
   .footer-brand {
     position: relative;
@@ -262,14 +251,6 @@ const socialLinks = [
       padding-top: 54px;
     }
 
-    .footer-wave {
-      top: -250px;
-      right: -350px;
-      left: -330px;
-      height: 650px;
-      background-size: 930px auto;
-      opacity: 0.58;
-    }
 
     .footer-logo {
       width: min(240px, 76vw);

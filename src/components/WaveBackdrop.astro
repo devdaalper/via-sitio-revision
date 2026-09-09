@@ -1,24 +1,47 @@
 ---
-import { withBase } from '../utils/paths';
+import WaveArt from './WaveArt.astro';
 
 interface Props {
   variant?: 'a' | 'b';
   class?: string;
+  placement?: 'hero' | 'panel' | 'header' | 'footer';
 }
 
-const { variant = 'a', class: className = '' } = Astro.props;
-const waveUrl = withBase(`/assets/brand/wave-${variant}.png`);
+const { variant = 'a', class: className = '', placement = 'panel' } = Astro.props;
 ---
 
-<div class:list={['wave-backdrop', `wave-${variant}`, className]} style={`background-image: url("${waveUrl}")`} aria-hidden="true"></div>
+<div class:list={['wave-backdrop', `wave-${variant}`, `wave-placement-${placement}`, className]} aria-hidden="true">
+  <WaveArt variant={variant} />
+</div>
 
 <style>
+  /* These anchors share the page's background plane. Only the complete page
+     clips the artwork; solid inset panels cover it naturally. Both sets of
+     free endpoints stay outside the horizontal viewport at every scale. */
   .wave-backdrop {
     position: absolute;
-    aspect-ratio: 1;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
+    z-index: -1;
+    inset: 0;
     pointer-events: none;
+  }
+  .wave-backdrop :global(.wave-art) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: max(150%, 1050px);
+    max-width: none;
+    height: auto;
+    transform: translate(-14%, -22%);
+    opacity: .8;
+  }
+  .wave-placement-panel.wave-a :global(.wave-art) { transform: translate(-14%, -32%); }
+  .wave-b :global(.wave-art) { width: max(270%, 1800px); transform: translate(-28%, -28%); }
+  @media (max-width: 760px) {
+    .wave-placement-panel.wave-a :global(.wave-art) { transform: translate(-14%, -22%); }
+    .wave-b :global(.wave-art) { transform: translate(-28%, -32%); }
+  }
+  @media (min-width: 1920px) {
+    .wave-b :global(.wave-art) { width: 310%; transform: translate(-33%, -27%); }
   }
 </style>

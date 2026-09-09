@@ -2,6 +2,8 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ReviewBadge from '../components/ReviewBadge.astro';
+import WaveBackdrop from '../components/WaveBackdrop.astro';
+import OpeningBackdrop from '../components/OpeningBackdrop.astro';
 import { withBase } from '../utils/paths';
 import '../styles/global.css';
 
@@ -10,10 +12,10 @@ interface Props {
   description: string;
   currentPath?: string;
   noindex?: boolean;
-  connectFooter?: boolean;
+  openingProfile?: 'centered' | 'editorial';
 }
 
-const { title, description, currentPath = Astro.url.pathname, noindex = false, connectFooter = false } = Astro.props;
+const { title, description, currentPath = Astro.url.pathname, noindex = false, openingProfile = 'centered' } = Astro.props;
 const isReviewDeployment = import.meta.env.BASE_URL !== '/';
 const shouldNoindex = noindex || isReviewDeployment;
 const reviewId = isReviewDeployment ? 'VIA-WEB-R002' : undefined;
@@ -28,7 +30,7 @@ const reviewId = isReviewDeployment ? 'VIA-WEB-R002' : undefined;
     {shouldNoindex && <meta name="robots" content="noindex, nofollow" />}
     {reviewId && <meta name="via:review-id" content={reviewId} />}
     {reviewId && <meta name="via:review-status" content="EN REVISIÓN" />}
-    {reviewId && <meta name="via:review-date" content="2026-09-04" />}
+    {reviewId && <meta name="via:review-date" content="2026-09-09" />}
     <meta name="theme-color" content="#F9F9F9" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -39,13 +41,47 @@ const reviewId = isReviewDeployment ? 'VIA-WEB-R002' : undefined;
     <link rel="icon" type="image/svg+xml" href={withBase('/assets/brand/favicon.svg')} />
     <title>{title}</title>
   </head>
-  <body class:list={{ 'footer-connected': connectFooter }}>
+  <body>
+   <div class="site-canvas">
+    <OpeningBackdrop profile={openingProfile} />
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
     <Header currentPath={currentPath} />
     <main id="contenido" tabindex="-1">
       <slot />
     </main>
-    <Footer />
+    <div class="site-ending-stage wave-section">
+      <WaveBackdrop placement="footer" />
+      <div class="site-ending">
+        <slot name="closing" />
+        <Footer />
+      </div>
+    </div>
     {isReviewDeployment && <ReviewBadge />}
+   </div>
   </body>
 </html>
+
+<style>
+  .site-canvas { position: relative; isolation: isolate; overflow: clip; background: #f9f9f9; }
+  /* One physical frame and one artwork across the closing CTA and footer. */
+  .site-ending {
+    position: relative;
+    overflow: hidden;
+    width: min(1440px, calc(100% - clamp(32px, 8vw, 128px)));
+    margin: 12px auto 0;
+    border-radius: 34px 34px 0 0;
+    background: #161a23;
+  }
+  .site-ending :global(.closing-section), .site-ending :global(.close-band) {
+    margin: 0;
+    width: 100%;
+    border-radius: 0;
+  }
+  .site-ending :global(.closing-section) { background: transparent; }
+  .site-ending :global(.site-footer),
+  .site-ending :global(.footer-frame) { background: transparent; }
+  .site-ending :global(.footer-frame) { width: 100%; margin: 0; border-radius: 0; }
+  @media (max-width: 760px) {
+    .site-ending { margin-top: 7px; border-radius: 25px 25px 0 0; }
+  }
+</style>
